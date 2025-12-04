@@ -1,0 +1,39 @@
+{
+  "workflow_steps": [
+    {
+      "task_name": "Install_Dependencies_Cache_Check",
+      "duration_seconds": 90,
+      "dependencies": []
+    },
+    {
+      "task_name": "Run_Quick_Unit_Tests",
+      "duration_seconds": 150,
+      "dependencies": ["Install_Dependencies_Cache_Check"]
+    },
+    {
+      "task_name": "Run_Lint_And_Formatting",
+      "duration_seconds": 45,
+      "dependencies": ["Install_Dependencies_Cache_Check"]
+    },
+    {
+      "task_name": "Security_Scan_Low_Priority",
+      "duration_seconds": 200,
+      "dependencies": ["Install_Dependencies_Cache_Check"]
+    },
+    {
+      "task_name": "Build_Frontend_Artifact",
+      "duration_seconds": 100,
+      "dependencies": ["Install_Dependencies_Cache_Check"]
+    },
+    {
+      "task_name": "Run_E2E_Tests_Bottleneck",
+      "duration_seconds": 600,
+      "dependencies": ["Run_Quick_Unit_Tests", "Build_Frontend_Artifact"]
+    },
+    {
+      "task_name": "Deploy_Staging_Environment",
+      "duration_seconds": 40,
+      "dependencies": ["Run_E2E_Tests_Bottleneck", "Security_Scan_Low_Priority"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.venv/
+venv/
+env/
+
+pycache/
+*.pyc
+
+.idea/
+
+*.log
+*.csv
+*.zip
+*.db
+
+
+.DS_Store # Mac operating system files
+Thumbs.db # Windows operating system files
