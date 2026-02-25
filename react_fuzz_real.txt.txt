@@ -1,0 +1,278 @@
+2026-02-15T13:21:22.7468838Z Current runner version: '2.331.0'
+2026-02-15T13:21:22.7491500Z ##[group]Runner Image Provisioner
+2026-02-15T13:21:22.7492342Z Hosted Compute Agent
+2026-02-15T13:21:22.7492966Z Version: 20260123.484
+2026-02-15T13:21:22.7493611Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-15T13:21:22.7494332Z Build Date: 2026-01-23T19:41:17Z
+2026-02-15T13:21:22.7494946Z Worker ID: {c0176263-9b3f-45a0-8b36-58f6e7a80cf6}
+2026-02-15T13:21:22.7495724Z Azure Region: centralus
+2026-02-15T13:21:22.7496261Z ##[endgroup]
+2026-02-15T13:21:22.7497651Z ##[group]Operating System
+2026-02-15T13:21:22.7498562Z Ubuntu
+2026-02-15T13:21:22.7499029Z 24.04.3
+2026-02-15T13:21:22.7499492Z LTS
+2026-02-15T13:21:22.7499935Z ##[endgroup]
+2026-02-15T13:21:22.7500514Z ##[group]Runner Image
+2026-02-15T13:21:22.7501034Z Image: ubuntu-24.04
+2026-02-15T13:21:22.7501541Z Version: 20260209.23.1
+2026-02-15T13:21:22.7502751Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260209.23/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-15T13:21:22.7504346Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260209.23
+2026-02-15T13:21:22.7505234Z ##[endgroup]
+2026-02-15T13:21:22.7506132Z ##[group]GITHUB_TOKEN Permissions
+2026-02-15T13:21:22.7508301Z Metadata: read
+2026-02-15T13:21:22.7508835Z ##[endgroup]
+2026-02-15T13:21:22.7510991Z Secret source: Actions
+2026-02-15T13:21:22.7511715Z Prepare workflow directory
+2026-02-15T13:21:22.7904674Z Prepare all required actions
+2026-02-15T13:21:22.7942111Z Getting action download info
+2026-02-15T13:21:23.1352383Z Download action repository 'actions/checkout@v4.1.0' (SHA:8ade135a41bc03ea155e62e844d188df1ea18608)
+2026-02-15T13:21:23.3070118Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-02-15T13:21:23.4985558Z Complete job name: test_fuzz
+2026-02-15T13:21:23.5662896Z ##[group]Run actions/checkout@v4.1.0
+2026-02-15T13:21:23.5663785Z with:
+2026-02-15T13:21:23.5664292Z   repository: facebook/react
+2026-02-15T13:21:23.5664928Z   token: ***
+2026-02-15T13:21:23.5665294Z   ssh-strict: true
+2026-02-15T13:21:23.5665694Z   persist-credentials: true
+2026-02-15T13:21:23.5666131Z   clean: true
+2026-02-15T13:21:23.5666514Z   sparse-checkout-cone-mode: true
+2026-02-15T13:21:23.5666973Z   fetch-depth: 1
+2026-02-15T13:21:23.5667385Z   fetch-tags: false
+2026-02-15T13:21:23.5667771Z   show-progress: true
+2026-02-15T13:21:23.5668309Z   lfs: false
+2026-02-15T13:21:23.5668719Z   submodules: false
+2026-02-15T13:21:23.5669114Z   set-safe-directory: true
+2026-02-15T13:21:23.5669793Z env:
+2026-02-15T13:21:23.5670192Z   TZ: /usr/share/zoneinfo/America/Los_Angeles
+2026-02-15T13:21:23.5670700Z ##[endgroup]
+2026-02-15T13:21:23.6566132Z Syncing repository: facebook/react
+2026-02-15T13:21:23.6568915Z ##[group]Getting Git version info
+2026-02-15T13:21:23.6570121Z Working directory is '/home/runner/work/react/react'
+2026-02-15T13:21:23.6571712Z [command]/usr/bin/git version
+2026-02-15T13:21:23.6575864Z git version 2.52.0
+2026-02-15T13:21:23.6602881Z ##[endgroup]
+2026-02-15T13:21:23.6617566Z Temporarily overriding HOME='/home/runner/work/_temp/ccfe226c-aa24-4cd0-839d-06f86956ab48' before making global git config changes
+2026-02-15T13:21:23.6620173Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-15T13:21:23.6622075Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/react/react
+2026-02-15T13:21:23.6660820Z Deleting the contents of '/home/runner/work/react/react'
+2026-02-15T13:21:23.6664015Z ##[group]Initializing the repository
+2026-02-15T13:21:23.6667079Z [command]/usr/bin/git init /home/runner/work/react/react
+2026-02-15T13:21:23.6792715Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-15T13:21:23.6793980Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-15T13:21:23.6795312Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-15T13:21:23.6796545Z hint: call:
+2026-02-15T13:21:23.6797657Z hint:
+2026-02-15T13:21:23.6798617Z hint: 	git config --global init.defaultBranch <name>
+2026-02-15T13:21:23.6799581Z hint:
+2026-02-15T13:21:23.6800295Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-15T13:21:23.6801231Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-15T13:21:23.6801919Z hint:
+2026-02-15T13:21:23.6802290Z hint: 	git branch -m <name>
+2026-02-15T13:21:23.6802723Z hint:
+2026-02-15T13:21:23.6803314Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-15T13:21:23.6804536Z Initialized empty Git repository in /home/runner/work/react/react/.git/
+2026-02-15T13:21:23.6808466Z [command]/usr/bin/git remote add origin https://github.com/facebook/react
+2026-02-15T13:21:23.6842841Z ##[endgroup]
+2026-02-15T13:21:23.6843561Z ##[group]Disabling automatic garbage collection
+2026-02-15T13:21:23.6845098Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-15T13:21:23.6872718Z ##[endgroup]
+2026-02-15T13:21:23.6873407Z ##[group]Setting up auth
+2026-02-15T13:21:23.6877633Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-15T13:21:23.6904952Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-15T13:21:23.7290103Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-15T13:21:23.7318512Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-15T13:21:23.7552021Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-15T13:21:23.7585296Z ##[endgroup]
+2026-02-15T13:21:23.7586498Z ##[group]Fetching the repository
+2026-02-15T13:21:23.7597820Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e8c6362678c8bc86a02b8444d2c3f597b3dc4e22:refs/remotes/origin/main
+2026-02-15T13:21:25.8846707Z From https://github.com/facebook/react
+2026-02-15T13:21:25.8848705Z  * [new ref]         e8c6362678c8bc86a02b8444d2c3f597b3dc4e22 -> origin/main
+2026-02-15T13:21:25.8880860Z ##[endgroup]
+2026-02-15T13:21:25.8882100Z ##[group]Determining the checkout info
+2026-02-15T13:21:25.8883497Z ##[endgroup]
+2026-02-15T13:21:25.8884672Z ##[group]Checking out the ref
+2026-02-15T13:21:25.8886070Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-02-15T13:21:26.2616041Z Switched to a new branch 'main'
+2026-02-15T13:21:26.2619013Z branch 'main' set up to track 'origin/main'.
+2026-02-15T13:21:26.2634306Z ##[endgroup]
+2026-02-15T13:21:26.2675864Z [command]/usr/bin/git log -1 --format='%H'
+2026-02-15T13:21:26.2700380Z 'e8c6362678c8bc86a02b8444d2c3f597b3dc4e22'
+2026-02-15T13:21:26.2921399Z ##[group]Run actions/setup-node@v4
+2026-02-15T13:21:26.2921791Z with:
+2026-02-15T13:21:26.2922050Z   node-version-file: .nvmrc
+2026-02-15T13:21:26.2922354Z   cache: yarn
+2026-02-15T13:21:26.2922596Z   always-auth: false
+2026-02-15T13:21:26.2922856Z   check-latest: false
+2026-02-15T13:21:26.2923265Z   token: ***
+2026-02-15T13:21:26.2923500Z env:
+2026-02-15T13:21:26.2923760Z   TZ: /usr/share/zoneinfo/America/Los_Angeles
+2026-02-15T13:21:26.2924088Z ##[endgroup]
+2026-02-15T13:21:26.4641693Z Node version file is not JSON file
+2026-02-15T13:21:26.4666994Z Resolved .nvmrc as 20.19.0
+2026-02-15T13:21:26.4669691Z Attempting to download 20.19.0...
+2026-02-15T13:21:27.1166434Z Acquiring 20.19.0 - x64 from https://github.com/actions/node-versions/releases/download/20.19.0-13838090974/node-20.19.0-linux-x64.tar.gz
+2026-02-15T13:21:27.6669875Z Extracting ...
+2026-02-15T13:21:27.6776086Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/54f81f4f-f248-4676-ac5c-8d2a520b9683 -f /home/runner/work/_temp/e397c528-637a-473c-a613-02ce90c55c7c
+2026-02-15T13:21:28.6638308Z Adding to the cache ...
+2026-02-15T13:21:30.3859801Z ##[group]Environment details
+2026-02-15T13:21:30.6115999Z node: v20.19.0
+2026-02-15T13:21:30.6116652Z npm: 10.8.2
+2026-02-15T13:21:30.6116984Z yarn: 1.22.22
+2026-02-15T13:21:30.6117759Z ##[endgroup]
+2026-02-15T13:21:30.6138206Z [command]/usr/local/bin/yarn --version
+2026-02-15T13:21:30.7308751Z 1.22.22
+2026-02-15T13:21:30.7401116Z [command]/usr/local/bin/yarn cache dir
+2026-02-15T13:21:30.8821405Z /home/runner/.cache/yarn/v6
+2026-02-15T13:21:30.9017544Z [command]/usr/local/bin/yarn config get enableGlobalCache
+2026-02-15T13:21:31.0439348Z undefined
+2026-02-15T13:21:31.1872209Z Cache hit for: node-cache-Linux-x64-yarn-e6937361438cd43861eff1ee54935b105d7ce19f825ea1373d8f0198a82c76d5
+2026-02-15T13:21:32.3689010Z Received 96468992 of 919549439 (10.5%), 92.0 MBs/sec
+2026-02-15T13:21:33.3683953Z Received 268435456 of 919549439 (29.2%), 128.0 MBs/sec
+2026-02-15T13:21:34.3690626Z Received 436207616 of 919549439 (47.4%), 138.7 MBs/sec
+2026-02-15T13:21:35.3695081Z Received 608174080 of 919549439 (66.1%), 145.0 MBs/sec
+2026-02-15T13:21:36.3694654Z Received 784334848 of 919549439 (85.3%), 149.6 MBs/sec
+2026-02-15T13:21:37.2507104Z Received 919549439 of 919549439 (100.0%), 149.1 MBs/sec
+2026-02-15T13:21:37.2509047Z Cache Size: ~877 MB (919549439 B)
+2026-02-15T13:21:37.2627253Z [command]/usr/bin/tar -xf /home/runner/work/_temp/2f4f293d-fcd5-4d94-97aa-9f86eeb3acd2/cache.tzst -P -C /home/runner/work/react/react --use-compress-program unzstd
+2026-02-15T13:21:43.2327090Z Cache restored successfully
+2026-02-15T13:21:43.4096436Z Cache restored from key: node-cache-Linux-x64-yarn-e6937361438cd43861eff1ee54935b105d7ce19f825ea1373d8f0198a82c76d5
+2026-02-15T13:21:43.4269386Z ##[group]Run yarn install --frozen-lockfile
+2026-02-15T13:21:43.4269796Z [36;1myarn install --frozen-lockfile[0m
+2026-02-15T13:21:43.4325749Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-02-15T13:21:43.4326099Z env:
+2026-02-15T13:21:43.4326314Z   TZ: /usr/share/zoneinfo/America/Los_Angeles
+2026-02-15T13:21:43.4326735Z   ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+2026-02-15T13:21:43.4326979Z ##[endgroup]
+2026-02-15T13:21:43.5654910Z yarn install v1.22.22
+2026-02-15T13:21:43.6974808Z [1/4] Resolving packages...
+2026-02-15T13:21:44.0028905Z warning Resolution field "jsdom@22.1.0" is incompatible with requested version "jsdom@^20.0.0"
+2026-02-15T13:21:44.3133561Z [2/4] Fetching packages...
+2026-02-15T13:21:45.3264833Z [3/4] Linking dependencies...
+2026-02-15T13:21:45.3337187Z warning " > eslint-plugin-ft-flow@2.0.3" has unmet peer dependency "@babel/eslint-parser@^7.12.0".
+2026-02-15T13:21:45.3339259Z warning " > eslint-plugin-ft-flow@2.0.3" has incorrect peer dependency "eslint@^8.1.0".
+2026-02-15T13:21:45.3341124Z warning " > eslint-plugin-react@6.10.3" has incorrect peer dependency "eslint@^2.0.0 || ^3.0.0".
+2026-02-15T13:21:45.3381259Z warning " > react-cache@2.0.0-alpha.0" has incorrect peer dependency "react@^17.0.0".
+2026-02-15T13:21:45.3382400Z warning " > react-client@0.1.0" has incorrect peer dependency "react@^17.0.0".
+2026-02-15T13:21:45.3383469Z warning " > react-debug-tools@0.16.0" has incorrect peer dependency "react@^17.0.0".
+2026-02-15T13:21:45.3385557Z warning " > react-native-renderer@16.0.0" has incorrect peer dependency "react@^18.0.0".
+2026-02-15T13:21:45.3387502Z warning " > react-noop-renderer@16.0.0" has incorrect peer dependency "react@^17.0.0".
+2026-02-15T13:21:45.3390568Z warning " > react-server-dom-fb@0.1.0" has incorrect peer dependency "react@^18.0.0".
+2026-02-15T13:21:45.3391860Z warning " > react-server-dom-fb@0.1.0" has incorrect peer dependency "react-dom@^18.0.0".
+2026-02-15T13:21:45.3394481Z warning " > react-server-dom-webpack@19.3.0" has unmet peer dependency "webpack@^5.59.0".
+2026-02-15T13:21:45.3397033Z warning " > react-server@0.1.0" has incorrect peer dependency "react@^17.0.0".
+2026-02-15T13:21:45.3399533Z warning " > react-suspense-test-utils@0.1.0" has incorrect peer dependency "react@^17.0.0".
+2026-02-15T13:21:45.3405289Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > eslint-plugin-react-hooks > @typescript-eslint/parser-v2@2.34.0" has incorrect peer dependency "eslint@^5.0.0 || ^6.0.0".
+2026-02-15T13:21:45.3411872Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-extensions > acorn-jsx@5.3.1" has unmet peer dependency "acorn@^6.0.0 || ^7.0.0 || ^8.0.0".
+2026-02-15T13:21:45.3414546Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-extensions > css-loader@1.0.1" has incorrect peer dependency "webpack@^4.0.0".
+2026-02-15T13:21:45.3416280Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-extensions > raw-loader@3.1.0" has incorrect peer dependency "webpack@^4.3.0".
+2026-02-15T13:21:45.3418515Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button@0.16.1" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3421145Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button@0.16.1" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3423751Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button@0.16.1" has incorrect peer dependency "react-is@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3426529Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3429758Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3432724Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > react-virtualized-auto-sizer@1.0.23" has incorrect peer dependency "react@^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0".
+2026-02-15T13:21:45.3436102Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > react-virtualized-auto-sizer@1.0.23" has incorrect peer dependency "react-dom@^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0".
+2026-02-15T13:21:45.3439563Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > react-window@1.8.10" has incorrect peer dependency "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0".
+2026-02-15T13:21:45.3442541Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > react-window@1.8.10" has incorrect peer dependency "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0".
+2026-02-15T13:21:45.3445356Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > react-dom-15@15.6.2" has incorrect peer dependency "react@^15.6.2".
+2026-02-15T13:21:45.3448397Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-timeline > @pmmmwh/react-refresh-webpack-plugin@0.4.1" has incorrect peer dependency "react-refresh@^0.8.3".
+2026-02-15T13:21:45.3451119Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-refresh > react-dom-16-8@16.8.0" has incorrect peer dependency "react@^16.0.0".
+2026-02-15T13:21:45.3453555Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > use-sync-external-store > react-dom-17@17.0.2" has incorrect peer dependency "react@17.0.2".
+2026-02-15T13:21:45.3456351Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/dropdown@0.16.1" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3459589Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/dropdown@0.16.1" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3462623Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/popover@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3465832Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/popover@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3469050Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/utils@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3472061Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/utils@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3474373Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/auto-id@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3477237Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/auto-id@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3480362Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/portal@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3483235Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/portal@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3486273Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/rect@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3489224Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/rect@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3492077Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/visually-hidden@0.16.0" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3495048Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/tooltip > @reach/visually-hidden@0.16.0" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3579363Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/dropdown > @reach/descendants@0.16.1" has incorrect peer dependency "react@^16.8.0 || 17.x".
+2026-02-15T13:21:45.3582783Z warning "workspace-aggregator-52e77f88-c309-4499-8d5c-e0245d903215 > react-devtools-shared > @reach/menu-button > @reach/dropdown > @reach/descendants@0.16.1" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+2026-02-15T13:22:03.6842902Z [4/4] Building fresh packages...
+2026-02-15T13:22:06.3777731Z $ node ./scripts/flow/createFlowConfigs.js
+2026-02-15T13:22:06.4143824Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-browser/.flowconfig
+2026-02-15T13:22:06.4150814Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-node/.flowconfig
+2026-02-15T13:22:06.4154624Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-node-webpack/.flowconfig
+2026-02-15T13:22:06.4158037Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-node-turbopack/.flowconfig
+2026-02-15T13:22:06.4162458Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-node-parcel/.flowconfig
+2026-02-15T13:22:06.4166073Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-node-unbundled/.flowconfig
+2026-02-15T13:22:06.4170694Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-bun/.flowconfig
+2026-02-15T13:22:06.4174534Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-browser-esm/.flowconfig
+2026-02-15T13:22:06.4183602Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-browser-turbopack/.flowconfig
+2026-02-15T13:22:06.4188905Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-browser-parcel/.flowconfig
+2026-02-15T13:22:06.4192355Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-edge-webpack/.flowconfig
+2026-02-15T13:22:06.4196117Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-edge-turbopack/.flowconfig
+2026-02-15T13:22:06.4208969Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-edge-parcel/.flowconfig
+2026-02-15T13:22:06.4214381Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-node-esm/.flowconfig
+2026-02-15T13:22:06.4215680Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-legacy/.flowconfig
+2026-02-15T13:22:06.4216897Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/markup/.flowconfig
+2026-02-15T13:22:06.4218422Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/dom-fb/.flowconfig
+2026-02-15T13:22:06.4221316Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/native/.flowconfig
+2026-02-15T13:22:06.4224116Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/fabric/.flowconfig
+2026-02-15T13:22:06.4225351Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/test/.flowconfig
+2026-02-15T13:22:06.4229753Z Wrote a Flow config to /home/runner/work/react/react/scripts/flow/custom/.flowconfig
+2026-02-15T13:22:06.4285686Z Done in 22.87s.
+2026-02-15T13:22:06.4736689Z ##[group]Run FUZZ_TEST_SEED=$RANDOM yarn test fuzz --ci
+2026-02-15T13:22:06.4737096Z [36;1mFUZZ_TEST_SEED=$RANDOM yarn test fuzz --ci[0m
+2026-02-15T13:22:06.4737456Z [36;1mFUZZ_TEST_SEED=$RANDOM yarn test --prod fuzz --ci[0m
+2026-02-15T13:22:06.4791729Z shell: /usr/bin/bash -e {0}
+2026-02-15T13:22:06.4791964Z env:
+2026-02-15T13:22:06.4792173Z   TZ: /usr/share/zoneinfo/America/Los_Angeles
+2026-02-15T13:22:06.4792460Z ##[endgroup]
+2026-02-15T13:22:06.6081812Z yarn run v1.22.22
+2026-02-15T13:22:06.6315781Z $ node ./scripts/jest/jest-cli.js fuzz --ci
+2026-02-15T13:22:15.4781538Z PASS packages/react-reconciler/src/__tests__/ReactSuspenseFuzz-test.internal.js (7.362 s)
+2026-02-15T13:22:15.4784322Z   ReactSuspenseFuzz
+2026-02-15T13:22:15.4786958Z     ✓ basic cases (4623 ms)
+2026-02-15T13:22:15.4787814Z     ✓ generative tests (random seed: 25126) (1615 ms)
+2026-02-15T13:22:15.4788793Z     hard-coded cases
+2026-02-15T13:22:15.4789325Z       ✓ 1 (41 ms)
+2026-02-15T13:22:15.4790469Z       ✓ 2 (43 ms)
+2026-02-15T13:22:15.4790933Z       ✓ 3 (44 ms)
+2026-02-15T13:22:15.4791347Z       ✓ 4 (35 ms)
+2026-02-15T13:22:15.4791578Z 
+2026-02-15T13:22:15.4823883Z Test Suites: 1 passed, 1 total
+2026-02-15T13:22:15.4824398Z Tests:       6 passed, 6 total
+2026-02-15T13:22:15.4824826Z Snapshots:   0 total
+2026-02-15T13:22:15.4825175Z Time:        7.731 s
+2026-02-15T13:22:15.4825642Z Ran all test suites matching /fuzz/i.
+2026-02-15T13:22:15.6209824Z Done in 9.02s.
+2026-02-15T13:22:15.7540366Z yarn run v1.22.22
+2026-02-15T13:22:15.7781889Z $ node ./scripts/jest/jest-cli.js --prod fuzz --ci
+2026-02-15T13:22:23.9255831Z PASS packages/react-reconciler/src/__tests__/ReactSuspenseFuzz-test.internal.js (6.855 s)
+2026-02-15T13:22:23.9258219Z   ReactSuspenseFuzz
+2026-02-15T13:22:23.9260198Z     ✓ basic cases (4515 ms)
+2026-02-15T13:22:23.9260987Z     ✓ generative tests (random seed: 25543) (1268 ms)
+2026-02-15T13:22:23.9261584Z     hard-coded cases
+2026-02-15T13:22:23.9261976Z       ✓ 1 (41 ms)
+2026-02-15T13:22:23.9262375Z       ✓ 2 (38 ms)
+2026-02-15T13:22:23.9262724Z       ✓ 3 (36 ms)
+2026-02-15T13:22:23.9263058Z       ✓ 4 (36 ms)
+2026-02-15T13:22:23.9263251Z 
+2026-02-15T13:22:23.9295622Z Test Suites: 1 passed, 1 total
+2026-02-15T13:22:23.9296138Z Tests:       6 passed, 6 total
+2026-02-15T13:22:23.9296559Z Snapshots:   0 total
+2026-02-15T13:22:23.9296986Z Time:        7.224 s, estimated 8 s
+2026-02-15T13:22:23.9298085Z Ran all test suites matching /fuzz/i.
+2026-02-15T13:22:24.0701316Z Done in 8.32s.
+2026-02-15T13:22:24.0873821Z Post job cleanup.
+2026-02-15T13:22:24.2418329Z Cache hit occurred on the primary key node-cache-Linux-x64-yarn-e6937361438cd43861eff1ee54935b105d7ce19f825ea1373d8f0198a82c76d5, not saving cache.
+2026-02-15T13:22:24.2541212Z Post job cleanup.
+2026-02-15T13:22:24.3261191Z [command]/usr/bin/git version
+2026-02-15T13:22:24.3295730Z git version 2.52.0
+2026-02-15T13:22:24.3337367Z Temporarily overriding HOME='/home/runner/work/_temp/8db8e128-6e02-4992-931f-4232e0dca626' before making global git config changes
+2026-02-15T13:22:24.3339036Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-15T13:22:24.3340960Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/react/react
+2026-02-15T13:22:24.3372245Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-15T13:22:24.3401427Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-15T13:22:24.3652159Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-15T13:22:24.3673638Z http.https://github.com/.extraheader
+2026-02-15T13:22:24.3684813Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-02-15T13:22:24.3714333Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-15T13:22:24.4084483Z Cleaning up orphan processes

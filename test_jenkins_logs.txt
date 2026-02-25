@@ -1,0 +1,57 @@
+Started by user Mohammed Abdullah
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\khate\.jenkins\workspace\Honours-DevSecOps-Pipeline
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Setup Environment)
+[Pipeline] echo
+[2026-02-25T00:33:17.672Z] Preparing the runner environment...
+[Pipeline] sleep
+[2026-02-25T00:33:17.672Z] Sleeping for 2 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install Dependencies)
+[Pipeline] echo
+[2026-02-25T00:33:19.821Z] Downloading NPM packages...
+[Pipeline] sleep
+[2026-02-25T00:33:19.827Z] Sleeping for 15 sec
+[Pipeline] echo
+[2026-02-25T00:33:34.874Z] Dependencies installed.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Unit Tests)
+[Pipeline] echo
+[2026-02-25T00:33:34.973Z] Executing Jest test suite...
+[Pipeline] sleep
+[2026-02-25T00:33:34.981Z] Sleeping for 5 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Checkmarx SAST)
+[Pipeline] echo
+[2026-02-25T00:33:40.089Z] Performing Static Application Security Testing...
+[Pipeline] sleep
+[2026-02-25T00:33:40.105Z] Sleeping for 25 sec
+[Pipeline] echo
+[2026-02-25T00:34:05.123Z] Security scan complete. 0 Critical vulnerabilities found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+[Pipeline] echo
+[2026-02-25T00:34:05.224Z] Pushing artifacts to AWS S3...
+[Pipeline] sleep
+[2026-02-25T00:34:05.232Z] Sleeping for 3 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

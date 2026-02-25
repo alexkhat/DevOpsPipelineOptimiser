@@ -1,0 +1,1893 @@
+2026-02-24T18:42:24.7387311Z Current runner version: '2.331.0'
+2026-02-24T18:42:24.7411442Z ##[group]Runner Image Provisioner
+2026-02-24T18:42:24.7412212Z Hosted Compute Agent
+2026-02-24T18:42:24.7412866Z Version: 20260123.484
+2026-02-24T18:42:24.7413486Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-24T18:42:24.7414213Z Build Date: 2026-01-23T19:41:17Z
+2026-02-24T18:42:24.7414905Z Worker ID: {50ba5b7b-8c13-4347-b021-01191fdbed60}
+2026-02-24T18:42:24.7415580Z Azure Region: westus3
+2026-02-24T18:42:24.7416076Z ##[endgroup]
+2026-02-24T18:42:24.7417800Z ##[group]Operating System
+2026-02-24T18:42:24.7418360Z Ubuntu
+2026-02-24T18:42:24.7418864Z 24.04.3
+2026-02-24T18:42:24.7419372Z LTS
+2026-02-24T18:42:24.7419792Z ##[endgroup]
+2026-02-24T18:42:24.7420278Z ##[group]Runner Image
+2026-02-24T18:42:24.7420868Z Image: ubuntu-24.04
+2026-02-24T18:42:24.7421331Z Version: 20260201.15.1
+2026-02-24T18:42:24.7422649Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-24T18:42:24.7424134Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+2026-02-24T18:42:24.7425015Z ##[endgroup]
+2026-02-24T18:42:24.7427919Z ##[group]GITHUB_TOKEN Permissions
+2026-02-24T18:42:24.7429903Z Actions: write
+2026-02-24T18:42:24.7430562Z ArtifactMetadata: write
+2026-02-24T18:42:24.7431087Z Attestations: write
+2026-02-24T18:42:24.7431600Z Checks: write
+2026-02-24T18:42:24.7432082Z Contents: write
+2026-02-24T18:42:24.7432630Z Deployments: write
+2026-02-24T18:42:24.7433137Z Discussions: write
+2026-02-24T18:42:24.7433629Z Issues: write
+2026-02-24T18:42:24.7434132Z Metadata: read
+2026-02-24T18:42:24.7434616Z Models: read
+2026-02-24T18:42:24.7435089Z Packages: write
+2026-02-24T18:42:24.7435626Z Pages: write
+2026-02-24T18:42:24.7436198Z PullRequests: write
+2026-02-24T18:42:24.7436725Z RepositoryProjects: write
+2026-02-24T18:42:24.7437759Z SecurityEvents: write
+2026-02-24T18:42:24.7438296Z Statuses: write
+2026-02-24T18:42:24.7438804Z ##[endgroup]
+2026-02-24T18:42:24.7440897Z Secret source: Actions
+2026-02-24T18:42:24.7441560Z Prepare workflow directory
+2026-02-24T18:42:24.8056211Z Prepare all required actions
+2026-02-24T18:42:24.8092932Z Getting action download info
+2026-02-24T18:42:25.2187249Z Download action repository 'actions/checkout@v5' (SHA:93cb6efe18208431cddfb8368fd83d5badbf9bfd)
+2026-02-24T18:42:25.3459322Z Download action repository 'actions/download-artifact@v5' (SHA:634f93cb2916e3fdff6788551b99b062d0335ce0)
+2026-02-24T18:42:26.3069305Z Complete job name: upload-build-scan (25, false, false)
+2026-02-24T18:42:26.3702068Z ##[group]Run printenv
+2026-02-24T18:42:26.3702705Z [36;1mprintenv[0m
+2026-02-24T18:42:26.3739062Z shell: /usr/bin/bash -e {0}
+2026-02-24T18:42:26.3739965Z env:
+2026-02-24T18:42:26.3740442Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:26.3741024Z   status-context: Java 25
+2026-02-24T18:42:26.3875295Z   GITHUB_CONTEXT: {
+  "token": "***",
+  "job": "upload-build-scan",
+  "ref": "refs/heads/trunk",
+  "sha": "7b46af69aa495ea612e1b771e8f5b1b5b89862f8",
+  "repository": "apache/kafka",
+  "repository_owner": "apache",
+  "repository_owner_id": "47359",
+  "repositoryUrl": "git://github.com/apache/kafka.git",
+  "run_id": "22365027336",
+  "run_number": "22842",
+  "retention_days": "90",
+  "run_attempt": "1",
+  "artifact_cache_size_limit": "10",
+  "repository_visibility": "public",
+  "actor_id": "903615",
+  "actor": "mimaison",
+  "workflow": "CI Complete",
+  "head_ref": "",
+  "base_ref": "",
+  "event_name": "workflow_run",
+  "server_url": "https://github.com",
+  "api_url": "https://api.github.com",
+  "graphql_url": "https://api.github.com/graphql",
+  "ref_name": "trunk",
+  "ref_protected": true,
+  "ref_type": "branch",
+  "secret_source": "Actions",
+  "event": {
+    "action": "completed",
+    "enterprise": {
+      "avatar_url": "https://avatars.githubusercontent.com/b/212555?v=4",
+      "created_at": "2024-08-17T07:54:05Z",
+      "description": null,
+      "html_url": "https://github.com/enterprises/the-asf",
+      "id": 212555,
+      "name": "The ASF",
+      "node_id": "E_kgDOAAM-Sw",
+      "slug": "the-asf",
+      "updated_at": "2026-02-12T12:22:22Z",
+      "website_url": null
+    },
+    "organization": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "description": "",
+      "events_url": "https://api.github.com/orgs/apache/events",
+      "hooks_url": "https://api.github.com/orgs/apache/hooks",
+      "id": 47359,
+      "issues_url": "https://api.github.com/orgs/apache/issues",
+      "login": "apache",
+      "members_url": "https://api.github.com/orgs/apache/members{/member}",
+      "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzU5",
+      "public_members_url": "https://api.github.com/orgs/apache/public_members{/member}",
+      "repos_url": "https://api.github.com/orgs/apache/repos",
+      "url": "https://api.github.com/orgs/apache"
+    },
+    "repository": {
+      "allow_forking": true,
+      "archive_url": "https://api.github.com/repos/apache/kafka/{archive_format}{/ref}",
+      "archived": false,
+      "assignees_url": "https://api.github.com/repos/apache/kafka/assignees{/user}",
+      "blobs_url": "https://api.github.com/repos/apache/kafka/git/blobs{/sha}",
+      "branches_url": "https://api.github.com/repos/apache/kafka/branches{/branch}",
+      "clone_url": "https://github.com/apache/kafka.git",
+      "collaborators_url": "https://api.github.com/repos/apache/kafka/collaborators{/collaborator}",
+      "comments_url": "https://api.github.com/repos/apache/kafka/comments{/number}",
+      "commits_url": "https://api.github.com/repos/apache/kafka/commits{/sha}",
+      "compare_url": "https://api.github.com/repos/apache/kafka/compare/{base}...{head}",
+      "contents_url": "https://api.github.com/repos/apache/kafka/contents/{+path}",
+      "contributors_url": "https://api.github.com/repos/apache/kafka/contributors",
+      "created_at": "2011-08-15T18:06:16Z",
+      "custom_properties": {},
+      "default_branch": "trunk",
+      "deployments_url": "https://api.github.com/repos/apache/kafka/deployments",
+      "description": "Mirror of Apache Kafka",
+      "disabled": false,
+      "downloads_url": "https://api.github.com/repos/apache/kafka/downloads",
+      "events_url": "https://api.github.com/repos/apache/kafka/events",
+      "fork": false,
+      "forks": 14987,
+      "forks_count": 14987,
+      "forks_url": "https://api.github.com/repos/apache/kafka/forks",
+      "full_name": "apache/kafka",
+      "git_commits_url": "https://api.github.com/repos/apache/kafka/git/commits{/sha}",
+      "git_refs_url": "https://api.github.com/repos/apache/kafka/git/refs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/apache/kafka/git/tags{/sha}",
+      "git_url": "git://github.com/apache/kafka.git",
+      "has_discussions": false,
+      "has_downloads": true,
+      "has_issues": false,
+      "has_pages": false,
+      "has_projects": true,
+      "has_pull_requests": true,
+      "has_wiki": false,
+      "homepage": null,
+      "hooks_url": "https://api.github.com/repos/apache/kafka/hooks",
+      "html_url": "https://github.com/apache/kafka",
+      "id": 2211243,
+      "is_template": false,
+      "issue_comment_url": "https://api.github.com/repos/apache/kafka/issues/comments{/number}",
+      "issue_events_url": "https://api.github.com/repos/apache/kafka/issues/events{/number}",
+      "issues_url": "https://api.github.com/repos/apache/kafka/issues{/number}",
+      "keys_url": "https://api.github.com/repos/apache/kafka/keys{/key_id}",
+      "labels_url": "https://api.github.com/repos/apache/kafka/labels{/name}",
+      "language": "Java",
+      "languages_url": "https://api.github.com/repos/apache/kafka/languages",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "merges_url": "https://api.github.com/repos/apache/kafka/merges",
+      "milestones_url": "https://api.github.com/repos/apache/kafka/milestones{/number}",
+      "mirror_url": null,
+      "name": "kafka",
+      "node_id": "MDEwOlJlcG9zaXRvcnkyMjExMjQz",
+      "notifications_url": "https://api.github.com/repos/apache/kafka/notifications{?since,all,participating}",
+      "open_issues": 307,
+      "open_issues_count": 307,
+      "owner": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/47359?v=4",
+        "events_url": "https://api.github.com/users/apache/events{/privacy}",
+        "followers_url": "https://api.github.com/users/apache/followers",
+        "following_url": "https://api.github.com/users/apache/following{/other_user}",
+        "gists_url": "https://api.github.com/users/apache/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/apache",
+        "id": 47359,
+        "login": "apache",
+        "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzU5",
+        "organizations_url": "https://api.github.com/users/apache/orgs",
+        "received_events_url": "https://api.github.com/users/apache/received_events",
+        "repos_url": "https://api.github.com/users/apache/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/apache/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/apache/subscriptions",
+        "type": "Organization",
+        "url": "https://api.github.com/users/apache",
+        "user_view_type": "public"
+      },
+      "private": false,
+      "pull_request_creation_policy": "all",
+      "pulls_url": "https://api.github.com/repos/apache/kafka/pulls{/number}",
+      "pushed_at": "2026-02-24T17:21:30Z",
+      "releases_url": "https://api.github.com/repos/apache/kafka/releases{/id}",
+      "size": 277281,
+      "ssh_url": "git@github.com:apache/kafka.git",
+      "stargazers_count": 32043,
+      "stargazers_url": "https://api.github.com/repos/apache/kafka/stargazers",
+      "statuses_url": "https://api.github.com/repos/apache/kafka/statuses/{sha}",
+      "subscribers_url": "https://api.github.com/repos/apache/kafka/subscribers",
+      "subscription_url": "https://api.github.com/repos/apache/kafka/subscription",
+      "svn_url": "https://github.com/apache/kafka",
+      "tags_url": "https://api.github.com/repos/apache/kafka/tags",
+      "teams_url": "https://api.github.com/repos/apache/kafka/teams",
+      "topics": [
+        "kafka",
+        "scala"
+      ],
+      "trees_url": "https://api.github.com/repos/apache/kafka/git/trees{/sha}",
+      "updated_at": "2026-02-24T17:57:25Z",
+      "url": "https://api.github.com/repos/apache/kafka",
+      "visibility": "public",
+      "watchers": 32043,
+      "watchers_count": 32043,
+      "web_commit_signoff_required": false
+    },
+    "sender": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+      "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+      "followers_url": "https://api.github.com/users/mimaison/followers",
+      "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/mimaison",
+      "id": 903615,
+      "login": "mimaison",
+      "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+      "organizations_url": "https://api.github.com/users/mimaison/orgs",
+      "received_events_url": "https://api.github.com/users/mimaison/received_events",
+      "repos_url": "https://api.github.com/users/mimaison/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/mimaison",
+      "user_view_type": "public"
+    },
+    "workflow": {
+      "badge_url": "https://github.com/apache/kafka/workflows/CI/badge.svg",
+      "created_at": "2024-08-20T22:39:43.000Z",
+      "html_url": "https://github.com/apache/kafka/blob/trunk/.github/workflows/ci.yml",
+      "id": 113331030,
+      "name": "CI",
+      "node_id": "W_kwDOACG9q84GwUtW",
+      "path": ".github/workflows/ci.yml",
+      "state": "active",
+      "updated_at": "2026-01-05T16:44:52.000Z",
+      "url": "https://api.github.com/repos/apache/kafka/actions/workflows/113331030"
+    },
+    "workflow_run": {
+      "actor": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+        "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+        "followers_url": "https://api.github.com/users/mimaison/followers",
+        "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/mimaison",
+        "id": 903615,
+        "login": "mimaison",
+        "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+        "organizations_url": "https://api.github.com/users/mimaison/orgs",
+        "received_events_url": "https://api.github.com/users/mimaison/received_events",
+        "repos_url": "https://api.github.com/users/mimaison/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/mimaison",
+        "user_view_type": "public"
+      },
+      "artifacts_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/artifacts",
+      "cancel_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/cancel",
+      "check_suite_id": 58402266446,
+      "check_suite_node_id": "CS_kwDOACG9q88AAAANmQvdTg",
+      "check_suite_url": "https://api.github.com/repos/apache/kafka/check-suites/58402266446",
+      "conclusion": "failure",
+      "created_at": "2026-02-24T15:28:38Z",
+      "display_title": "KAFKA-19774: Cleanups for KIP-1066",
+      "event": "pull_request",
+      "head_branch": "kafka-19774-2",
+      "head_commit": {
+        "author": {
+          "email": "mickael.maison@gmail.com",
+          "name": "Mickael Maison"
+        },
+        "committer": {
+          "email": "mickael.maison@gmail.com",
+          "name": "Mickael Maison"
+        },
+        "id": "268d67be141e2813884e6b5926c4ef2121754ae7",
+        "message": "Docs for decommission",
+        "timestamp": "2026-02-24T15:28:06Z",
+        "tree_id": "efdc7acd0df1ebfde6783afa36a1e0184953c90d"
+      },
+      "head_repository": {
+        "archive_url": "https://api.github.com/repos/mimaison/kafka/{archive_format}{/ref}",
+        "assignees_url": "https://api.github.com/repos/mimaison/kafka/assignees{/user}",
+        "blobs_url": "https://api.github.com/repos/mimaison/kafka/git/blobs{/sha}",
+        "branches_url": "https://api.github.com/repos/mimaison/kafka/branches{/branch}",
+        "collaborators_url": "https://api.github.com/repos/mimaison/kafka/collaborators{/collaborator}",
+        "comments_url": "https://api.github.com/repos/mimaison/kafka/comments{/number}",
+        "commits_url": "https://api.github.com/repos/mimaison/kafka/commits{/sha}",
+        "compare_url": "https://api.github.com/repos/mimaison/kafka/compare/{base}...{head}",
+        "contents_url": "https://api.github.com/repos/mimaison/kafka/contents/{+path}",
+        "contributors_url": "https://api.github.com/repos/mimaison/kafka/contributors",
+        "deployments_url": "https://api.github.com/repos/mimaison/kafka/deployments",
+        "description": "Mirror of Apache Kafka",
+        "downloads_url": "https://api.github.com/repos/mimaison/kafka/downloads",
+        "events_url": "https://api.github.com/repos/mimaison/kafka/events",
+        "fork": true,
+        "forks_url": "https://api.github.com/repos/mimaison/kafka/forks",
+        "full_name": "mimaison/kafka",
+        "git_commits_url": "https://api.github.com/repos/mimaison/kafka/git/commits{/sha}",
+        "git_refs_url": "https://api.github.com/repos/mimaison/kafka/git/refs{/sha}",
+        "git_tags_url": "https://api.github.com/repos/mimaison/kafka/git/tags{/sha}",
+        "hooks_url": "https://api.github.com/repos/mimaison/kafka/hooks",
+        "html_url": "https://github.com/mimaison/kafka",
+        "id": 53746208,
+        "issue_comment_url": "https://api.github.com/repos/mimaison/kafka/issues/comments{/number}",
+        "issue_events_url": "https://api.github.com/repos/mimaison/kafka/issues/events{/number}",
+        "issues_url": "https://api.github.com/repos/mimaison/kafka/issues{/number}",
+        "keys_url": "https://api.github.com/repos/mimaison/kafka/keys{/key_id}",
+        "labels_url": "https://api.github.com/repos/mimaison/kafka/labels{/name}",
+        "languages_url": "https://api.github.com/repos/mimaison/kafka/languages",
+        "merges_url": "https://api.github.com/repos/mimaison/kafka/merges",
+        "milestones_url": "https://api.github.com/repos/mimaison/kafka/milestones{/number}",
+        "name": "kafka",
+        "node_id": "MDEwOlJlcG9zaXRvcnk1Mzc0NjIwOA==",
+        "notifications_url": "https://api.github.com/repos/mimaison/kafka/notifications{?since,all,participating}",
+        "owner": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+          "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+          "followers_url": "https://api.github.com/users/mimaison/followers",
+          "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+          "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/mimaison",
+          "id": 903615,
+          "login": "mimaison",
+          "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+          "organizations_url": "https://api.github.com/users/mimaison/orgs",
+          "received_events_url": "https://api.github.com/users/mimaison/received_events",
+          "repos_url": "https://api.github.com/users/mimaison/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/mimaison",
+          "user_view_type": "public"
+        },
+        "private": false,
+        "pulls_url": "https://api.github.com/repos/mimaison/kafka/pulls{/number}",
+        "releases_url": "https://api.github.com/repos/mimaison/kafka/releases{/id}",
+        "stargazers_url": "https://api.github.com/repos/mimaison/kafka/stargazers",
+        "statuses_url": "https://api.github.com/repos/mimaison/kafka/statuses/{sha}",
+        "subscribers_url": "https://api.github.com/repos/mimaison/kafka/subscribers",
+        "subscription_url": "https://api.github.com/repos/mimaison/kafka/subscription",
+        "tags_url": "https://api.github.com/repos/mimaison/kafka/tags",
+        "teams_url": "https://api.github.com/repos/mimaison/kafka/teams",
+        "trees_url": "https://api.github.com/repos/mimaison/kafka/git/trees{/sha}",
+        "url": "https://api.github.com/repos/mimaison/kafka"
+      },
+      "head_sha": "268d67be141e2813884e6b5926c4ef2121754ae7",
+      "html_url": "https://github.com/apache/kafka/actions/runs/22357616663",
+      "id": 22357616663,
+      "jobs_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/jobs",
+      "logs_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/logs",
+      "name": "CI",
+      "node_id": "WFR_kwLOACG9q88AAAAFNJ4oFw",
+      "path": ".github/workflows/ci.yml",
+      "previous_attempt_url": null,
+      "pull_requests": [],
+      "referenced_workflows": [
+        {
+          "path": "apache/kafka/.github/workflows/build.yml@a6288caaa1cdf3fe18229fbf14a6716fe87a03e8",
+          "ref": "refs/pull/21523/merge",
+          "sha": "a6288caaa1cdf3fe18229fbf14a6716fe87a03e8"
+        }
+      ],
+      "repository": {
+        "archive_url": "https://api.github.com/repos/apache/kafka/{archive_format}{/ref}",
+        "assignees_url": "https://api.github.com/repos/apache/kafka/assignees{/user}",
+        "blobs_url": "https://api.github.com/repos/apache/kafka/git/blobs{/sha}",
+        "branches_url": "https://api.github.com/repos/apache/kafka/branches{/branch}",
+        "collaborators_url": "https://api.github.com/repos/apache/kafka/collaborators{/collaborator}",
+        "comments_url": "https://api.github.com/repos/apache/kafka/comments{/number}",
+        "commits_url": "https://api.github.com/repos/apache/kafka/commits{/sha}",
+        "compare_url": "https://api.github.com/repos/apache/kafka/compare/{base}...{head}",
+        "contents_url": "https://api.github.com/repos/apache/kafka/contents/{+path}",
+        "contributors_url": "https://api.github.com/repos/apache/kafka/contributors",
+        "deployments_url": "https://api.github.com/repos/apache/kafka/deployments",
+        "description": "Mirror of Apache Kafka",
+        "downloads_url": "https://api.github.com/repos/apache/kafka/downloads",
+        "events_url": "https://api.github.com/repos/apache/kafka/events",
+        "fork": false,
+        "forks_url": "https://api.github.com/repos/apache/kafka/forks",
+        "full_name": "apache/kafka",
+        "git_commits_url": "https://api.github.com/repos/apache/kafka/git/commits{/sha}",
+        "git_refs_url": "https://api.github.com/repos/apache/kafka/git/refs{/sha}",
+        "git_tags_url": "https://api.github.com/repos/apache/kafka/git/tags{/sha}",
+        "hooks_url": "https://api.github.com/repos/apache/kafka/hooks",
+        "html_url": "https://github.com/apache/kafka",
+        "id": 2211243,
+        "issue_comment_url": "https://api.github.com/repos/apache/kafka/issues/comments{/number}",
+        "issue_events_url": "https://api.github.com/repos/apache/kafka/issues/events{/number}",
+        "issues_url": "https://api.github.com/repos/apache/kafka/issues{/number}",
+        "keys_url": "https://api.github.com/repos/apache/kafka/keys{/key_id}",
+        "labels_url": "https://api.github.com/repos/apache/kafka/labels{/name}",
+        "languages_url": "https://api.github.com/repos/apache/kafka/languages",
+        "merges_url": "https://api.github.com/repos/apache/kafka/merges",
+        "milestones_url": "https://api.github.com/repos/apache/kafka/milestones{/number}",
+        "name": "kafka",
+        "node_id": "MDEwOlJlcG9zaXRvcnkyMjExMjQz",
+        "notifications_url": "https://api.github.com/repos/apache/kafka/notifications{?since,all,participating}",
+        "owner": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/47359?v=4",
+          "events_url": "https://api.github.com/users/apache/events{/privacy}",
+          "followers_url": "https://api.github.com/users/apache/followers",
+          "following_url": "https://api.github.com/users/apache/following{/other_user}",
+          "gists_url": "https://api.github.com/users/apache/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/apache",
+          "id": 47359,
+          "login": "apache",
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzU5",
+          "organizations_url": "https://api.github.com/users/apache/orgs",
+          "received_events_url": "https://api.github.com/users/apache/received_events",
+          "repos_url": "https://api.github.com/users/apache/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/apache/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/apache/subscriptions",
+          "type": "Organization",
+          "url": "https://api.github.com/users/apache",
+          "user_view_type": "public"
+        },
+        "private": false,
+        "pulls_url": "https://api.github.com/repos/apache/kafka/pulls{/number}",
+        "releases_url": "https://api.github.com/repos/apache/kafka/releases{/id}",
+        "stargazers_url": "https://api.github.com/repos/apache/kafka/stargazers",
+        "statuses_url": "https://api.github.com/repos/apache/kafka/statuses/{sha}",
+        "subscribers_url": "https://api.github.com/repos/apache/kafka/subscribers",
+        "subscription_url": "https://api.github.com/repos/apache/kafka/subscription",
+        "tags_url": "https://api.github.com/repos/apache/kafka/tags",
+        "teams_url": "https://api.github.com/repos/apache/kafka/teams",
+        "trees_url": "https://api.github.com/repos/apache/kafka/git/trees{/sha}",
+        "url": "https://api.github.com/repos/apache/kafka"
+      },
+      "rerun_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/rerun",
+      "run_attempt": 1,
+      "run_number": 25802,
+      "run_started_at": "2026-02-24T15:28:38Z",
+      "status": "completed",
+      "triggering_actor": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+        "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+        "followers_url": "https://api.github.com/users/mimaison/followers",
+        "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/mimaison",
+        "id": 903615,
+        "login": "mimaison",
+        "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+        "organizations_url": "https://api.github.com/users/mimaison/orgs",
+        "received_events_url": "https://api.github.com/users/mimaison/received_events",
+        "repos_url": "https://api.github.com/users/mimaison/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/mimaison",
+        "user_view_type": "public"
+      },
+      "updated_at": "2026-02-24T18:42:18Z",
+      "url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663",
+      "workflow_id": 113331030,
+      "workflow_url": "https://api.github.com/repos/apache/kafka/actions/workflows/113331030"
+    }
+  },
+  "workflow_ref": "apache/kafka/.github/workflows/ci-complete.yml@refs/heads/trunk",
+  "workflow_sha": "7b46af69aa495ea612e1b771e8f5b1b5b89862f8",
+  "repository_id": "2211243",
+  "triggering_actor": "mimaison",
+  "workspace": "/home/runner/work/kafka/kafka",
+  "action": "__run"
+}
+2026-02-24T18:42:26.4000467Z ##[endgroup]
+2026-02-24T18:42:26.4207990Z job-variation=25-noflaky-nonew
+2026-02-24T18:42:26.4208919Z status-context=Java 25
+2026-02-24T18:42:26.4209401Z SHELL=/bin/bash
+2026-02-24T18:42:26.4210017Z SELENIUM_JAR_PATH=/usr/share/java/selenium-server.jar
+2026-02-24T18:42:26.4210688Z CONDA=/usr/share/miniconda
+2026-02-24T18:42:26.4211254Z GITHUB_WORKSPACE=/home/runner/work/kafka/kafka
+2026-02-24T18:42:26.4211948Z JAVA_HOME_11_X64=/usr/lib/jvm/temurin-11-jdk-amd64
+2026-02-24T18:42:26.4212862Z JAVA_HOME_25_X64=/usr/lib/jvm/temurin-25-jdk-amd64
+2026-02-24T18:42:26.4213876Z GITHUB_PATH=/home/runner/work/_temp/_runner_file_commands/add_path_be9cce24-292d-4aba-85e4-1504496ebba1
+2026-02-24T18:42:26.4214810Z GITHUB_ACTION=__run
+2026-02-24T18:42:26.4215303Z JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+2026-02-24T18:42:26.4215887Z GITHUB_RUN_NUMBER=22842
+2026-02-24T18:42:26.4216411Z RUNNER_NAME=GitHub Actions 1012935796
+2026-02-24T18:42:26.4217254Z GRADLE_HOME=/usr/share/gradle-9.3.1
+2026-02-24T18:42:26.4217907Z GITHUB_REPOSITORY_OWNER_ID=47359
+2026-02-24T18:42:26.4218570Z ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE=/opt/actionarchivecache
+2026-02-24T18:42:26.4219469Z XDG_CONFIG_HOME=/home/runner/.config
+2026-02-24T18:42:26.4220895Z MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+2026-02-24T18:42:26.4222133Z DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+2026-02-24T18:42:26.4223163Z ANT_HOME=/usr/share/ant
+2026-02-24T18:42:26.4224203Z JAVA_HOME_8_X64=/usr/lib/jvm/temurin-8-jdk-amd64
+2026-02-24T18:42:26.4225485Z GITHUB_TRIGGERING_ACTOR=mimaison
+2026-02-24T18:42:26.4226477Z GITHUB_REF_TYPE=branch
+2026-02-24T18:42:26.4227677Z HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=3650
+2026-02-24T18:42:26.4228888Z ANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.3.13750724
+2026-02-24T18:42:26.4230149Z BOOTSTRAP_HASKELL_NONINTERACTIVE=1
+2026-02-24T18:42:26.4231536Z ***
+2026-02-24T18:42:26.4232339Z PIPX_BIN_DIR=/opt/pipx_bin
+2026-02-24T18:42:26.4233211Z LOGNAME=runner
+2026-02-24T18:42:26.4234038Z GITHUB_REPOSITORY_ID=2211243
+2026-02-24T18:42:26.4235233Z GITHUB_ACTIONS=true
+2026-02-24T18:42:26.4236031Z USE_BAZEL_FALLBACK_VERSION=silent:
+2026-02-24T18:42:26.4237749Z ANDROID_NDK_LATEST_HOME=/usr/local/lib/android/sdk/ndk/29.0.14206865
+2026-02-24T18:42:26.4239138Z SYSTEMD_EXEC_PID=2037
+2026-02-24T18:42:26.4240252Z GITHUB_SHA=7b46af69aa495ea612e1b771e8f5b1b5b89862f8
+2026-02-24T18:42:26.4242037Z GITHUB_WORKFLOW_REF=apache/kafka/.github/workflows/ci-complete.yml@refs/heads/trunk
+2026-02-24T18:42:26.4243734Z POWERSHELL_DISTRIBUTION_CHANNEL=GitHub-Actions-ubuntu24
+2026-02-24T18:42:26.4244988Z RUNNER_ENVIRONMENT=github-hosted
+2026-02-24T18:42:26.4246136Z DOTNET_MULTILEVEL_LOOKUP=0
+2026-02-24T18:42:26.4247412Z GITHUB_REF=refs/heads/trunk
+2026-02-24T18:42:26.4248422Z RUNNER_OS=Linux
+2026-02-24T18:42:26.4249320Z GITHUB_REF_PROTECTED=true
+2026-02-24T18:42:26.4250267Z HOME=/home/runner
+2026-02-24T18:42:26.4251171Z GITHUB_API_URL=https://api.github.com
+2026-02-24T18:42:26.4252208Z LANG=C.UTF-8
+2026-02-24T18:42:26.4253277Z GOROOT_1_25_X64=/opt/hostedtoolcache/go/1.25.6/x64
+2026-02-24T18:42:26.4254631Z RUNNER_TRACKING_ID=github_4625c1d4-3553-4cdf-a5a7-fef4fda9617c
+2026-02-24T18:42:26.4255341Z RUNNER_ARCH=X64
+2026-02-24T18:42:26.4256137Z MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure
+2026-02-24T18:42:26.4257339Z RUNNER_TEMP=/home/runner/work/_temp
+2026-02-24T18:42:26.4258315Z GITHUB_STATE=/home/runner/work/_temp/_runner_file_commands/save_state_be9cce24-292d-4aba-85e4-1504496ebba1
+2026-02-24T18:42:26.4259311Z EDGEWEBDRIVER=/usr/local/share/edge_driver
+2026-02-24T18:42:26.4259953Z JAVA_HOME_21_X64=/usr/lib/jvm/temurin-21-jdk-amd64
+2026-02-24T18:42:26.4260961Z GITHUB_ENV=/home/runner/work/_temp/_runner_file_commands/set_env_be9cce24-292d-4aba-85e4-1504496ebba1
+2026-02-24T18:42:26.4262055Z GITHUB_EVENT_PATH=/home/runner/work/_temp/_github_workflow/event.json
+2026-02-24T18:42:26.4262829Z INVOCATION_ID=bb83c62243f34956b2a78d182ae238c2
+2026-02-24T18:42:26.4263450Z GITHUB_EVENT_NAME=workflow_run
+2026-02-24T18:42:26.4263981Z GITHUB_RUN_ID=22365027336
+2026-02-24T18:42:26.4264522Z JAVA_HOME_17_X64=/usr/lib/jvm/temurin-17-jdk-amd64
+2026-02-24T18:42:26.4265258Z ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/27.3.13750724
+2026-02-24T18:42:26.4266387Z GITHUB_STEP_SUMMARY=/home/runner/work/_temp/_runner_file_commands/step_summary_be9cce24-292d-4aba-85e4-1504496ebba1
+2026-02-24T18:42:26.4267614Z HOMEBREW_NO_AUTO_UPDATE=1
+2026-02-24T18:42:26.4268116Z GITHUB_ACTOR=mimaison
+2026-02-24T18:42:26.4268594Z NVM_DIR=/home/runner/.nvm
+2026-02-24T18:42:26.4269282Z SGX_AESM_ADDR=1
+2026-02-24T18:42:26.4269795Z GITHUB_RUN_ATTEMPT=1
+2026-02-24T18:42:26.4270283Z ANDROID_HOME=/usr/local/lib/android/sdk
+2026-02-24T18:42:26.4270957Z GITHUB_GRAPHQL_URL=https://api.github.com/graphql
+2026-02-24T18:42:26.4271574Z ACCEPT_EULA=Y
+2026-02-24T18:42:26.4271992Z USER=runner
+2026-02-24T18:42:26.4273081Z PSModulePath=/root/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/usr/share/az_14.6.0
+2026-02-24T18:42:26.4274334Z GITHUB_SERVER_URL=https://github.com
+2026-02-24T18:42:26.4274893Z PIPX_HOME=/opt/pipx
+2026-02-24T18:42:26.4275390Z GECKOWEBDRIVER=/usr/local/share/gecko_driver
+2026-02-24T18:42:26.4276084Z CHROMEWEBDRIVER=/usr/local/share/chromedriver-linux64
+2026-02-24T18:42:26.4276704Z SHLVL=1
+2026-02-24T18:42:26.4277417Z ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
+2026-02-24T18:42:26.4278056Z VCPKG_INSTALLATION_ROOT=/usr/local/share/vcpkg
+2026-02-24T18:42:26.4278659Z GITHUB_ACTOR_ID=903615
+2026-02-24T18:42:26.4279507Z ACTIONS_ORCHESTRATION_ID=92a8214d-def3-4477-8b7b-16c7c85e6dfc.upload-build-scan._25_false_false
+2026-02-24T18:42:26.4280459Z RUNNER_TOOL_CACHE=/opt/hostedtoolcache
+2026-02-24T18:42:26.4281014Z ImageVersion=20260201.15.1
+2026-02-24T18:42:26.4281502Z DOTNET_NOLOGO=1
+2026-02-24T18:42:26.4281930Z GITHUB_CONTEXT={
+2026-02-24T18:42:26.4282583Z   "token": "***",
+2026-02-24T18:42:26.4283043Z   "job": "upload-build-scan",
+2026-02-24T18:42:26.4283561Z   "ref": "refs/heads/trunk",
+2026-02-24T18:42:26.4284297Z   "sha": "7b46af69aa495ea612e1b771e8f5b1b5b89862f8",
+2026-02-24T18:42:26.4284920Z   "repository": "apache/kafka",
+2026-02-24T18:42:26.4285452Z   "repository_owner": "apache",
+2026-02-24T18:42:26.4285983Z   "repository_owner_id": "47359",
+2026-02-24T18:42:26.4286608Z   "repositoryUrl": "git://github.com/apache/kafka.git",
+2026-02-24T18:42:26.4287518Z   "run_id": "22365027336",
+2026-02-24T18:42:26.4288021Z   "run_number": "22842",
+2026-02-24T18:42:26.4288505Z   "retention_days": "90",
+2026-02-24T18:42:26.4289004Z   "run_attempt": "1",
+2026-02-24T18:42:26.4289480Z   "artifact_cache_size_limit": "10",
+2026-02-24T18:42:26.4290052Z   "repository_visibility": "public",
+2026-02-24T18:42:26.4290647Z   "actor_id": "903615",
+2026-02-24T18:42:26.4291134Z   "actor": "mimaison",
+2026-02-24T18:42:26.4291611Z   "workflow": "CI Complete",
+2026-02-24T18:42:26.4292103Z   "head_ref": "",
+2026-02-24T18:42:26.4292531Z   "base_ref": "",
+2026-02-24T18:42:26.4292985Z   "event_name": "workflow_run",
+2026-02-24T18:42:26.4293533Z   "server_url": "https://github.com",
+2026-02-24T18:42:26.4294117Z   "api_url": "https://api.github.com",
+2026-02-24T18:42:26.4294745Z   "graphql_url": "https://api.github.com/graphql",
+2026-02-24T18:42:26.4295350Z   "ref_name": "trunk",
+2026-02-24T18:42:26.4295819Z   "ref_protected": true,
+2026-02-24T18:42:26.4296302Z   "ref_type": "branch",
+2026-02-24T18:42:26.4296786Z   "secret_source": "Actions",
+2026-02-24T18:42:26.4297431Z   "event": {
+2026-02-24T18:42:26.4297859Z     "action": "completed",
+2026-02-24T18:42:26.4298359Z     "enterprise": {
+2026-02-24T18:42:26.4298991Z       "avatar_url": "https://avatars.githubusercontent.com/b/212555?v=4",
+2026-02-24T18:42:26.4299724Z       "created_at": "2024-08-17T07:54:05Z",
+2026-02-24T18:42:26.4300287Z       "description": null,
+2026-02-24T18:42:26.4300861Z       "html_url": "https://github.com/enterprises/the-asf",
+2026-02-24T18:42:26.4301487Z       "id": 212555,
+2026-02-24T18:42:26.4301923Z       "name": "The ASF",
+2026-02-24T18:42:26.4302407Z       "node_id": "E_kgDOAAM-Sw",
+2026-02-24T18:42:26.4302915Z       "slug": "the-asf",
+2026-02-24T18:42:26.4303402Z       "updated_at": "2026-02-12T12:22:22Z",
+2026-02-24T18:42:26.4303950Z       "website_url": null
+2026-02-24T18:42:26.4304413Z     },
+2026-02-24T18:42:26.4304811Z     "organization": {
+2026-02-24T18:42:26.4305431Z       "avatar_url": "https://avatars.githubusercontent.com/u/47359?v=4",
+2026-02-24T18:42:26.4306142Z       "description": "",
+2026-02-24T18:42:26.4306876Z       "events_url": "https://api.github.com/orgs/apache/events",
+2026-02-24T18:42:26.4307822Z       "hooks_url": "https://api.github.com/orgs/apache/hooks",
+2026-02-24T18:42:26.4308484Z       "id": 47359,
+2026-02-24T18:42:26.4309043Z       "issues_url": "https://api.github.com/orgs/apache/issues",
+2026-02-24T18:42:26.4309709Z       "login": "apache",
+2026-02-24T18:42:26.4310354Z       "members_url": "https://api.github.com/orgs/apache/members{/member}",
+2026-02-24T18:42:26.4311138Z       "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzU5",
+2026-02-24T18:42:26.4312027Z       "public_members_url": "https://api.github.com/orgs/apache/public_members{/member}",
+2026-02-24T18:42:26.4312939Z       "repos_url": "https://api.github.com/orgs/apache/repos",
+2026-02-24T18:42:26.4313673Z       "url": "https://api.github.com/orgs/apache"
+2026-02-24T18:42:26.4314249Z     },
+2026-02-24T18:42:26.4314641Z     "repository": {
+2026-02-24T18:42:26.4315088Z       "allow_forking": true,
+2026-02-24T18:42:26.4315823Z       "archive_url": "https://api.github.com/repos/apache/kafka/{archive_format}{/ref}",
+2026-02-24T18:42:26.4316625Z       "archived": false,
+2026-02-24T18:42:26.4317426Z       "assignees_url": "https://api.github.com/repos/apache/kafka/assignees{/user}",
+2026-02-24T18:42:26.4318400Z       "blobs_url": "https://api.github.com/repos/apache/kafka/git/blobs{/sha}",
+2026-02-24T18:42:26.4319364Z       "branches_url": "https://api.github.com/repos/apache/kafka/branches{/branch}",
+2026-02-24T18:42:26.4320232Z       "clone_url": "https://github.com/apache/kafka.git",
+2026-02-24T18:42:26.4321334Z       "collaborators_url": "https://api.github.com/repos/apache/kafka/collaborators{/collaborator}",
+2026-02-24T18:42:26.4322449Z       "comments_url": "https://api.github.com/repos/apache/kafka/comments{/number}",
+2026-02-24T18:42:26.4323420Z       "commits_url": "https://api.github.com/repos/apache/kafka/commits{/sha}",
+2026-02-24T18:42:26.4324407Z       "compare_url": "https://api.github.com/repos/apache/kafka/compare/{base}...{head}",
+2026-02-24T18:42:26.4325436Z       "contents_url": "https://api.github.com/repos/apache/kafka/contents/{+path}",
+2026-02-24T18:42:26.4326439Z       "contributors_url": "https://api.github.com/repos/apache/kafka/contributors",
+2026-02-24T18:42:26.4327360Z       "created_at": "2011-08-15T18:06:16Z",
+2026-02-24T18:42:26.4327936Z       "custom_properties": {},
+2026-02-24T18:42:26.4328455Z       "default_branch": "trunk",
+2026-02-24T18:42:26.4329173Z       "deployments_url": "https://api.github.com/repos/apache/kafka/deployments",
+2026-02-24T18:42:26.4329996Z       "description": "Mirror of Apache Kafka",
+2026-02-24T18:42:26.4330565Z       "disabled": false,
+2026-02-24T18:42:26.4331227Z       "downloads_url": "https://api.github.com/repos/apache/kafka/downloads",
+2026-02-24T18:42:26.4332129Z       "events_url": "https://api.github.com/repos/apache/kafka/events",
+2026-02-24T18:42:26.4332815Z       "fork": false,
+2026-02-24T18:42:26.4333258Z       "forks": 14987,
+2026-02-24T18:42:26.4333710Z       "forks_count": 14987,
+2026-02-24T18:42:26.4334349Z       "forks_url": "https://api.github.com/repos/apache/kafka/forks",
+2026-02-24T18:42:26.4335072Z       "full_name": "apache/kafka",
+2026-02-24T18:42:26.4335825Z       "git_commits_url": "https://api.github.com/repos/apache/kafka/git/commits{/sha}",
+2026-02-24T18:42:26.4336806Z       "git_refs_url": "https://api.github.com/repos/apache/kafka/git/refs{/sha}",
+2026-02-24T18:42:26.4337965Z       "git_tags_url": "https://api.github.com/repos/apache/kafka/git/tags{/sha}",
+2026-02-24T18:42:26.4338792Z       "git_url": "git://github.com/apache/kafka.git",
+2026-02-24T18:42:26.4339427Z       "has_discussions": false,
+2026-02-24T18:42:26.4339946Z       "has_downloads": true,
+2026-02-24T18:42:26.4340437Z       "has_issues": false,
+2026-02-24T18:42:26.4340921Z       "has_pages": false,
+2026-02-24T18:42:26.4341409Z       "has_projects": true,
+2026-02-24T18:42:26.4341907Z       "has_pull_requests": true,
+2026-02-24T18:42:26.4342423Z       "has_wiki": false,
+2026-02-24T18:42:26.4342886Z       "homepage": null,
+2026-02-24T18:42:26.4343637Z       "hooks_url": "https://api.github.com/repos/apache/kafka/hooks",
+2026-02-24T18:42:26.4344432Z       "html_url": "https://github.com/apache/kafka",
+2026-02-24T18:42:26.4345034Z       "id": 2211243,
+2026-02-24T18:42:26.4345488Z       "is_template": false,
+2026-02-24T18:42:26.4346269Z       "issue_comment_url": "https://api.github.com/repos/apache/kafka/issues/comments{/number}",
+2026-02-24T18:42:26.4347501Z       "issue_events_url": "https://api.github.com/repos/apache/kafka/issues/events{/number}",
+2026-02-24T18:42:26.4348566Z       "issues_url": "https://api.github.com/repos/apache/kafka/issues{/number}",
+2026-02-24T18:42:26.4349489Z       "keys_url": "https://api.github.com/repos/apache/kafka/keys{/key_id}",
+2026-02-24T18:42:26.4350391Z       "labels_url": "https://api.github.com/repos/apache/kafka/labels{/name}",
+2026-02-24T18:42:26.4351124Z       "language": "Java",
+2026-02-24T18:42:26.4351788Z       "languages_url": "https://api.github.com/repos/apache/kafka/languages",
+2026-02-24T18:42:26.4352530Z       "license": {
+2026-02-24T18:42:26.4352975Z         "key": "apache-2.0",
+2026-02-24T18:42:26.4353541Z         "name": "Apache License 2.0",
+2026-02-24T18:42:26.4354108Z         "node_id": "MDc6TGljZW5zZTI=",
+2026-02-24T18:42:26.4354657Z         "spdx_id": "Apache-2.0",
+2026-02-24T18:42:26.4355258Z         "url": "https://api.github.com/licenses/apache-2.0"
+2026-02-24T18:42:26.4355872Z       },
+2026-02-24T18:42:26.4356426Z       "merges_url": "https://api.github.com/repos/apache/kafka/merges",
+2026-02-24T18:42:26.4357681Z       "milestones_url": "https://api.github.com/repos/apache/kafka/milestones{/number}",
+2026-02-24T18:42:26.4358482Z       "mirror_url": null,
+2026-02-24T18:42:26.4358958Z       "name": "kafka",
+2026-02-24T18:42:26.4359467Z       "node_id": "MDEwOlJlcG9zaXRvcnkyMjExMjQz",
+2026-02-24T18:42:26.4360477Z       "notifications_url": "https://api.github.com/repos/apache/kafka/notifications{?since,all,participating}",
+2026-02-24T18:42:26.4361439Z       "open_issues": 307,
+2026-02-24T18:42:26.4361955Z       "open_issues_count": 307,
+2026-02-24T18:42:26.4362458Z       "owner": {
+2026-02-24T18:42:26.4363065Z         "avatar_url": "https://avatars.githubusercontent.com/u/47359?v=4",
+2026-02-24T18:42:26.4363960Z         "events_url": "https://api.github.com/users/apache/events{/privacy}",
+2026-02-24T18:42:26.4364847Z         "followers_url": "https://api.github.com/users/apache/followers",
+2026-02-24T18:42:26.4365778Z         "following_url": "https://api.github.com/users/apache/following{/other_user}",
+2026-02-24T18:42:26.4366728Z         "gists_url": "https://api.github.com/users/apache/gists{/gist_id}",
+2026-02-24T18:42:26.4367595Z         "gravatar_id": "",
+2026-02-24T18:42:26.4368139Z         "html_url": "https://github.com/apache",
+2026-02-24T18:42:26.4368733Z         "id": 47359,
+2026-02-24T18:42:26.4369182Z         "login": "apache",
+2026-02-24T18:42:26.4369728Z         "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzU5",
+2026-02-24T18:42:26.4370491Z         "organizations_url": "https://api.github.com/users/apache/orgs",
+2026-02-24T18:42:26.4371438Z         "received_events_url": "https://api.github.com/users/apache/received_events",
+2026-02-24T18:42:26.4372332Z         "repos_url": "https://api.github.com/users/apache/repos",
+2026-02-24T18:42:26.4372987Z         "site_admin": false,
+2026-02-24T18:42:26.4373695Z         "starred_url": "https://api.github.com/users/apache/starred{/owner}{/repo}",
+2026-02-24T18:42:26.4374668Z         "subscriptions_url": "https://api.github.com/users/apache/subscriptions",
+2026-02-24T18:42:26.4375446Z         "type": "Organization",
+2026-02-24T18:42:26.4376012Z         "url": "https://api.github.com/users/apache",
+2026-02-24T18:42:26.4376623Z         "user_view_type": "public"
+2026-02-24T18:42:26.4377287Z       },
+2026-02-24T18:42:26.4377733Z       "private": false,
+2026-02-24T18:42:26.4378226Z       "pull_request_creation_policy": "all",
+2026-02-24T18:42:26.4378980Z       "pulls_url": "https://api.github.com/repos/apache/kafka/pulls{/number}",
+2026-02-24T18:42:26.4379915Z       "pushed_at": "2026-02-24T17:21:30Z",
+2026-02-24T18:42:26.4380708Z       "releases_url": "https://api.github.com/repos/apache/kafka/releases{/id}",
+2026-02-24T18:42:26.4381473Z       "size": 277281,
+2026-02-24T18:42:26.4381984Z       "ssh_url": "git@github.com:apache/kafka.git",
+2026-02-24T18:42:26.4382600Z       "stargazers_count": 32043,
+2026-02-24T18:42:26.4383343Z       "stargazers_url": "https://api.github.com/repos/apache/kafka/stargazers",
+2026-02-24T18:42:26.4384309Z       "statuses_url": "https://api.github.com/repos/apache/kafka/statuses/{sha}",
+2026-02-24T18:42:26.4385288Z       "subscribers_url": "https://api.github.com/repos/apache/kafka/subscribers",
+2026-02-24T18:42:26.4386278Z       "subscription_url": "https://api.github.com/repos/apache/kafka/subscription",
+2026-02-24T18:42:26.4387216Z       "svn_url": "https://github.com/apache/kafka",
+2026-02-24T18:42:26.4387955Z       "tags_url": "https://api.github.com/repos/apache/kafka/tags",
+2026-02-24T18:42:26.4388779Z       "teams_url": "https://api.github.com/repos/apache/kafka/teams",
+2026-02-24T18:42:26.4389467Z       "topics": [
+2026-02-24T18:42:26.4389891Z         "kafka",
+2026-02-24T18:42:26.4390333Z         "scala"
+2026-02-24T18:42:26.4390784Z       ],
+2026-02-24T18:42:26.4391390Z       "trees_url": "https://api.github.com/repos/apache/kafka/git/trees{/sha}",
+2026-02-24T18:42:26.4392144Z       "updated_at": "2026-02-24T17:57:25Z",
+2026-02-24T18:42:26.4392776Z       "url": "https://api.github.com/repos/apache/kafka",
+2026-02-24T18:42:26.4393570Z       "visibility": "public",
+2026-02-24T18:42:26.4394060Z       "watchers": 32043,
+2026-02-24T18:42:26.4394541Z       "watchers_count": 32043,
+2026-02-24T18:42:26.4395063Z       "web_commit_signoff_required": false
+2026-02-24T18:42:26.4395599Z     },
+2026-02-24T18:42:26.4395988Z     "sender": {
+2026-02-24T18:42:26.4396585Z       "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+2026-02-24T18:42:26.4397682Z       "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+2026-02-24T18:42:26.4398622Z       "followers_url": "https://api.github.com/users/mimaison/followers",
+2026-02-24T18:42:26.4399566Z       "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+2026-02-24T18:42:26.4400534Z       "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+2026-02-24T18:42:26.4401248Z       "gravatar_id": "",
+2026-02-24T18:42:26.4401765Z       "html_url": "https://github.com/mimaison",
+2026-02-24T18:42:26.4402347Z       "id": 903615,
+2026-02-24T18:42:26.4402791Z       "login": "mimaison",
+2026-02-24T18:42:26.4403281Z       "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+2026-02-24T18:42:26.4403996Z       "organizations_url": "https://api.github.com/users/mimaison/orgs",
+2026-02-24T18:42:26.4404949Z       "received_events_url": "https://api.github.com/users/mimaison/received_events",
+2026-02-24T18:42:26.4405853Z       "repos_url": "https://api.github.com/users/mimaison/repos",
+2026-02-24T18:42:26.4406523Z       "site_admin": false,
+2026-02-24T18:42:26.4407331Z       "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+2026-02-24T18:42:26.4408332Z       "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+2026-02-24T18:42:26.4409105Z       "type": "User",
+2026-02-24T18:42:26.4409617Z       "url": "https://api.github.com/users/mimaison",
+2026-02-24T18:42:26.4410238Z       "user_view_type": "public"
+2026-02-24T18:42:26.4410736Z     },
+2026-02-24T18:42:26.4411117Z     "workflow": {
+2026-02-24T18:42:26.4411734Z       "badge_url": "https://github.com/apache/kafka/workflows/CI/badge.svg",
+2026-02-24T18:42:26.4412490Z       "created_at": "2024-08-20T22:39:43.000Z",
+2026-02-24T18:42:26.4413294Z       "html_url": "https://github.com/apache/kafka/blob/trunk/.github/workflows/ci.yml",
+2026-02-24T18:42:26.4414078Z       "id": 113331030,
+2026-02-24T18:42:26.4414512Z       "name": "CI",
+2026-02-24T18:42:26.4414963Z       "node_id": "W_kwDOACG9q84GwUtW",
+2026-02-24T18:42:26.4415523Z       "path": ".github/workflows/ci.yml",
+2026-02-24T18:42:26.4416199Z       "state": "active",
+2026-02-24T18:42:26.4416718Z       "updated_at": "2026-01-05T16:44:52.000Z",
+2026-02-24T18:42:26.4417613Z       "url": "https://api.github.com/repos/apache/kafka/actions/workflows/113331030"
+2026-02-24T18:42:26.4418363Z     },
+2026-02-24T18:42:26.4418755Z     "workflow_run": {
+2026-02-24T18:42:26.4419189Z       "actor": {
+2026-02-24T18:42:26.4419792Z         "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+2026-02-24T18:42:26.4420700Z         "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+2026-02-24T18:42:26.4421599Z         "followers_url": "https://api.github.com/users/mimaison/followers",
+2026-02-24T18:42:26.4422546Z         "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+2026-02-24T18:42:26.4423497Z         "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+2026-02-24T18:42:26.4424210Z         "gravatar_id": "",
+2026-02-24T18:42:26.4424745Z         "html_url": "https://github.com/mimaison",
+2026-02-24T18:42:26.4425327Z         "id": 903615,
+2026-02-24T18:42:26.4425844Z         "login": "mimaison",
+2026-02-24T18:42:26.4426363Z         "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+2026-02-24T18:42:26.4427185Z         "organizations_url": "https://api.github.com/users/mimaison/orgs",
+2026-02-24T18:42:26.4428153Z         "received_events_url": "https://api.github.com/users/mimaison/received_events",
+2026-02-24T18:42:26.4429064Z         "repos_url": "https://api.github.com/users/mimaison/repos",
+2026-02-24T18:42:26.4429899Z         "site_admin": false,
+2026-02-24T18:42:26.4430614Z         "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+2026-02-24T18:42:26.4431610Z         "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+2026-02-24T18:42:26.4432386Z         "type": "User",
+2026-02-24T18:42:26.4432911Z         "url": "https://api.github.com/users/mimaison",
+2026-02-24T18:42:26.4433531Z         "user_view_type": "public"
+2026-02-24T18:42:26.4434040Z       },
+2026-02-24T18:42:26.4434768Z       "artifacts_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/artifacts",
+2026-02-24T18:42:26.4435931Z       "cancel_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/cancel",
+2026-02-24T18:42:26.4436770Z       "check_suite_id": 58402266446,
+2026-02-24T18:42:26.4437494Z       "check_suite_node_id": "CS_kwDOACG9q88AAAANmQvdTg",
+2026-02-24T18:42:26.4438386Z       "check_suite_url": "https://api.github.com/repos/apache/kafka/check-suites/58402266446",
+2026-02-24T18:42:26.4439234Z       "conclusion": "failure",
+2026-02-24T18:42:26.4439745Z       "created_at": "2026-02-24T15:28:38Z",
+2026-02-24T18:42:26.4440379Z       "display_title": "KAFKA-19774: Cleanups for KIP-1066",
+2026-02-24T18:42:26.4441021Z       "event": "pull_request",
+2026-02-24T18:42:26.4441534Z       "head_branch": "kafka-19774-2",
+2026-02-24T18:42:26.4442065Z       "head_commit": {
+2026-02-24T18:42:26.4442506Z         "author": {
+2026-02-24T18:42:26.4442981Z           "email": "mickael.maison@gmail.com",
+2026-02-24T18:42:26.4443552Z           "name": "Mickael Maison"
+2026-02-24T18:42:26.4444053Z         },
+2026-02-24T18:42:26.4444449Z         "committer": {
+2026-02-24T18:42:26.4444931Z           "email": "mickael.maison@gmail.com",
+2026-02-24T18:42:26.4445506Z           "name": "Mickael Maison"
+2026-02-24T18:42:26.4446001Z         },
+2026-02-24T18:42:26.4446463Z         "id": "268d67be141e2813884e6b5926c4ef2121754ae7",
+2026-02-24T18:42:26.4447199Z         "message": "Docs for decommission",
+2026-02-24T18:42:26.4447789Z         "timestamp": "2026-02-24T15:28:06Z",
+2026-02-24T18:42:26.4448437Z         "tree_id": "efdc7acd0df1ebfde6783afa36a1e0184953c90d"
+2026-02-24T18:42:26.4513296Z       },
+2026-02-24T18:42:26.4513858Z       "head_repository": {
+2026-02-24T18:42:26.4514768Z         "archive_url": "https://api.github.com/repos/mimaison/kafka/{archive_format}{/ref}",
+2026-02-24T18:42:26.4516287Z         "assignees_url": "https://api.github.com/repos/mimaison/kafka/assignees{/user}",
+2026-02-24T18:42:26.4517516Z         "blobs_url": "https://api.github.com/repos/mimaison/kafka/git/blobs{/sha}",
+2026-02-24T18:42:26.4518535Z         "branches_url": "https://api.github.com/repos/mimaison/kafka/branches{/branch}",
+2026-02-24T18:42:26.4519738Z         "collaborators_url": "https://api.github.com/repos/mimaison/kafka/collaborators{/collaborator}",
+2026-02-24T18:42:26.4520954Z         "comments_url": "https://api.github.com/repos/mimaison/kafka/comments{/number}",
+2026-02-24T18:42:26.4521991Z         "commits_url": "https://api.github.com/repos/mimaison/kafka/commits{/sha}",
+2026-02-24T18:42:26.4523063Z         "compare_url": "https://api.github.com/repos/mimaison/kafka/compare/{base}...{head}",
+2026-02-24T18:42:26.4524140Z         "contents_url": "https://api.github.com/repos/mimaison/kafka/contents/{+path}",
+2026-02-24T18:42:26.4525196Z         "contributors_url": "https://api.github.com/repos/mimaison/kafka/contributors",
+2026-02-24T18:42:26.4526284Z         "deployments_url": "https://api.github.com/repos/mimaison/kafka/deployments",
+2026-02-24T18:42:26.4527254Z         "description": "Mirror of Apache Kafka",
+2026-02-24T18:42:26.4528055Z         "downloads_url": "https://api.github.com/repos/mimaison/kafka/downloads",
+2026-02-24T18:42:26.4529004Z         "events_url": "https://api.github.com/repos/mimaison/kafka/events",
+2026-02-24T18:42:26.4529728Z         "fork": true,
+2026-02-24T18:42:26.4530325Z         "forks_url": "https://api.github.com/repos/mimaison/kafka/forks",
+2026-02-24T18:42:26.4531226Z         "full_name": "mimaison/kafka",
+2026-02-24T18:42:26.4532029Z         "git_commits_url": "https://api.github.com/repos/mimaison/kafka/git/commits{/sha}",
+2026-02-24T18:42:26.4533069Z         "git_refs_url": "https://api.github.com/repos/mimaison/kafka/git/refs{/sha}",
+2026-02-24T18:42:26.4534110Z         "git_tags_url": "https://api.github.com/repos/mimaison/kafka/git/tags{/sha}",
+2026-02-24T18:42:26.4535066Z         "hooks_url": "https://api.github.com/repos/mimaison/kafka/hooks",
+2026-02-24T18:42:26.4535852Z         "html_url": "https://github.com/mimaison/kafka",
+2026-02-24T18:42:26.4536468Z         "id": 53746208,
+2026-02-24T18:42:26.4537412Z         "issue_comment_url": "https://api.github.com/repos/mimaison/kafka/issues/comments{/number}",
+2026-02-24T18:42:26.4538640Z         "issue_events_url": "https://api.github.com/repos/mimaison/kafka/issues/events{/number}",
+2026-02-24T18:42:26.4539728Z         "issues_url": "https://api.github.com/repos/mimaison/kafka/issues{/number}",
+2026-02-24T18:42:26.4540718Z         "keys_url": "https://api.github.com/repos/mimaison/kafka/keys{/key_id}",
+2026-02-24T18:42:26.4541664Z         "labels_url": "https://api.github.com/repos/mimaison/kafka/labels{/name}",
+2026-02-24T18:42:26.4542633Z         "languages_url": "https://api.github.com/repos/mimaison/kafka/languages",
+2026-02-24T18:42:26.4543566Z         "merges_url": "https://api.github.com/repos/mimaison/kafka/merges",
+2026-02-24T18:42:26.4544582Z         "milestones_url": "https://api.github.com/repos/mimaison/kafka/milestones{/number}",
+2026-02-24T18:42:26.4545425Z         "name": "kafka",
+2026-02-24T18:42:26.4545960Z         "node_id": "MDEwOlJlcG9zaXRvcnk1Mzc0NjIwOA==",
+2026-02-24T18:42:26.4547159Z         "notifications_url": "https://api.github.com/repos/mimaison/kafka/notifications{?since,all,participating}",
+2026-02-24T18:42:26.4548176Z         "owner": {
+2026-02-24T18:42:26.4548786Z           "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+2026-02-24T18:42:26.4549735Z           "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+2026-02-24T18:42:26.4550673Z           "followers_url": "https://api.github.com/users/mimaison/followers",
+2026-02-24T18:42:26.4551667Z           "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+2026-02-24T18:42:26.4552667Z           "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+2026-02-24T18:42:26.4553458Z           "gravatar_id": "",
+2026-02-24T18:42:26.4554149Z           "html_url": "https://github.com/mimaison",
+2026-02-24T18:42:26.4554773Z           "id": 903615,
+2026-02-24T18:42:26.4555242Z           "login": "mimaison",
+2026-02-24T18:42:26.4555787Z           "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+2026-02-24T18:42:26.4556552Z           "organizations_url": "https://api.github.com/users/mimaison/orgs",
+2026-02-24T18:42:26.4557670Z           "received_events_url": "https://api.github.com/users/mimaison/received_events",
+2026-02-24T18:42:26.4558610Z           "repos_url": "https://api.github.com/users/mimaison/repos",
+2026-02-24T18:42:26.4559294Z           "site_admin": false,
+2026-02-24T18:42:26.4560006Z           "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+2026-02-24T18:42:26.4561008Z           "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+2026-02-24T18:42:26.4561796Z           "type": "User",
+2026-02-24T18:42:26.4562328Z           "url": "https://api.github.com/users/mimaison",
+2026-02-24T18:42:26.4562959Z           "user_view_type": "public"
+2026-02-24T18:42:26.4563486Z         },
+2026-02-24T18:42:26.4563889Z         "private": false,
+2026-02-24T18:42:26.4564565Z         "pulls_url": "https://api.github.com/repos/mimaison/kafka/pulls{/number}",
+2026-02-24T18:42:26.4565525Z         "releases_url": "https://api.github.com/repos/mimaison/kafka/releases{/id}",
+2026-02-24T18:42:26.4566495Z         "stargazers_url": "https://api.github.com/repos/mimaison/kafka/stargazers",
+2026-02-24T18:42:26.4567754Z         "statuses_url": "https://api.github.com/repos/mimaison/kafka/statuses/{sha}",
+2026-02-24T18:42:26.4568747Z         "subscribers_url": "https://api.github.com/repos/mimaison/kafka/subscribers",
+2026-02-24T18:42:26.4569776Z         "subscription_url": "https://api.github.com/repos/mimaison/kafka/subscription",
+2026-02-24T18:42:26.4570719Z         "tags_url": "https://api.github.com/repos/mimaison/kafka/tags",
+2026-02-24T18:42:26.4571547Z         "teams_url": "https://api.github.com/repos/mimaison/kafka/teams",
+2026-02-24T18:42:26.4572435Z         "trees_url": "https://api.github.com/repos/mimaison/kafka/git/trees{/sha}",
+2026-02-24T18:42:26.4573268Z         "url": "https://api.github.com/repos/mimaison/kafka"
+2026-02-24T18:42:26.4573900Z       },
+2026-02-24T18:42:26.4574401Z       "head_sha": "268d67be141e2813884e6b5926c4ef2121754ae7",
+2026-02-24T18:42:26.4575206Z       "html_url": "https://github.com/apache/kafka/actions/runs/22357616663",
+2026-02-24T18:42:26.4575919Z       "id": 22357616663,
+2026-02-24T18:42:26.4576673Z       "jobs_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/jobs",
+2026-02-24T18:42:26.4577909Z       "logs_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/logs",
+2026-02-24T18:42:26.4578714Z       "name": "CI",
+2026-02-24T18:42:26.4579194Z       "node_id": "WFR_kwLOACG9q88AAAAFNJ4oFw",
+2026-02-24T18:42:26.4579830Z       "path": ".github/workflows/ci.yml",
+2026-02-24T18:42:26.4580427Z       "previous_attempt_url": null,
+2026-02-24T18:42:26.4580988Z       "pull_requests": [],
+2026-02-24T18:42:26.4581505Z       "referenced_workflows": [
+2026-02-24T18:42:26.4581997Z         {
+2026-02-24T18:42:26.4582741Z           "path": "apache/kafka/.github/workflows/build.yml@a6288caaa1cdf3fe18229fbf14a6716fe87a03e8",
+2026-02-24T18:42:26.4583648Z           "ref": "refs/pull/21523/merge",
+2026-02-24T18:42:26.4584269Z           "sha": "a6288caaa1cdf3fe18229fbf14a6716fe87a03e8"
+2026-02-24T18:42:26.4584874Z         }
+2026-02-24T18:42:26.4585275Z       ],
+2026-02-24T18:42:26.4585678Z       "repository": {
+2026-02-24T18:42:26.4586381Z         "archive_url": "https://api.github.com/repos/apache/kafka/{archive_format}{/ref}",
+2026-02-24T18:42:26.4587514Z         "assignees_url": "https://api.github.com/repos/apache/kafka/assignees{/user}",
+2026-02-24T18:42:26.4588520Z         "blobs_url": "https://api.github.com/repos/apache/kafka/git/blobs{/sha}",
+2026-02-24T18:42:26.4589493Z         "branches_url": "https://api.github.com/repos/apache/kafka/branches{/branch}",
+2026-02-24T18:42:26.4590757Z         "collaborators_url": "https://api.github.com/repos/apache/kafka/collaborators{/collaborator}",
+2026-02-24T18:42:26.4591920Z         "comments_url": "https://api.github.com/repos/apache/kafka/comments{/number}",
+2026-02-24T18:42:26.4592903Z         "commits_url": "https://api.github.com/repos/apache/kafka/commits{/sha}",
+2026-02-24T18:42:26.4593899Z         "compare_url": "https://api.github.com/repos/apache/kafka/compare/{base}...{head}",
+2026-02-24T18:42:26.4594943Z         "contents_url": "https://api.github.com/repos/apache/kafka/contents/{+path}",
+2026-02-24T18:42:26.4595944Z         "contributors_url": "https://api.github.com/repos/apache/kafka/contributors",
+2026-02-24T18:42:26.4597049Z         "deployments_url": "https://api.github.com/repos/apache/kafka/deployments",
+2026-02-24T18:42:26.4597875Z         "description": "Mirror of Apache Kafka",
+2026-02-24T18:42:26.4598644Z         "downloads_url": "https://api.github.com/repos/apache/kafka/downloads",
+2026-02-24T18:42:26.4599562Z         "events_url": "https://api.github.com/repos/apache/kafka/events",
+2026-02-24T18:42:26.4600264Z         "fork": false,
+2026-02-24T18:42:26.4600854Z         "forks_url": "https://api.github.com/repos/apache/kafka/forks",
+2026-02-24T18:42:26.4601557Z         "full_name": "apache/kafka",
+2026-02-24T18:42:26.4602341Z         "git_commits_url": "https://api.github.com/repos/apache/kafka/git/commits{/sha}",
+2026-02-24T18:42:26.4603325Z         "git_refs_url": "https://api.github.com/repos/apache/kafka/git/refs{/sha}",
+2026-02-24T18:42:26.4604421Z         "git_tags_url": "https://api.github.com/repos/apache/kafka/git/tags{/sha}",
+2026-02-24T18:42:26.4605320Z         "hooks_url": "https://api.github.com/repos/apache/kafka/hooks",
+2026-02-24T18:42:26.4606076Z         "html_url": "https://github.com/apache/kafka",
+2026-02-24T18:42:26.4606686Z         "id": 2211243,
+2026-02-24T18:42:26.4607592Z         "issue_comment_url": "https://api.github.com/repos/apache/kafka/issues/comments{/number}",
+2026-02-24T18:42:26.4608724Z         "issue_events_url": "https://api.github.com/repos/apache/kafka/issues/events{/number}",
+2026-02-24T18:42:26.4609765Z         "issues_url": "https://api.github.com/repos/apache/kafka/issues{/number}",
+2026-02-24T18:42:26.4610701Z         "keys_url": "https://api.github.com/repos/apache/kafka/keys{/key_id}",
+2026-02-24T18:42:26.4611606Z         "labels_url": "https://api.github.com/repos/apache/kafka/labels{/name}",
+2026-02-24T18:42:26.4612586Z         "languages_url": "https://api.github.com/repos/apache/kafka/languages",
+2026-02-24T18:42:26.4613510Z         "merges_url": "https://api.github.com/repos/apache/kafka/merges",
+2026-02-24T18:42:26.4614469Z         "milestones_url": "https://api.github.com/repos/apache/kafka/milestones{/number}",
+2026-02-24T18:42:26.4615283Z         "name": "kafka",
+2026-02-24T18:42:26.4615813Z         "node_id": "MDEwOlJlcG9zaXRvcnkyMjExMjQz",
+2026-02-24T18:42:26.4616841Z         "notifications_url": "https://api.github.com/repos/apache/kafka/notifications{?since,all,participating}",
+2026-02-24T18:42:26.4618026Z         "owner": {
+2026-02-24T18:42:26.4618647Z           "avatar_url": "https://avatars.githubusercontent.com/u/47359?v=4",
+2026-02-24T18:42:26.4619581Z           "events_url": "https://api.github.com/users/apache/events{/privacy}",
+2026-02-24T18:42:26.4620478Z           "followers_url": "https://api.github.com/users/apache/followers",
+2026-02-24T18:42:26.4621442Z           "following_url": "https://api.github.com/users/apache/following{/other_user}",
+2026-02-24T18:42:26.4622410Z           "gists_url": "https://api.github.com/users/apache/gists{/gist_id}",
+2026-02-24T18:42:26.4623136Z           "gravatar_id": "",
+2026-02-24T18:42:26.4623680Z           "html_url": "https://github.com/apache",
+2026-02-24T18:42:26.4624275Z           "id": 47359,
+2026-02-24T18:42:26.4624736Z           "login": "apache",
+2026-02-24T18:42:26.4625286Z           "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzU5",
+2026-02-24T18:42:26.4626239Z           "organizations_url": "https://api.github.com/users/apache/orgs",
+2026-02-24T18:42:26.4627376Z           "received_events_url": "https://api.github.com/users/apache/received_events",
+2026-02-24T18:42:26.4628304Z           "repos_url": "https://api.github.com/users/apache/repos",
+2026-02-24T18:42:26.4628995Z           "site_admin": false,
+2026-02-24T18:42:26.4629730Z           "starred_url": "https://api.github.com/users/apache/starred{/owner}{/repo}",
+2026-02-24T18:42:26.4630723Z           "subscriptions_url": "https://api.github.com/users/apache/subscriptions",
+2026-02-24T18:42:26.4631522Z           "type": "Organization",
+2026-02-24T18:42:26.4632097Z           "url": "https://api.github.com/users/apache",
+2026-02-24T18:42:26.4632716Z           "user_view_type": "public"
+2026-02-24T18:42:26.4633242Z         },
+2026-02-24T18:42:26.4633647Z         "private": false,
+2026-02-24T18:42:26.4634323Z         "pulls_url": "https://api.github.com/repos/apache/kafka/pulls{/number}",
+2026-02-24T18:42:26.4635278Z         "releases_url": "https://api.github.com/repos/apache/kafka/releases{/id}",
+2026-02-24T18:42:26.4636244Z         "stargazers_url": "https://api.github.com/repos/apache/kafka/stargazers",
+2026-02-24T18:42:26.4637377Z         "statuses_url": "https://api.github.com/repos/apache/kafka/statuses/{sha}",
+2026-02-24T18:42:26.4638387Z         "subscribers_url": "https://api.github.com/repos/apache/kafka/subscribers",
+2026-02-24T18:42:26.4639384Z         "subscription_url": "https://api.github.com/repos/apache/kafka/subscription",
+2026-02-24T18:42:26.4640499Z         "tags_url": "https://api.github.com/repos/apache/kafka/tags",
+2026-02-24T18:42:26.4641332Z         "teams_url": "https://api.github.com/repos/apache/kafka/teams",
+2026-02-24T18:42:26.4642217Z         "trees_url": "https://api.github.com/repos/apache/kafka/git/trees{/sha}",
+2026-02-24T18:42:26.4643082Z         "url": "https://api.github.com/repos/apache/kafka"
+2026-02-24T18:42:26.4643695Z       },
+2026-02-24T18:42:26.4644380Z       "rerun_url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663/rerun",
+2026-02-24T18:42:26.4645220Z       "run_attempt": 1,
+2026-02-24T18:42:26.4645686Z       "run_number": 25802,
+2026-02-24T18:42:26.4646200Z       "run_started_at": "2026-02-24T15:28:38Z",
+2026-02-24T18:42:26.4646783Z       "status": "completed",
+2026-02-24T18:42:26.4647402Z       "triggering_actor": {
+2026-02-24T18:42:26.4648068Z         "avatar_url": "https://avatars.githubusercontent.com/u/903615?v=4",
+2026-02-24T18:42:26.4648970Z         "events_url": "https://api.github.com/users/mimaison/events{/privacy}",
+2026-02-24T18:42:26.4649905Z         "followers_url": "https://api.github.com/users/mimaison/followers",
+2026-02-24T18:42:26.4650864Z         "following_url": "https://api.github.com/users/mimaison/following{/other_user}",
+2026-02-24T18:42:26.4651818Z         "gists_url": "https://api.github.com/users/mimaison/gists{/gist_id}",
+2026-02-24T18:42:26.4652550Z         "gravatar_id": "",
+2026-02-24T18:42:26.4653120Z         "html_url": "https://github.com/mimaison",
+2026-02-24T18:42:26.4653722Z         "id": 903615,
+2026-02-24T18:42:26.4654180Z         "login": "mimaison",
+2026-02-24T18:42:26.4654701Z         "node_id": "MDQ6VXNlcjkwMzYxNQ==",
+2026-02-24T18:42:26.4655446Z         "organizations_url": "https://api.github.com/users/mimaison/orgs",
+2026-02-24T18:42:26.4656399Z         "received_events_url": "https://api.github.com/users/mimaison/received_events",
+2026-02-24T18:42:26.4657501Z         "repos_url": "https://api.github.com/users/mimaison/repos",
+2026-02-24T18:42:26.4658192Z         "site_admin": false,
+2026-02-24T18:42:26.4658906Z         "starred_url": "https://api.github.com/users/mimaison/starred{/owner}{/repo}",
+2026-02-24T18:42:26.4659889Z         "subscriptions_url": "https://api.github.com/users/mimaison/subscriptions",
+2026-02-24T18:42:26.4660670Z         "type": "User",
+2026-02-24T18:42:26.4661201Z         "url": "https://api.github.com/users/mimaison",
+2026-02-24T18:42:26.4661820Z         "user_view_type": "public"
+2026-02-24T18:42:26.4662335Z       },
+2026-02-24T18:42:26.4662903Z       "updated_at": "2026-02-24T18:42:18Z",
+2026-02-24T18:42:26.4663676Z       "url": "https://api.github.com/repos/apache/kafka/actions/runs/22357616663",
+2026-02-24T18:42:26.4664442Z       "workflow_id": 113331030,
+2026-02-24T18:42:26.4665214Z       "workflow_url": "https://api.github.com/repos/apache/kafka/actions/workflows/113331030"
+2026-02-24T18:42:26.4666018Z     }
+2026-02-24T18:42:26.4666398Z   },
+2026-02-24T18:42:26.4667144Z   "workflow_ref": "apache/kafka/.github/workflows/ci-complete.yml@refs/heads/trunk",
+2026-02-24T18:42:26.4668083Z   "workflow_sha": "7b46af69aa495ea612e1b771e8f5b1b5b89862f8",
+2026-02-24T18:42:26.4668752Z   "repository_id": "2211243",
+2026-02-24T18:42:26.4669263Z   "triggering_actor": "mimaison",
+2026-02-24T18:42:26.4669835Z   "workspace": "/home/runner/work/kafka/kafka",
+2026-02-24T18:42:26.4670426Z   "action": "__run"
+2026-02-24T18:42:26.4670866Z }
+2026-02-24T18:42:26.4671327Z GOROOT_1_23_X64=/opt/hostedtoolcache/go/1.23.12/x64
+2026-02-24T18:42:26.4672079Z GITHUB_WORKFLOW_SHA=7b46af69aa495ea612e1b771e8f5b1b5b89862f8
+2026-02-24T18:42:26.4672812Z GOROOT_1_24_X64=/opt/hostedtoolcache/go/1.24.12/x64
+2026-02-24T18:42:26.4673464Z GITHUB_REF_NAME=trunk
+2026-02-24T18:42:26.4673942Z GITHUB_JOB=upload-build-scan
+2026-02-24T18:42:26.4674463Z XDG_RUNTIME_DIR=/run/user/1001
+2026-02-24T18:42:26.4675020Z AZURE_EXTENSION_DIR=/opt/az/azcliextensions
+2026-02-24T18:42:26.4675630Z GITHUB_REPOSITORY=apache/kafka
+2026-02-24T18:42:26.4676200Z GOROOT_1_22_X64=/opt/hostedtoolcache/go/1.22.12/x64
+2026-02-24T18:42:26.4677203Z ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/27.3.13750724
+2026-02-24T18:42:26.4677897Z CHROME_BIN=/usr/bin/google-chrome
+2026-02-24T18:42:26.4678428Z GITHUB_RETENTION_DAYS=90
+2026-02-24T18:42:26.4678900Z JOURNAL_STREAM=9:13835
+2026-02-24T18:42:26.4679395Z RUNNER_WORKSPACE=/home/runner/work/kafka
+2026-02-24T18:42:26.4679967Z GITHUB_ACTION_REPOSITORY=
+2026-02-24T18:42:26.4681797Z PATH=/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+2026-02-24T18:42:26.4683661Z GITHUB_BASE_REF=
+2026-02-24T18:42:26.4684124Z GHCUP_INSTALL_BASE_PREFIX=/usr/local
+2026-02-24T18:42:26.4684645Z CI=true
+2026-02-24T18:42:26.4685067Z SWIFT_PATH=/usr/share/swift/usr/bin
+2026-02-24T18:42:26.4685589Z ImageOS=ubuntu24
+2026-02-24T18:42:26.4686042Z GITHUB_REPOSITORY_OWNER=apache
+2026-02-24T18:42:26.4686558Z GITHUB_HEAD_REF=
+2026-02-24T18:42:26.4687121Z GITHUB_ACTION_REF=
+2026-02-24T18:42:26.4687585Z ENABLE_RUNNER_TRACING=true
+2026-02-24T18:42:26.4688086Z GITHUB_WORKFLOW=CI Complete
+2026-02-24T18:42:26.4688593Z DEBIAN_FRONTEND=noninteractive
+2026-02-24T18:42:26.4689514Z GITHUB_OUTPUT=/home/runner/work/_temp/_runner_file_commands/set_output_be9cce24-292d-4aba-85e4-1504496ebba1
+2026-02-24T18:42:26.4690533Z AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
+2026-02-24T18:42:26.4691097Z _=/usr/bin/printenv
+2026-02-24T18:42:26.4896063Z ##[group]Run actions/checkout@v5
+2026-02-24T18:42:26.4896724Z with:
+2026-02-24T18:42:26.4897380Z   persist-credentials: false
+2026-02-24T18:42:26.4897898Z   repository: apache/kafka
+2026-02-24T18:42:26.4898600Z   token: ***
+2026-02-24T18:42:26.4899022Z   ssh-strict: true
+2026-02-24T18:42:26.4899447Z   ssh-user: git
+2026-02-24T18:42:26.4899855Z   clean: true
+2026-02-24T18:42:26.4900290Z   sparse-checkout-cone-mode: true
+2026-02-24T18:42:26.4900846Z   fetch-depth: 1
+2026-02-24T18:42:26.4901252Z   fetch-tags: false
+2026-02-24T18:42:26.4901683Z   show-progress: true
+2026-02-24T18:42:26.4902107Z   lfs: false
+2026-02-24T18:42:26.4902503Z   submodules: false
+2026-02-24T18:42:26.4902938Z   set-safe-directory: true
+2026-02-24T18:42:26.4903393Z env:
+2026-02-24T18:42:26.4903804Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:26.4904323Z   status-context: Java 25
+2026-02-24T18:42:26.4904776Z ##[endgroup]
+2026-02-24T18:42:26.5800071Z Syncing repository: apache/kafka
+2026-02-24T18:42:26.5801968Z ##[group]Getting Git version info
+2026-02-24T18:42:26.5802658Z Working directory is '/home/runner/work/kafka/kafka'
+2026-02-24T18:42:26.5803626Z [command]/usr/bin/git version
+2026-02-24T18:42:26.5859645Z git version 2.52.0
+2026-02-24T18:42:26.5881015Z ##[endgroup]
+2026-02-24T18:42:26.5894950Z Temporarily overriding HOME='/home/runner/work/_temp/86e197e0-7aa7-4706-aa98-3760a82ba4e0' before making global git config changes
+2026-02-24T18:42:26.5897365Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-24T18:42:26.5899697Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/kafka/kafka
+2026-02-24T18:42:26.5936698Z Deleting the contents of '/home/runner/work/kafka/kafka'
+2026-02-24T18:42:26.5940354Z ##[group]Initializing the repository
+2026-02-24T18:42:26.5944605Z [command]/usr/bin/git init /home/runner/work/kafka/kafka
+2026-02-24T18:42:26.6053219Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-24T18:42:26.6056051Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-24T18:42:26.6058998Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-24T18:42:26.6060656Z hint: call:
+2026-02-24T18:42:26.6061489Z hint:
+2026-02-24T18:42:26.6062177Z hint: 	git config --global init.defaultBranch <name>
+2026-02-24T18:42:26.6063019Z hint:
+2026-02-24T18:42:26.6063872Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-24T18:42:26.6065838Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-24T18:42:26.6066602Z hint:
+2026-02-24T18:42:26.6067302Z hint: 	git branch -m <name>
+2026-02-24T18:42:26.6067908Z hint:
+2026-02-24T18:42:26.6068878Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-24T18:42:26.6070026Z Initialized empty Git repository in /home/runner/work/kafka/kafka/.git/
+2026-02-24T18:42:26.6071645Z [command]/usr/bin/git remote add origin https://github.com/apache/kafka
+2026-02-24T18:42:26.6101715Z ##[endgroup]
+2026-02-24T18:42:26.6102536Z ##[group]Disabling automatic garbage collection
+2026-02-24T18:42:26.6105512Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-24T18:42:26.6133507Z ##[endgroup]
+2026-02-24T18:42:26.6134988Z ##[group]Setting up auth
+2026-02-24T18:42:26.6140962Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-24T18:42:26.6172218Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-24T18:42:26.6496410Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-24T18:42:26.6528348Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-24T18:42:26.6747599Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-24T18:42:26.6778243Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-24T18:42:26.6998315Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-24T18:42:26.7034250Z ##[endgroup]
+2026-02-24T18:42:26.7035799Z ##[group]Fetching the repository
+2026-02-24T18:42:26.7045453Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7b46af69aa495ea612e1b771e8f5b1b5b89862f8:refs/remotes/origin/trunk
+2026-02-24T18:42:31.6365959Z From https://github.com/apache/kafka
+2026-02-24T18:42:31.6369694Z  * [new ref]         7b46af69aa495ea612e1b771e8f5b1b5b89862f8 -> origin/trunk
+2026-02-24T18:42:31.6400458Z ##[endgroup]
+2026-02-24T18:42:31.6401190Z ##[group]Determining the checkout info
+2026-02-24T18:42:31.6402763Z ##[endgroup]
+2026-02-24T18:42:31.6408041Z [command]/usr/bin/git sparse-checkout disable
+2026-02-24T18:42:31.6450278Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-24T18:42:31.6476308Z ##[group]Checking out the ref
+2026-02-24T18:42:31.6480246Z [command]/usr/bin/git checkout --progress --force -B trunk refs/remotes/origin/trunk
+2026-02-24T18:42:32.2043750Z Switched to a new branch 'trunk'
+2026-02-24T18:42:32.2045981Z branch 'trunk' set up to track 'origin/trunk'.
+2026-02-24T18:42:32.2073285Z ##[endgroup]
+2026-02-24T18:42:32.2130531Z [command]/usr/bin/git log -1 --format=%H
+2026-02-24T18:42:32.2153808Z 7b46af69aa495ea612e1b771e8f5b1b5b89862f8
+2026-02-24T18:42:32.2164989Z ##[group]Removing auth
+2026-02-24T18:42:32.2169097Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-24T18:42:32.2200301Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-24T18:42:32.2471616Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-24T18:42:32.2496861Z http.https://github.com/.extraheader
+2026-02-24T18:42:32.2508141Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-02-24T18:42:32.2547675Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-24T18:42:32.2795043Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-24T18:42:32.2829798Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-24T18:42:32.3071377Z ##[endgroup]
+2026-02-24T18:42:32.3305431Z Prepare all required actions
+2026-02-24T18:42:32.3305917Z Getting action download info
+2026-02-24T18:42:32.5363914Z Download action repository 'actions/setup-java@v5' (SHA:be666c2fcd27ec809703dec50e508c2fdc7f6654)
+2026-02-24T18:42:33.4847583Z Download action repository 'gradle/actions@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2' (SHA:4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2)
+2026-02-24T18:42:35.0451745Z ##[group]Run ./.github/actions/setup-gradle
+2026-02-24T18:42:35.0452074Z with:
+2026-02-24T18:42:35.0452285Z   java-version: 25
+2026-02-24T18:42:35.0452930Z   develocity-access-key: ***
+2026-02-24T18:42:35.0453209Z   gradle-cache-read-only: true
+2026-02-24T18:42:35.0453453Z   gradle-cache-write-only: false
+2026-02-24T18:42:35.0453682Z env:
+2026-02-24T18:42:35.0453864Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:35.0454109Z   status-context: Java 25
+2026-02-24T18:42:35.0454310Z ##[endgroup]
+2026-02-24T18:42:35.0588850Z ##[group]Run actions/setup-java@v5
+2026-02-24T18:42:35.0589160Z with:
+2026-02-24T18:42:35.0589329Z   distribution: temurin
+2026-02-24T18:42:35.0589533Z   java-version: 25
+2026-02-24T18:42:35.0589717Z   java-package: jdk
+2026-02-24T18:42:35.0589902Z   check-latest: false
+2026-02-24T18:42:35.0590091Z   server-id: github
+2026-02-24T18:42:35.0590276Z   server-username: GITHUB_ACTOR
+2026-02-24T18:42:35.0590517Z   server-password: GITHUB_TOKEN
+2026-02-24T18:42:35.0590760Z   overwrite-settings: true
+2026-02-24T18:42:35.0590961Z   job-status: success
+2026-02-24T18:42:35.0591276Z   token: ***
+2026-02-24T18:42:35.0591452Z env:
+2026-02-24T18:42:35.0591625Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:35.0591883Z   status-context: Java 25
+2026-02-24T18:42:35.0592086Z ##[endgroup]
+2026-02-24T18:42:35.2116696Z ##[group]Installed distributions
+2026-02-24T18:42:35.2186211Z Resolved Java 25.0.2+10 from tool-cache
+2026-02-24T18:42:35.2186758Z Setting Java 25.0.2+10 as the default
+2026-02-24T18:42:35.2198150Z Creating toolchains.xml for JDK version 25 from temurin
+2026-02-24T18:42:35.2273163Z Writing to /home/runner/.m2/toolchains.xml
+2026-02-24T18:42:35.2274121Z 
+2026-02-24T18:42:35.2274307Z Java configuration:
+2026-02-24T18:42:35.2274677Z   Distribution: temurin
+2026-02-24T18:42:35.2275280Z   Version: 25.0.2+10
+2026-02-24T18:42:35.2275821Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:35.2278389Z 
+2026-02-24T18:42:35.2278961Z ##[endgroup]
+2026-02-24T18:42:35.2294446Z Creating settings.xml with server-id: github
+2026-02-24T18:42:35.2294796Z Writing to /home/runner/.m2/settings.xml
+2026-02-24T18:42:35.2460766Z ##[group]Run gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2
+2026-02-24T18:42:35.2461175Z with:
+2026-02-24T18:42:35.2461356Z   gradle-version: wrapper
+2026-02-24T18:42:35.2461832Z   develocity-access-key: ***
+2026-02-24T18:42:35.2462063Z   develocity-token-expiry: 4
+2026-02-24T18:42:35.2462283Z   cache-read-only: true
+2026-02-24T18:42:35.2462485Z   cache-write-only: false
+2026-02-24T18:42:35.2462765Z   gradle-home-cache-includes: caches
+notifications
+jdks
+
+2026-02-24T18:42:35.2463075Z   cache-cleanup: on-success
+2026-02-24T18:42:35.2463296Z   cache-disabled: false
+2026-02-24T18:42:35.2463504Z   cache-overwrite-existing: false
+2026-02-24T18:42:35.2463740Z   add-job-summary: always
+2026-02-24T18:42:35.2463965Z   add-job-summary-as-pr-comment: never
+2026-02-24T18:42:35.2464230Z   dependency-graph: disabled
+2026-02-24T18:42:35.2464523Z   dependency-graph-report-dir: dependency-graph-reports
+2026-02-24T18:42:35.2464862Z   dependency-graph-continue-on-failure: true
+2026-02-24T18:42:35.2465139Z   build-scan-publish: false
+2026-02-24T18:42:35.2465526Z   validate-wrappers: true
+2026-02-24T18:42:35.2465756Z   allow-snapshot-wrappers: false
+2026-02-24T18:42:35.2466017Z   gradle-home-cache-strict-match: false
+2026-02-24T18:42:35.2466397Z   workflow-job-context: {
+  "java": 25,
+  "run-flaky": false,
+  "run-new": false
+}
+2026-02-24T18:42:35.2466882Z   github-token: ***
+2026-02-24T18:42:35.2467220Z env:
+2026-02-24T18:42:35.2467575Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:35.2467821Z   status-context: Java 25
+2026-02-24T18:42:35.2468146Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:35.2468604Z   JAVA_HOME_25_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:35.2469000Z   GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
+2026-02-24T18:42:35.2469262Z ##[endgroup]
+2026-02-24T18:42:36.5767736Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+2026-02-24T18:42:36.5770848Z ##[group]Restore Gradle state from cache
+2026-02-24T18:42:36.5778196Z Requesting Gradle User Home with
+2026-02-24T18:42:36.5779125Z     key:gradle-home-v1|Linux-X64|upload-build-scan[e68e8da7bfc90f46d5efc248c274a4ab]-7b46af69aa495ea612e1b771e8f5b1b5b89862f8
+2026-02-24T18:42:36.5780675Z     restoreKeys:[gradle-home-v1|Linux-X64|upload-build-scan[e68e8da7bfc90f46d5efc248c274a4ab],gradle-home-v1|Linux-X64|upload-build-scan,gradle-home-v1|Linux-X64]
+2026-02-24T18:42:36.5781926Z Using cache paths: /home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/jdks,/home/runner/.gradle/.setup-gradle
+2026-02-24T18:42:36.8539770Z Cache hit for restore-key: gradle-home-v1|Linux-X64|test[23126742755d97eb0fd4738baf11f18f]-7b46af69aa495ea612e1b771e8f5b1b5b89862f8
+2026-02-24T18:42:38.0797800Z Received 41943040 of 285370818 (14.7%), 40.0 MBs/sec
+2026-02-24T18:42:39.0804952Z Received 192937984 of 285370818 (67.6%), 92.0 MBs/sec
+2026-02-24T18:42:39.7090985Z Received 285370818 of 285370818 (100.0%), 103.8 MBs/sec
+2026-02-24T18:42:39.7153051Z Cache Size: ~272 MB (285370818 B)
+2026-02-24T18:42:39.7154691Z [command]/usr/bin/tar -xf /home/runner/work/_temp/f5a1dc50-e865-434c-b20f-450086979e9d/cache.tzst -P -C /home/runner/work/kafka/kafka --use-compress-program unzstd
+2026-02-24T18:42:40.3662897Z Cache restored successfully
+2026-02-24T18:42:40.4208537Z Restored cache entry with key gradle-home-v1|Linux-X64|upload-build-scan[e68e8da7bfc90f46d5efc248c274a4ab]-7b46af69aa495ea612e1b771e8f5b1b5b89862f8 to /home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/jdks,/home/runner/.gradle/.setup-gradle in 3842ms
+2026-02-24T18:42:40.4781295Z Gradle User Home (directories >5M): as restored from cache
+2026-02-24T18:42:40.4782029Z   6.2M    ./caches/modules-2/files-2.1
+2026-02-24T18:42:40.4782552Z   15M    ./caches/modules-2/metadata-2.107/descriptors
+2026-02-24T18:42:40.4782973Z   15M    ./caches/modules-2/metadata-2.107
+2026-02-24T18:42:40.4783320Z   22M    ./caches/modules-2
+2026-02-24T18:42:40.4783612Z   274M    ./caches/build-cache-1
+2026-02-24T18:42:40.4783949Z   56M    ./caches/9.2.1/javaCompile
+2026-02-24T18:42:40.4784248Z   57M    ./caches/9.2.1
+2026-02-24T18:42:40.4784495Z   352M    ./caches
+2026-02-24T18:42:40.4784723Z   352M    .
+2026-02-24T18:42:40.4784925Z   352M    total
+2026-02-24T18:42:40.4785147Z -----------------------
+2026-02-24T18:42:40.4794353Z Loaded cache metadata for gradle-home: {"entries":[{"artifactType":"wrapper-zips","pattern":"/home/runner/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug","cacheKey":"gradle-wrapper-zips-v1-ec878350d2b8b2dd8c6210603837a67f"},{"artifactType":"dependencies","pattern":"/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*","cacheKey":"gradle-dependencies-v1-67692e53a2c2c35227713463c72a04bd"},{"artifactType":"instrumented-jars","pattern":"/home/runner/.gradle/caches/jars-*/*/","cacheKey":"gradle-instrumented-jars-v1-14797119b344572319738eda3bfe24fe"},{"artifactType":"groovy-dsl","pattern":"/home/runner/.gradle/caches/*/groovy-dsl/*/","cacheKey":"gradle-groovy-dsl-v1-183a95224d9d5bf6c843ec85797dd61e"},{"artifactType":"transforms","pattern":"/home/runner/.gradle/caches/transforms-4/*/\n/home/runner/.gradle/caches/*/transforms/*/","cacheKey":"gradle-transforms-v1-2ba0e80b4d0e1054d78643aa493ebaf7"}]}
+2026-02-24T18:42:40.6817518Z Cache hit for: gradle-groovy-dsl-v1-183a95224d9d5bf6c843ec85797dd61e
+2026-02-24T18:42:40.6878382Z Cache hit for: gradle-instrumented-jars-v1-14797119b344572319738eda3bfe24fe
+2026-02-24T18:42:40.7042920Z Cache hit for: gradle-dependencies-v1-67692e53a2c2c35227713463c72a04bd
+2026-02-24T18:42:40.7070587Z Cache hit for: gradle-transforms-v1-2ba0e80b4d0e1054d78643aa493ebaf7
+2026-02-24T18:42:40.7079599Z Cache hit for: gradle-wrapper-zips-v1-ec878350d2b8b2dd8c6210603837a67f
+2026-02-24T18:42:41.2889899Z Received 473364 of 473364 (100.0%), 1.1 MBs/sec
+2026-02-24T18:42:41.2890966Z Cache Size: ~0 MB (473364 B)
+2026-02-24T18:42:41.2914013Z [command]/usr/bin/tar -xf /home/runner/work/_temp/ef57cf4c-ad2a-41e7-abe4-c73257f605fe/cache.tzst -P -C /home/runner/work/kafka/kafka --use-compress-program unzstd
+2026-02-24T18:42:41.3774722Z Cache restored successfully
+2026-02-24T18:42:41.3777728Z Restored cache entry with key gradle-groovy-dsl-v1-183a95224d9d5bf6c843ec85797dd61e to /home/runner/.gradle/caches/*/groovy-dsl/*/ in 897ms
+2026-02-24T18:42:41.9118120Z Received 37748736 of 134892265 (28.0%), 35.7 MBs/sec
+2026-02-24T18:42:41.9205488Z Received 30092766 of 46869982 (64.2%), 28.7 MBs/sec
+2026-02-24T18:42:41.9278134Z Received 41943040 of 914603372 (4.6%), 40.0 MBs/sec
+2026-02-24T18:42:41.9347469Z Received 9625002 of 9625002 (100.0%), 9.2 MBs/sec
+2026-02-24T18:42:41.9353522Z Cache Size: ~9 MB (9625002 B)
+2026-02-24T18:42:41.9554357Z [command]/usr/bin/tar -xf /home/runner/work/_temp/7084f5e5-7c7d-4f78-9ffe-f7bbd79f8ce2/cache.tzst -P -C /home/runner/work/kafka/kafka --use-compress-program unzstd
+2026-02-24T18:42:42.0909278Z Received 46869982 of 46869982 (100.0%), 38.2 MBs/sec
+2026-02-24T18:42:42.0910275Z Cache Size: ~45 MB (46869982 B)
+2026-02-24T18:42:42.0952484Z Cache restored successfully
+2026-02-24T18:42:42.1100445Z Restored cache entry with key gradle-instrumented-jars-v1-14797119b344572319738eda3bfe24fe to /home/runner/.gradle/caches/jars-*/*/ in 1629ms
+2026-02-24T18:42:42.1235798Z [command]/usr/bin/tar -xf /home/runner/work/_temp/c5cc3533-15c3-40bc-a65e-7c52f097b7fe/cache.tzst -P -C /home/runner/work/kafka/kafka --use-compress-program unzstd
+2026-02-24T18:42:42.6115770Z Cache restored successfully
+2026-02-24T18:42:42.6269546Z Restored cache entry with key gradle-transforms-v1-2ba0e80b4d0e1054d78643aa493ebaf7 to /home/runner/.gradle/caches/transforms-4/*/,/home/runner/.gradle/caches/*/transforms/*/ in 2141ms
+2026-02-24T18:42:42.9142131Z Received 134217728 of 134892265 (99.5%), 63.6 MBs/sec
+2026-02-24T18:42:42.9287109Z Received 134217728 of 914603372 (14.7%), 64.0 MBs/sec
+2026-02-24T18:42:42.9918207Z Received 134892265 of 134892265 (100.0%), 61.6 MBs/sec
+2026-02-24T18:42:42.9921060Z Cache Size: ~129 MB (134892265 B)
+2026-02-24T18:42:42.9989176Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b3c79b89-7d86-46f6-b3de-20e3396d3832/cache.tzst -P -C /home/runner/work/kafka/kafka --use-compress-program unzstd
+2026-02-24T18:42:43.2608225Z Cache restored successfully
+2026-02-24T18:42:43.2902234Z Restored cache entry with key gradle-wrapper-zips-v1-ec878350d2b8b2dd8c6210603837a67f to /home/runner/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug in 2811ms
+2026-02-24T18:42:43.9266431Z Received 285212672 of 914603372 (31.2%), 90.6 MBs/sec
+2026-02-24T18:42:44.9272619Z Received 473956352 of 914603372 (51.8%), 112.9 MBs/sec
+2026-02-24T18:42:45.9308811Z Received 658505728 of 914603372 (72.0%), 125.5 MBs/sec
+2026-02-24T18:42:46.9298903Z Received 809500672 of 914603372 (88.5%), 128.6 MBs/sec
+2026-02-24T18:42:47.4735398Z Received 914603372 of 914603372 (100.0%), 133.2 MBs/sec
+2026-02-24T18:42:47.4738749Z Cache Size: ~872 MB (914603372 B)
+2026-02-24T18:42:47.4910553Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d9a0acfd-d27c-481c-a54f-f88fad281711/cache.tzst -P -C /home/runner/work/kafka/kafka --use-compress-program unzstd
+2026-02-24T18:42:49.0138811Z Cache restored successfully
+2026-02-24T18:42:49.2032673Z Restored cache entry with key gradle-dependencies-v1-67692e53a2c2c35227713463c72a04bd to /home/runner/.gradle/caches/modules-*/files-*/*/*/*/* in 8722ms
+2026-02-24T18:42:49.2041405Z Saving cache metadata for gradle-home: {"entries":[{"artifactType":"wrapper-zips","pattern":"/home/runner/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug","cacheKey":"gradle-wrapper-zips-v1-ec878350d2b8b2dd8c6210603837a67f"},{"artifactType":"dependencies","pattern":"/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*","cacheKey":"gradle-dependencies-v1-67692e53a2c2c35227713463c72a04bd"},{"artifactType":"instrumented-jars","pattern":"/home/runner/.gradle/caches/jars-*/*/","cacheKey":"gradle-instrumented-jars-v1-14797119b344572319738eda3bfe24fe"},{"artifactType":"groovy-dsl","pattern":"/home/runner/.gradle/caches/*/groovy-dsl/*/","cacheKey":"gradle-groovy-dsl-v1-183a95224d9d5bf6c843ec85797dd61e"},{"artifactType":"transforms","pattern":"/home/runner/.gradle/caches/transforms-4/*/\n/home/runner/.gradle/caches/*/transforms/*/","cacheKey":"gradle-transforms-v1-2ba0e80b4d0e1054d78643aa493ebaf7"}]}
+2026-02-24T18:42:49.2052324Z Removing excluded path: /home/runner/.gradle/caches/*/cc-keystore
+2026-02-24T18:42:49.3280015Z Gradle User Home (directories >5M): after restoring common artifacts
+2026-02-24T18:42:49.3283240Z   39M    ./wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/plugins
+2026-02-24T18:42:49.3284328Z   144M    ./wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib
+2026-02-24T18:42:49.3285315Z   144M    ./wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1
+2026-02-24T18:42:49.3286186Z   144M    ./wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug
+2026-02-24T18:42:49.3286828Z   144M    ./wrapper/dists/gradle-9.2.1-bin
+2026-02-24T18:42:49.3287494Z   144M    ./wrapper/dists
+2026-02-24T18:42:49.3287877Z   144M    ./wrapper
+2026-02-24T18:42:49.3288348Z   9.7M    ./caches/jars-9/o_8c885734245b70394fc5386b6595067d
+2026-02-24T18:42:49.3288893Z   15M    ./caches/jars-9
+2026-02-24T18:42:49.3289363Z   7.4M    ./caches/modules-2/files-2.1/org.apache.lucene
+2026-02-24T18:42:49.3290055Z   19M    ./caches/modules-2/files-2.1/org.xerial.snappy/snappy-java
+2026-02-24T18:42:49.3290751Z   19M    ./caches/modules-2/files-2.1/org.xerial.snappy
+2026-02-24T18:42:49.3291774Z   18M    ./caches/modules-2/files-2.1/com.gradle/develocity-gradle-plugin/3.19/d4eefa369e5e2b1e99725757ff94044cdb82d0b8
+2026-02-24T18:42:49.3292950Z   18M    ./caches/modules-2/files-2.1/com.gradle/develocity-gradle-plugin/3.19
+2026-02-24T18:42:49.3293831Z   18M    ./caches/modules-2/files-2.1/com.gradle/develocity-gradle-plugin
+2026-02-24T18:42:49.3294543Z   19M    ./caches/modules-2/files-2.1/com.gradle
+2026-02-24T18:42:49.3295191Z   33M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-streams
+2026-02-24T18:42:49.3296236Z   5.1M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.5.2/5463468ef0ea19ad2df452363414938cb9e2461a
+2026-02-24T18:42:49.3297534Z   5.1M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.5.2
+2026-02-24T18:42:49.3298626Z   5.1M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.6.2/2bbee78783a8403c012693cfac7fdfc52422a94d
+2026-02-24T18:42:49.3299709Z   5.1M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.6.2
+2026-02-24T18:42:49.3300802Z   8.1M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.8.1/fd79e3aa252c6d818334e9c0bac8166b426e498c
+2026-02-24T18:42:49.3301888Z   8.1M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.8.1
+2026-02-24T18:42:49.3302956Z   8.8M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.9.1/86ca079953ed5606257ff298c24666b26da6985b
+2026-02-24T18:42:49.3305371Z   8.9M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.9.1
+2026-02-24T18:42:49.3306488Z   8.8M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/4.0.1/be6314d9739bd2a4573410ea614d85661e13f3ee
+2026-02-24T18:42:49.3308056Z   8.8M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/4.0.1
+2026-02-24T18:42:49.3309158Z   8.0M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.7.2/83224c153a40c874d8042d3413b7a9b612bf14e5
+2026-02-24T18:42:49.3310267Z   8.0M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/3.7.2
+2026-02-24T18:42:49.3311531Z   9.4M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/4.1.1/94cb8f39c3157038ec9577634d310a2bf5fb516
+2026-02-24T18:42:49.3312623Z   9.4M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/4.1.1
+2026-02-24T18:42:49.3313444Z   109M    ./caches/modules-2/files-2.1/org.apache.kafka/kafka-clients
+2026-02-24T18:42:49.3314144Z   144M    ./caches/modules-2/files-2.1/org.apache.kafka
+2026-02-24T18:42:49.3314990Z   5.6M    ./caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core
+2026-02-24T18:42:49.3315762Z   7.3M    ./caches/modules-2/files-2.1/org.apache.logging.log4j
+2026-02-24T18:42:49.3316750Z   8.7M    ./caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.17.7/3856bfab61beb23e099a0d6629f2ba8de4b98ace
+2026-02-24T18:42:49.3317963Z   8.7M    ./caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.17.7
+2026-02-24T18:42:49.3318693Z   8.7M    ./caches/modules-2/files-2.1/net.bytebuddy/byte-buddy
+2026-02-24T18:42:49.3319324Z   9.1M    ./caches/modules-2/files-2.1/net.bytebuddy
+2026-02-24T18:42:49.3320207Z   5.6M    ./caches/modules-2/files-2.1/net.sf.saxon/Saxon-HE/12.9/1397a02bd22c63db3e902b28b23c59009fa3b5c4
+2026-02-24T18:42:49.3321154Z   5.6M    ./caches/modules-2/files-2.1/net.sf.saxon/Saxon-HE/12.9
+2026-02-24T18:42:49.3321839Z   5.6M    ./caches/modules-2/files-2.1/net.sf.saxon/Saxon-HE
+2026-02-24T18:42:49.3322447Z   5.6M    ./caches/modules-2/files-2.1/net.sf.saxon
+2026-02-24T18:42:49.3323366Z   15M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.18.4/def7af83920ad2c39eb452f6ef9603777d899ea0
+2026-02-24T18:42:49.3324377Z   15M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.18.4
+2026-02-24T18:42:49.3325366Z   56M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/7.9.2/6409b667493149191b09fe1fce94bada6096a3e9
+2026-02-24T18:42:49.3326352Z   56M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/7.9.2
+2026-02-24T18:42:49.3327460Z   14M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.15.10/6f8e20dd17ba145052a6bd49d5136ab0bc0a2
+2026-02-24T18:42:49.3328456Z   14M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.15.10
+2026-02-24T18:42:49.3329445Z   12M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.7.3/421b44ad957a2b6cce5adedc204db551831b553d
+2026-02-24T18:42:49.3330433Z   12M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.7.3
+2026-02-24T18:42:49.3331405Z   7.1M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.0.1/7c553b9afd312fd1d444350301a12d3fb9c223aa
+2026-02-24T18:42:49.3332384Z   7.1M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.0.1
+2026-02-24T18:42:49.3333360Z   35M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/6.19.3/54bb5df7d522a90b94f647b40d216e285f052a54
+2026-02-24T18:42:49.3334348Z   35M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/6.19.3
+2026-02-24T18:42:49.3335318Z   68M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/9.7.3/6c49c721c49c64de8eb0d6db44951d2c697f522d
+2026-02-24T18:42:49.3336304Z   68M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/9.7.3
+2026-02-24T18:42:49.3337415Z   70M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/10.1.3/46a1e0a0f175508717976971fc6a9e189f5dc0b1
+2026-02-24T18:42:49.3338405Z   70M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/10.1.3
+2026-02-24T18:42:49.3339395Z   51M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/6.29.4.1/9f4019c5d8247b01eabc58bf0c3f34a904d65ca4
+2026-02-24T18:42:49.3340419Z   51M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/6.29.4.1
+2026-02-24T18:42:49.3341407Z   53M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/7.1.2/ffe87d1c5d5b3a46d065cc4cf5311f18d8233a6b
+2026-02-24T18:42:49.3342569Z   53M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/7.1.2
+2026-02-24T18:42:49.3343546Z   13M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.18.3/6d3f8594ab85cc3c473fa97a5d5cb94cf5568e2b
+2026-02-24T18:42:49.3344543Z   13M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.18.3
+2026-02-24T18:42:49.3345676Z   36M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/6.22.1.1/c9cdf28e714bc93a3e7b6c57d583d3508568a606
+2026-02-24T18:42:49.3346702Z   36M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/6.22.1.1
+2026-02-24T18:42:49.3347838Z   14M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.14.2/a6087318fab540ba0b4c6ff68475ffbedc0b3d10
+2026-02-24T18:42:49.3348837Z   14M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni/5.14.2
+2026-02-24T18:42:49.3349541Z   439M    ./caches/modules-2/files-2.1/org.rocksdb/rocksdbjni
+2026-02-24T18:42:49.3350162Z   439M    ./caches/modules-2/files-2.1/org.rocksdb
+2026-02-24T18:42:49.3350792Z   6.4M    ./caches/modules-2/files-2.1/org.apache.directory.api
+2026-02-24T18:42:49.3351757Z   8.6M    ./caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.4/9022b1eedfafa11039597b1c1918c1abe414df93
+2026-02-24T18:42:49.3352773Z   8.6M    ./caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.4
+2026-02-24T18:42:49.3353471Z   8.6M    ./caches/modules-2/files-2.1/net.sf.ehcache/ehcache
+2026-02-24T18:42:49.3354093Z   8.7M    ./caches/modules-2/files-2.1/net.sf.ehcache
+2026-02-24T18:42:49.3355027Z   7.7M    ./caches/modules-2/files-2.1/org.codehaus.groovy/groovy/3.0.25/afc7f7a3b2e3e86482d1f636aa3c1733f9c7473
+2026-02-24T18:42:49.3356075Z   7.8M    ./caches/modules-2/files-2.1/org.codehaus.groovy/groovy/3.0.25
+2026-02-24T18:42:49.3356836Z   7.8M    ./caches/modules-2/files-2.1/org.codehaus.groovy/groovy
+2026-02-24T18:42:49.3357685Z   7.8M    ./caches/modules-2/files-2.1/org.codehaus.groovy
+2026-02-24T18:42:49.3358333Z   6.8M    ./caches/modules-2/files-2.1/org.jetbrains.kotlin
+2026-02-24T18:42:49.3358939Z   6.9M    ./caches/modules-2/files-2.1/org.scala-sbt
+2026-02-24T18:42:49.3359932Z   8.0M    ./caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.78/619aafb92dc0b4c6cc4cf86c487ca48ee2d67a8e
+2026-02-24T18:42:49.3361050Z   8.0M    ./caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.78
+2026-02-24T18:42:49.3362209Z   8.3M    ./caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.80/e22100b41042decf09cab914a5af8d2c57b5ac4a
+2026-02-24T18:42:49.3363304Z   8.3M    ./caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.80
+2026-02-24T18:42:49.3364125Z   17M    ./caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on
+2026-02-24T18:42:49.3364810Z   23M    ./caches/modules-2/files-2.1/org.bouncycastle
+2026-02-24T18:42:49.3365758Z   7.0M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.6-10/7e146ecb598af55d1f64d1c118af27569a848558
+2026-02-24T18:42:49.3366812Z   7.0M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.6-10
+2026-02-24T18:42:49.3368001Z   5.7M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.2-1/fad786abc1d1b81570e8d9a2fc8a1ef479bc27b6
+2026-02-24T18:42:49.3369043Z   5.7M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.2-1
+2026-02-24T18:42:49.3370071Z   6.5M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.0-4/338d83645fb93afc9e8b38a12d9d16d41d0819b3
+2026-02-24T18:42:49.3371102Z   6.5M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.0-4
+2026-02-24T18:42:49.3372135Z   6.5M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.0-2/52fc9e353b4e84f8a87ebc9c5c59e58c91d5d23d
+2026-02-24T18:42:49.3373163Z   6.5M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.0-2
+2026-02-24T18:42:49.3374294Z   5.8M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.5-1/fda1d6278299af27484e1cc3c79a060e41b7ef7e
+2026-02-24T18:42:49.3375333Z   5.8M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.5-1
+2026-02-24T18:42:49.3376360Z   5.2M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.4.5-6/3213bb3b3f54644817f422bda3be347eaf4915a7
+2026-02-24T18:42:49.3377726Z   5.2M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.4.5-6
+2026-02-24T18:42:49.3378756Z   6.4M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.6-4/ba9e303e0b5e94cdd0017390d7d8c06f47fd61f7
+2026-02-24T18:42:49.3379783Z   6.4M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.6-4
+2026-02-24T18:42:49.3380949Z   6.2M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.4.9-1/7dc25611870925d32752c5b45d7d23ae01702f43
+2026-02-24T18:42:49.3381971Z   6.2M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.4.9-1
+2026-02-24T18:42:49.3383001Z   7.0M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.6-6/2fbdb6597ff51efa4a5bf12df18f27b5aa4f2625
+2026-02-24T18:42:49.3384031Z   7.1M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni/1.5.6-6
+2026-02-24T18:42:49.3384836Z   76M    ./caches/modules-2/files-2.1/com.github.luben/zstd-jni
+2026-02-24T18:42:49.3385494Z   76M    ./caches/modules-2/files-2.1/com.github.luben
+2026-02-24T18:42:49.3386481Z   12M    ./caches/modules-2/files-2.1/org.scala-lang/scala-compiler/2.13.18/8819d2783d182a78ac47918f8d0194599f4c432f
+2026-02-24T18:42:49.3387710Z   12M    ./caches/modules-2/files-2.1/org.scala-lang/scala-compiler/2.13.18
+2026-02-24T18:42:49.3388807Z   12M    ./caches/modules-2/files-2.1/org.scala-lang/scala-compiler/2.13.16/341e484680c23a379e9935a7343a28969ff113a
+2026-02-24T18:42:49.3389893Z   12M    ./caches/modules-2/files-2.1/org.scala-lang/scala-compiler/2.13.16
+2026-02-24T18:42:49.3390697Z   24M    ./caches/modules-2/files-2.1/org.scala-lang/scala-compiler
+2026-02-24T18:42:49.3391428Z   7.4M    ./caches/modules-2/files-2.1/org.scala-lang/scala-reflect
+2026-02-24T18:42:49.3392445Z   5.7M    ./caches/modules-2/files-2.1/org.scala-lang/scala-library/2.13.18/eb2086988c25b08705472cc750654570900362e5
+2026-02-24T18:42:49.3393512Z   5.7M    ./caches/modules-2/files-2.1/org.scala-lang/scala-library/2.13.18
+2026-02-24T18:42:49.3394586Z   5.7M    ./caches/modules-2/files-2.1/org.scala-lang/scala-library/2.13.16/9e064d9304904fd7b6bd2b55a9e601b8c1c9006e
+2026-02-24T18:42:49.3395669Z   5.7M    ./caches/modules-2/files-2.1/org.scala-lang/scala-library/2.13.16
+2026-02-24T18:42:49.3396488Z   12M    ./caches/modules-2/files-2.1/org.scala-lang/scala-library
+2026-02-24T18:42:49.3397301Z   43M    ./caches/modules-2/files-2.1/org.scala-lang
+2026-02-24T18:42:49.3397995Z   6.4M    ./caches/modules-2/files-2.1/org.eclipse.jgit/org.eclipse.jgit
+2026-02-24T18:42:49.3398685Z   6.9M    ./caches/modules-2/files-2.1/org.eclipse.jgit
+2026-02-24T18:42:49.3427879Z   13M    ./caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind
+2026-02-24T18:42:49.3428756Z   17M    ./caches/modules-2/files-2.1/com.fasterxml.jackson.core
+2026-02-24T18:42:49.3429439Z   8.6M    ./caches/modules-2/files-2.1/org.apache.commons
+2026-02-24T18:42:49.3430003Z   965M    ./caches/modules-2/files-2.1
+2026-02-24T18:42:49.3430540Z   15M    ./caches/modules-2/metadata-2.107/descriptors
+2026-02-24T18:42:49.3431126Z   15M    ./caches/modules-2/metadata-2.107
+2026-02-24T18:42:49.3431612Z   980M    ./caches/modules-2
+2026-02-24T18:42:49.3432025Z   274M    ./caches/build-cache-1
+2026-02-24T18:42:49.3432755Z   6.3M    ./caches/9.2.1/transforms/09d619a0e635ecb18b14803f09d246cc/transformed/instrumented
+2026-02-24T18:42:49.3433719Z   6.3M    ./caches/9.2.1/transforms/09d619a0e635ecb18b14803f09d246cc/transformed
+2026-02-24T18:42:49.3434527Z   6.3M    ./caches/9.2.1/transforms/09d619a0e635ecb18b14803f09d246cc
+2026-02-24T18:42:49.3435394Z   6.9M    ./caches/9.2.1/transforms/87582b1f453b870f642941032b34348b/transformed/instrumented
+2026-02-24T18:42:49.3436532Z   6.9M    ./caches/9.2.1/transforms/87582b1f453b870f642941032b34348b/transformed
+2026-02-24T18:42:49.3437441Z   6.9M    ./caches/9.2.1/transforms/87582b1f453b870f642941032b34348b
+2026-02-24T18:42:49.3438322Z   8.7M    ./caches/9.2.1/transforms/44ff24684a51bfda9f58f4b6a62fba03/transformed/instrumented
+2026-02-24T18:42:49.3439286Z   8.8M    ./caches/9.2.1/transforms/44ff24684a51bfda9f58f4b6a62fba03/transformed
+2026-02-24T18:42:49.3440281Z   8.8M    ./caches/9.2.1/transforms/44ff24684a51bfda9f58f4b6a62fba03
+2026-02-24T18:42:49.3441169Z   13M    ./caches/9.2.1/transforms/fbb5a219cb1a5b6201b6ee353978987e/transformed/instrumented
+2026-02-24T18:42:49.3442139Z   13M    ./caches/9.2.1/transforms/fbb5a219cb1a5b6201b6ee353978987e/transformed
+2026-02-24T18:42:49.3443103Z   13M    ./caches/9.2.1/transforms/fbb5a219cb1a5b6201b6ee353978987e
+2026-02-24T18:42:49.3444010Z   7.9M    ./caches/9.2.1/transforms/0655ee26d9d7412c639604e2ab310965/transformed/instrumented
+2026-02-24T18:42:49.3444967Z   7.9M    ./caches/9.2.1/transforms/0655ee26d9d7412c639604e2ab310965/transformed
+2026-02-24T18:42:49.3445763Z   7.9M    ./caches/9.2.1/transforms/0655ee26d9d7412c639604e2ab310965
+2026-02-24T18:42:49.3446641Z   25M    ./caches/9.2.1/transforms/44e89e292ee79052acd5e1f338ab119f/transformed/instrumented
+2026-02-24T18:42:49.3468291Z   25M    ./caches/9.2.1/transforms/44e89e292ee79052acd5e1f338ab119f/transformed
+2026-02-24T18:42:49.3469117Z   25M    ./caches/9.2.1/transforms/44e89e292ee79052acd5e1f338ab119f
+2026-02-24T18:42:49.3470000Z   19M    ./caches/9.2.1/transforms/74854541e6f05805c315470c0de6bc78/transformed/instrumented
+2026-02-24T18:42:49.3470949Z   19M    ./caches/9.2.1/transforms/74854541e6f05805c315470c0de6bc78/transformed
+2026-02-24T18:42:49.3471726Z   19M    ./caches/9.2.1/transforms/74854541e6f05805c315470c0de6bc78
+2026-02-24T18:42:49.3472324Z   183M    ./caches/9.2.1/transforms
+2026-02-24T18:42:49.3472887Z   6.5M    ./caches/9.2.1/groovy-dsl/aada3c60b2652a03410fb55d14b97666
+2026-02-24T18:42:49.3473488Z   8.1M    ./caches/9.2.1/groovy-dsl
+2026-02-24T18:42:49.3473919Z   56M    ./caches/9.2.1/javaCompile
+2026-02-24T18:42:49.3474347Z   247M    ./caches/9.2.1
+2026-02-24T18:42:49.3474726Z   1.5G    ./caches
+2026-02-24T18:42:49.3475053Z   1.7G    .
+2026-02-24T18:42:49.3475359Z   1.7G    total
+2026-02-24T18:42:49.3475681Z -----------------------
+2026-02-24T18:42:49.3476420Z ##[endgroup]
+2026-02-24T18:42:49.4590279Z ##[group]All Gradle Wrapper jars are valid
+2026-02-24T18:42:49.4593171Z 
+2026-02-24T18:42:49.4594610Z ##[endgroup]
+2026-02-24T18:42:49.4602936Z Requesting short-lived Develocity access token for develocity.apache.org
+2026-02-24T18:42:50.0109354Z ##[group]Run actions/download-artifact@v5
+2026-02-24T18:42:50.0109895Z with:
+2026-02-24T18:42:50.0110738Z   github-token: ***
+2026-02-24T18:42:50.0111115Z   run-id: 22357616663
+2026-02-24T18:42:50.0111509Z   name: build-scan-25-noflaky-nonew
+2026-02-24T18:42:50.0111995Z   path: ~/.gradle/build-scan-data
+2026-02-24T18:42:50.0112443Z   merge-multiple: false
+2026-02-24T18:42:50.0112843Z   repository: apache/kafka
+2026-02-24T18:42:50.0113255Z env:
+2026-02-24T18:42:50.0113577Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:50.0114026Z   status-context: Java 25
+2026-02-24T18:42:50.0114615Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:50.0115513Z   JAVA_HOME_25_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:50.0116285Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-24T18:42:50.0116841Z   GRADLE_USER_HOME: /home/runner/.gradle
+2026-02-24T18:42:50.0117620Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-24T18:42:50.0118148Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-24T18:42:50.0118946Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-24T18:42:50.0119815Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-24T18:42:50.0147812Z   DEVELOCITY_ACCESS_KEY: ***
+2026-02-24T18:42:50.0175204Z   GRADLE_ENTERPRISE_ACCESS_KEY: ***
+2026-02-24T18:42:50.0175712Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-24T18:42:50.0176193Z ##[endgroup]
+2026-02-24T18:42:50.2233133Z Downloading single artifact
+2026-02-24T18:42:50.5585930Z Preparing to download the following artifacts:
+2026-02-24T18:42:50.5588775Z - build-scan-25-noflaky-nonew (ID: 5640737917, Size: 1665092, Expected Digest: sha256:4d03b0e779b1cbd90a4898e5313370dd2fd532eb668d6edbd3a43687a024b4bf)
+2026-02-24T18:42:50.5654284Z Downloading artifact '5640737917' from 'apache/kafka'
+2026-02-24T18:42:50.7397793Z Redirecting to blob download url: https://productionresultssa11.blob.core.windows.net/actions-results/d48c0984-39ee-479d-982f-bb47eda9679e/workflow-job-run-62dac3e2-0e29-5e69-8cbd-4897fe5f125b/artifacts/3ac9f0927b5a1c2845e7878adc8a2d2dacedd8dc726ca417fab93fbd4cc420ff.zip
+2026-02-24T18:42:50.7400591Z Starting download of artifact to: /home/runner/.gradle/build-scan-data
+2026-02-24T18:42:50.9851624Z (node:2419) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-02-24T18:42:50.9853428Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-24T18:42:51.3753896Z SHA256 digest of downloaded artifact is 4d03b0e779b1cbd90a4898e5313370dd2fd532eb668d6edbd3a43687a024b4bf
+2026-02-24T18:42:51.3754983Z Artifact download completed successfully.
+2026-02-24T18:42:51.3755627Z Total of 1 artifact(s) downloaded
+2026-02-24T18:42:51.3762030Z Download artifact has finished successfully
+2026-02-24T18:42:51.3903955Z ##[group]Run set +e
+2026-02-24T18:42:51.3904435Z [36;1mset +e[0m
+2026-02-24T18:42:51.3904988Z [36;1m./gradlew --info buildScanPublishPrevious > gradle.out[0m
+2026-02-24T18:42:51.3905623Z [36;1mexitcode="$?"[0m
+2026-02-24T18:42:51.3906048Z [36;1mif [ $exitcode -ne 0 ]; then[0m
+2026-02-24T18:42:51.3906520Z [36;1m  cat gradle.out[0m
+2026-02-24T18:42:51.3907396Z [36;1m  echo "Failed to publish build scan" >> $GITHUB_STEP_SUMMARY[0m
+2026-02-24T18:42:51.3908043Z [36;1m  exit $exitcode[0m
+2026-02-24T18:42:51.3908430Z [36;1melse[0m
+2026-02-24T18:42:51.3908872Z [36;1m  SCAN_URL=$(grep '^https://.*$' gradle.out)[0m
+2026-02-24T18:42:51.3909429Z [36;1m  cat gradle.out[0m
+2026-02-24T18:42:51.3910042Z [36;1m  echo "Published build scan to $SCAN_URL" >> $GITHUB_STEP_SUMMARY[0m
+2026-02-24T18:42:51.3910834Z [36;1m  echo "build-scan-url=$SCAN_URL" >> $GITHUB_OUTPUT[0m
+2026-02-24T18:42:51.3911412Z [36;1mfi[0m
+2026-02-24T18:42:51.3952327Z shell: /usr/bin/bash -e {0}
+2026-02-24T18:42:51.3952790Z env:
+2026-02-24T18:42:51.3953134Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:42:51.3953609Z   status-context: Java 25
+2026-02-24T18:42:51.3954214Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:51.3955105Z   JAVA_HOME_25_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:42:51.3955866Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-24T18:42:51.3956410Z   GRADLE_USER_HOME: /home/runner/.gradle
+2026-02-24T18:42:51.3957094Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-24T18:42:51.3957630Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-24T18:42:51.3958433Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-24T18:42:51.3959303Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-24T18:42:51.3987201Z   DEVELOCITY_ACCESS_KEY: ***
+2026-02-24T18:42:51.4011070Z   GRADLE_ENTERPRISE_ACCESS_KEY: ***
+2026-02-24T18:42:51.4011413Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-24T18:42:51.4011722Z ##[endgroup]
+2026-02-24T18:43:10.8954223Z 
+2026-02-24T18:43:10.8958354Z FAILURE: Build failed with an exception.
+2026-02-24T18:43:10.8962001Z 
+2026-02-24T18:43:10.8964127Z * What went wrong:
+2026-02-24T18:43:10.8964866Z Execution failed for task ':buildScanPublishPrevious'.
+2026-02-24T18:43:10.8965887Z > There is no previous build data available to publish.
+2026-02-24T18:43:10.8966752Z 
+2026-02-24T18:43:10.8967189Z * Try:
+2026-02-24T18:43:10.8967858Z > Run with --stacktrace option to get the stack trace.
+2026-02-24T18:43:10.8968747Z > Run with --debug option to get more log output.
+2026-02-24T18:43:10.8969613Z > Get more help at https://help.gradle.org.
+2026-02-24T18:43:10.8970370Z 
+2026-02-24T18:43:10.8970716Z BUILD FAILED in 19s
+2026-02-24T18:43:11.6332256Z Initialized native services in: /home/runner/.gradle/native
+2026-02-24T18:43:11.6333444Z Initialized jansi services in: /home/runner/.gradle/native
+2026-02-24T18:43:11.6334139Z Removing 0 daemon stop events from registry
+2026-02-24T18:43:11.6334806Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-02-24T18:43:11.6341980Z Starting process 'Gradle build daemon'. Working directory: /home/runner/.gradle/daemon/9.2.1 Command: /usr/lib/jvm/temurin-25-jdk-amd64/bin/java --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.xml/javax.xml.namespace=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --enable-native-access=ALL-UNNAMED -Xss4m -XX:+UseParallelGC -Xmx4g -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -cp /home/runner/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/gradle-daemon-main-9.2.1.jar -javaagent:/home/runner/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/agents/gradle-instrumentation-agent-9.2.1.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.2.1
+2026-02-24T18:43:11.6347808Z Successfully started process 'Gradle build daemon'
+2026-02-24T18:43:11.6348184Z An attempt to start the daemon took 1.269 secs.
+2026-02-24T18:43:11.6348829Z The client will now receive all logging from the daemon (pid: 2492). The daemon log file: /home/runner/.gradle/daemon/9.2.1/daemon-2492.out.log
+2026-02-24T18:43:11.6349463Z Starting build in new daemon [memory: 3.5 GiB]
+2026-02-24T18:43:11.6349776Z Using 4 worker leases.
+2026-02-24T18:43:11.6351525Z Operational build model parameters: {requiresToolingModels=false, parallelProjectExecution=true, configureOnDemand=false, configurationCache=false, configurationCacheParallelStore=false, configurationCacheParallelLoad=true, isolatedProjects=false, parallelProjectConfiguration=false, intermediateModelCache=false, parallelToolingApiActions=true, invalidateCoupledProjects=false, modelAsProjectDependency=false, resilientModelBuilding=false}
+2026-02-24T18:43:11.6354311Z Received JVM installation metadata from '/usr/lib/jvm/temurin-25-jdk-amd64': {JAVA_HOME=/usr/lib/jvm/temurin-25-jdk-amd64, JAVA_VERSION=25.0.2, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=25.0.2+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=25.0.2+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+2026-02-24T18:43:11.6355681Z Watching the file system is configured to be enabled if available
+2026-02-24T18:43:11.6356159Z Now considering [/home/runner/work/kafka/kafka] as hierarchies to watch
+2026-02-24T18:43:11.6356567Z File system watching is active
+2026-02-24T18:43:11.6356827Z Starting Build
+2026-02-24T18:43:11.6357834Z Resolved plugin [id: 'com.gradle.develocity', version: '3.19']
+2026-02-24T18:43:11.6358382Z Resolved plugin [id: 'com.gradle.common-custom-user-data-gradle-plugin', version: '2.0.2']
+2026-02-24T18:43:11.6359007Z Settings evaluated using settings file '/home/runner/work/kafka/kafka/settings.gradle'.
+2026-02-24T18:43:11.6359625Z Projects loaded. Root project using build file '/home/runner/work/kafka/kafka/build.gradle'.
+2026-02-24T18:43:11.6367965Z Included projects: [root project 'kafka', project ':clients', project ':connect', project ':coordinator-common', project ':core', project ':examples', project ':generator', project ':group-coordinator', project ':jmh-benchmarks', project ':metadata', project ':raft', project ':server', project ':server-common', project ':share-coordinator', project ':shell', project ':storage', project ':streams', project ':test-common', project ':tools', project ':transaction-coordinator', project ':trogdor', project ':clients:clients-integration-tests', project ':connect:api', project ':connect:basic-auth-extension', project ':connect:file', project ':connect:json', project ':connect:mirror', project ':connect:mirror-client', project ':connect:runtime', project ':connect:test-plugins', project ':connect:transforms', project ':group-coordinator:group-coordinator-api', project ':storage:storage-api', project ':streams:examples', project ':streams:integration-tests', project ':streams:streams-scala', project ':streams:test-utils', project ':streams:upgrade-system-tests-0110', project ':streams:upgrade-system-tests-10', project ':streams:upgrade-system-tests-11', project ':streams:upgrade-system-tests-20', project ':streams:upgrade-system-tests-21', project ':streams:upgrade-system-tests-22', project ':streams:upgrade-system-tests-23', project ':streams:upgrade-system-tests-24', project ':streams:upgrade-system-tests-25', project ':streams:upgrade-system-tests-26', project ':streams:upgrade-system-tests-27', project ':streams:upgrade-system-tests-28', project ':streams:upgrade-system-tests-30', project ':streams:upgrade-system-tests-31', project ':streams:upgrade-system-tests-32', project ':streams:upgrade-system-tests-33', project ':streams:upgrade-system-tests-34', project ':streams:upgrade-system-tests-35', project ':streams:upgrade-system-tests-36', project ':streams:upgrade-system-tests-37', project ':streams:upgrade-system-tests-38', project ':streams:upgrade-system-tests-39', project ':streams:upgrade-system-tests-40', project ':streams:upgrade-system-tests-41', project ':test-common:test-common-internal-api', project ':test-common:test-common-runtime', project ':test-common:test-common-util', project ':tools:tools-api']
+2026-02-24T18:43:11.6375964Z 
+2026-02-24T18:43:11.6376064Z > Configure project :
+2026-02-24T18:43:11.6376500Z Evaluating root project 'kafka' using build file '/home/runner/work/kafka/kafka/build.gradle'.
+2026-02-24T18:43:11.6377270Z Resolved plugin [id: 'com.github.ben-manes.versions', version: '0.53.0']
+2026-02-24T18:43:11.6377693Z Resolved plugin [id: 'idea']
+2026-02-24T18:43:11.6377954Z Resolved plugin [id: 'jacoco']
+2026-02-24T18:43:11.6378227Z Resolved plugin [id: 'java-library']
+2026-02-24T18:43:11.6378615Z Resolved plugin [id: 'org.owasp.dependencycheck', version: '12.1.8']
+2026-02-24T18:43:11.6379083Z Resolved plugin [id: 'org.nosphere.apache.rat', version: '0.8.1']
+2026-02-24T18:43:11.6379598Z Resolved plugin [id: 'io.swagger.core.v3.swagger-gradle-plugin', version: '2.2.39']
+2026-02-24T18:43:11.6380146Z Resolved plugin [id: 'com.github.spotbugs', version: '6.4.4', apply: false]
+2026-02-24T18:43:11.6380631Z Resolved plugin [id: 'org.scoverage', version: '8.1', apply: false]
+2026-02-24T18:43:11.6381104Z Resolved plugin [id: 'com.gradleup.shadow', version: '8.3.9', apply: false]
+2026-02-24T18:43:11.6381592Z Resolved plugin [id: 'com.diffplug.spotless', version: '8.0.0']
+2026-02-24T18:43:11.6382191Z Starting build with version 4.3.0-SNAPSHOT (commit id 7b46af69) using Gradle 9.2.1, Java 25 and Scala 2.13.18
+2026-02-24T18:43:11.6382930Z Build properties: ignoreFailures=false, maxParallelForks=4, maxScalacThreads=4, maxTestRetries=0
+2026-02-24T18:43:11.6383616Z file or directory '/home/runner/work/kafka/kafka/connect/src/test/resources', not found
+2026-02-24T18:43:11.6384186Z file or directory '/home/runner/work/kafka/kafka/connect/src/test/java', not found
+2026-02-24T18:43:11.6384754Z file or directory '/home/runner/work/kafka/kafka/examples/src/test/resources', not found
+2026-02-24T18:43:11.6385326Z file or directory '/home/runner/work/kafka/kafka/examples/src/test/java', not found
+2026-02-24T18:43:11.6385888Z file or directory '/home/runner/work/kafka/kafka/generator/src/test/resources', not found
+2026-02-24T18:43:11.6386514Z file or directory '/home/runner/work/kafka/kafka/jmh-benchmarks/src/test/resources', not found
+2026-02-24T18:43:11.6387325Z file or directory '/home/runner/work/kafka/kafka/jmh-benchmarks/src/test/java', not found
+2026-02-24T18:43:11.6388087Z file or directory '/home/runner/work/kafka/kafka/test-common/src/test/resources', not found
+2026-02-24T18:43:11.6388669Z file or directory '/home/runner/work/kafka/kafka/test-common/src/test/java', not found
+2026-02-24T18:43:11.6389328Z file or directory '/home/runner/work/kafka/kafka/connect/basic-auth-extension/src/test/resources', not found
+2026-02-24T18:43:11.6390067Z file or directory '/home/runner/work/kafka/kafka/connect/mirror-client/src/test/resources', not found
+2026-02-24T18:43:11.6390746Z file or directory '/home/runner/work/kafka/kafka/connect/test-plugins/src/test/resources', not found
+2026-02-24T18:43:11.6391418Z file or directory '/home/runner/work/kafka/kafka/connect/test-plugins/src/test/java', not found
+2026-02-24T18:43:11.6392065Z file or directory '/home/runner/work/kafka/kafka/connect/transforms/src/test/resources', not found
+2026-02-24T18:43:11.6392820Z file or directory '/home/runner/work/kafka/kafka/group-coordinator/group-coordinator-api/src/test/resources', not found
+2026-02-24T18:43:11.6393759Z file or directory '/home/runner/work/kafka/kafka/group-coordinator/group-coordinator-api/src/test/java', not found
+2026-02-24T18:43:11.6394483Z file or directory '/home/runner/work/kafka/kafka/streams/examples/src/test/resources', not found
+2026-02-24T18:43:11.6395207Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-0110/src/test/resources', not found
+2026-02-24T18:43:11.6395978Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-10/src/test/resources', not found
+2026-02-24T18:43:11.6396750Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-11/src/test/resources', not found
+2026-02-24T18:43:11.6397756Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-20/src/test/resources', not found
+2026-02-24T18:43:11.6398519Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-21/src/test/resources', not found
+2026-02-24T18:43:11.6399289Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-22/src/test/resources', not found
+2026-02-24T18:43:11.6400045Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-23/src/test/resources', not found
+2026-02-24T18:43:11.6400787Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-24/src/test/resources', not found
+2026-02-24T18:43:11.6401535Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-25/src/test/resources', not found
+2026-02-24T18:43:11.6402306Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-26/src/test/resources', not found
+2026-02-24T18:43:11.6403062Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-27/src/test/resources', not found
+2026-02-24T18:43:11.6403815Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-28/src/test/resources', not found
+2026-02-24T18:43:11.6404563Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-30/src/test/resources', not found
+2026-02-24T18:43:11.6405363Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-31/src/test/resources', not found
+2026-02-24T18:43:11.6406114Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-32/src/test/resources', not found
+2026-02-24T18:43:11.6406875Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-33/src/test/resources', not found
+2026-02-24T18:43:11.6408400Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-34/src/test/resources', not found
+2026-02-24T18:43:11.6409195Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-35/src/test/resources', not found
+2026-02-24T18:43:11.6410024Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-36/src/test/resources', not found
+2026-02-24T18:43:11.6410788Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-37/src/test/resources', not found
+2026-02-24T18:43:11.6411782Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-38/src/test/resources', not found
+2026-02-24T18:43:11.6412533Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-39/src/test/resources', not found
+2026-02-24T18:43:11.6413292Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-40/src/test/resources', not found
+2026-02-24T18:43:11.6414045Z file or directory '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-41/src/test/resources', not found
+2026-02-24T18:43:11.6414479Z 
+2026-02-24T18:43:11.6414589Z > Configure project :clients
+2026-02-24T18:43:11.6415055Z Evaluating project ':clients' using build file '/home/runner/work/kafka/kafka/clients/build.gradle'.
+2026-02-24T18:43:11.6415443Z 
+2026-02-24T18:43:11.6415546Z > Configure project :connect
+2026-02-24T18:43:11.6415985Z Evaluating project ':connect' using build file '/home/runner/work/kafka/kafka/connect/build.gradle'.
+2026-02-24T18:43:11.6416375Z 
+2026-02-24T18:43:11.6416599Z > Configure project :coordinator-common
+2026-02-24T18:43:11.6417582Z Evaluating project ':coordinator-common' using build file '/home/runner/work/kafka/kafka/coordinator-common/build.gradle'.
+2026-02-24T18:43:11.6418067Z 
+2026-02-24T18:43:11.6418169Z > Configure project :core
+2026-02-24T18:43:11.6418864Z Evaluating project ':core' using build file '/home/runner/work/kafka/kafka/core/build.gradle'.
+2026-02-24T18:43:11.6419298Z 
+2026-02-24T18:43:11.6419530Z > Configure project :examples
+2026-02-24T18:43:11.6420127Z Evaluating project ':examples' using build file '/home/runner/work/kafka/kafka/examples/build.gradle'.
+2026-02-24T18:43:11.6420608Z 
+2026-02-24T18:43:11.6420776Z > Configure project :generator
+2026-02-24T18:43:11.6421325Z Evaluating project ':generator' using build file '/home/runner/work/kafka/kafka/generator/build.gradle'.
+2026-02-24T18:43:11.6421861Z 
+2026-02-24T18:43:11.6437622Z > Configure project :group-coordinator
+2026-02-24T18:43:11.6438312Z Evaluating project ':group-coordinator' using build file '/home/runner/work/kafka/kafka/group-coordinator/build.gradle'.
+2026-02-24T18:43:11.6438802Z 
+2026-02-24T18:43:11.6438935Z > Configure project :jmh-benchmarks
+2026-02-24T18:43:11.6439544Z Evaluating project ':jmh-benchmarks' using build file '/home/runner/work/kafka/kafka/jmh-benchmarks/build.gradle'.
+2026-02-24T18:43:11.6440002Z 
+2026-02-24T18:43:11.6440111Z > Configure project :metadata
+2026-02-24T18:43:11.6440592Z Evaluating project ':metadata' using build file '/home/runner/work/kafka/kafka/metadata/build.gradle'.
+2026-02-24T18:43:11.6441003Z 
+2026-02-24T18:43:11.6441101Z > Configure project :raft
+2026-02-24T18:43:11.6441536Z Evaluating project ':raft' using build file '/home/runner/work/kafka/kafka/raft/build.gradle'.
+2026-02-24T18:43:11.6441910Z 
+2026-02-24T18:43:11.6442014Z > Configure project :server
+2026-02-24T18:43:11.6442454Z Evaluating project ':server' using build file '/home/runner/work/kafka/kafka/server/build.gradle'.
+2026-02-24T18:43:11.6442840Z 
+2026-02-24T18:43:11.6442954Z > Configure project :server-common
+2026-02-24T18:43:11.6443478Z Evaluating project ':server-common' using build file '/home/runner/work/kafka/kafka/server-common/build.gradle'.
+2026-02-24T18:43:11.6443916Z 
+2026-02-24T18:43:11.6444032Z > Configure project :share-coordinator
+2026-02-24T18:43:11.6444603Z Evaluating project ':share-coordinator' using build file '/home/runner/work/kafka/kafka/share-coordinator/build.gradle'.
+2026-02-24T18:43:11.6445075Z 
+2026-02-24T18:43:11.6445178Z > Configure project :shell
+2026-02-24T18:43:11.6445614Z Evaluating project ':shell' using build file '/home/runner/work/kafka/kafka/shell/build.gradle'.
+2026-02-24T18:43:11.6445992Z 
+2026-02-24T18:43:11.6446087Z > Configure project :storage
+2026-02-24T18:43:11.6446552Z Evaluating project ':storage' using build file '/home/runner/work/kafka/kafka/storage/build.gradle'.
+2026-02-24T18:43:11.6447272Z 
+2026-02-24T18:43:11.6447375Z > Configure project :streams
+2026-02-24T18:43:11.6448027Z Evaluating project ':streams' using build file '/home/runner/work/kafka/kafka/streams/build.gradle'.
+2026-02-24T18:43:11.6448414Z 
+2026-02-24T18:43:11.6448521Z > Configure project :test-common
+2026-02-24T18:43:11.6449015Z Evaluating project ':test-common' using build file '/home/runner/work/kafka/kafka/test-common/build.gradle'.
+2026-02-24T18:43:11.6449429Z 
+2026-02-24T18:43:11.6449529Z > Configure project :tools
+2026-02-24T18:43:11.6449952Z Evaluating project ':tools' using build file '/home/runner/work/kafka/kafka/tools/build.gradle'.
+2026-02-24T18:43:11.6450323Z 
+2026-02-24T18:43:11.6450453Z > Configure project :transaction-coordinator
+2026-02-24T18:43:11.6451080Z Evaluating project ':transaction-coordinator' using build file '/home/runner/work/kafka/kafka/transaction-coordinator/build.gradle'.
+2026-02-24T18:43:11.6451603Z 
+2026-02-24T18:43:11.6451697Z > Configure project :trogdor
+2026-02-24T18:43:11.6452140Z Evaluating project ':trogdor' using build file '/home/runner/work/kafka/kafka/trogdor/build.gradle'.
+2026-02-24T18:43:11.6452530Z 
+2026-02-24T18:43:11.6452795Z > Configure project :clients:clients-integration-tests
+2026-02-24T18:43:11.6453548Z Evaluating project ':clients:clients-integration-tests' using build file '/home/runner/work/kafka/kafka/clients/clients-integration-tests/build.gradle'.
+2026-02-24T18:43:11.6454141Z 
+2026-02-24T18:43:11.6454248Z > Configure project :connect:api
+2026-02-24T18:43:11.6454734Z Evaluating project ':connect:api' using build file '/home/runner/work/kafka/kafka/connect/api/build.gradle'.
+2026-02-24T18:43:11.6455157Z 
+2026-02-24T18:43:11.6455299Z > Configure project :connect:basic-auth-extension
+2026-02-24T18:43:11.6455981Z Evaluating project ':connect:basic-auth-extension' using build file '/home/runner/work/kafka/kafka/connect/basic-auth-extension/build.gradle'.
+2026-02-24T18:43:11.6456541Z 
+2026-02-24T18:43:11.6456651Z > Configure project :connect:file
+2026-02-24T18:43:11.6457423Z Evaluating project ':connect:file' using build file '/home/runner/work/kafka/kafka/connect/file/build.gradle'.
+2026-02-24T18:43:11.6457861Z 
+2026-02-24T18:43:11.6457964Z > Configure project :connect:json
+2026-02-24T18:43:11.6458456Z Evaluating project ':connect:json' using build file '/home/runner/work/kafka/kafka/connect/json/build.gradle'.
+2026-02-24T18:43:11.6458871Z 
+2026-02-24T18:43:11.6458980Z > Configure project :connect:mirror
+2026-02-24T18:43:11.6459502Z Evaluating project ':connect:mirror' using build file '/home/runner/work/kafka/kafka/connect/mirror/build.gradle'.
+2026-02-24T18:43:11.6459937Z 
+2026-02-24T18:43:11.6460053Z > Configure project :connect:mirror-client
+2026-02-24T18:43:11.6460649Z Evaluating project ':connect:mirror-client' using build file '/home/runner/work/kafka/kafka/connect/mirror-client/build.gradle'.
+2026-02-24T18:43:11.6461144Z 
+2026-02-24T18:43:11.6461251Z > Configure project :connect:runtime
+2026-02-24T18:43:11.6461787Z Evaluating project ':connect:runtime' using build file '/home/runner/work/kafka/kafka/connect/runtime/build.gradle'.
+2026-02-24T18:43:11.6462228Z 
+2026-02-24T18:43:11.6462346Z > Configure project :connect:test-plugins
+2026-02-24T18:43:11.6462939Z Evaluating project ':connect:test-plugins' using build file '/home/runner/work/kafka/kafka/connect/test-plugins/build.gradle'.
+2026-02-24T18:43:11.6463427Z 
+2026-02-24T18:43:11.6463531Z > Configure project :connect:transforms
+2026-02-24T18:43:11.6464095Z Evaluating project ':connect:transforms' using build file '/home/runner/work/kafka/kafka/connect/transforms/build.gradle'.
+2026-02-24T18:43:11.6464557Z 
+2026-02-24T18:43:11.6464735Z > Configure project :group-coordinator:group-coordinator-api
+2026-02-24T18:43:11.6465541Z Evaluating project ':group-coordinator:group-coordinator-api' using build file '/home/runner/work/kafka/kafka/group-coordinator/group-coordinator-api/build.gradle'.
+2026-02-24T18:43:11.6466220Z 
+2026-02-24T18:43:11.6466332Z > Configure project :storage:storage-api
+2026-02-24T18:43:11.6466875Z Evaluating project ':storage:storage-api' using build file '/home/runner/work/kafka/kafka/storage/api/build.gradle'.
+2026-02-24T18:43:11.6467722Z 
+2026-02-24T18:43:11.6467841Z > Configure project :streams:examples
+2026-02-24T18:43:11.6468396Z Evaluating project ':streams:examples' using build file '/home/runner/work/kafka/kafka/streams/examples/build.gradle'.
+2026-02-24T18:43:11.6468850Z 
+2026-02-24T18:43:11.6468980Z > Configure project :streams:integration-tests
+2026-02-24T18:43:11.6469634Z Evaluating project ':streams:integration-tests' using build file '/home/runner/work/kafka/kafka/streams/integration-tests/build.gradle'.
+2026-02-24T18:43:11.6470160Z 
+2026-02-24T18:43:11.6470278Z > Configure project :streams:streams-scala
+2026-02-24T18:43:11.6470867Z Evaluating project ':streams:streams-scala' using build file '/home/runner/work/kafka/kafka/streams/streams-scala/build.gradle'.
+2026-02-24T18:43:11.6471357Z 
+2026-02-24T18:43:11.6471465Z > Configure project :streams:test-utils
+2026-02-24T18:43:11.6472020Z Evaluating project ':streams:test-utils' using build file '/home/runner/work/kafka/kafka/streams/test-utils/build.gradle'.
+2026-02-24T18:43:11.6472492Z 
+2026-02-24T18:43:11.6472757Z > Configure project :streams:upgrade-system-tests-0110
+2026-02-24T18:43:11.6473496Z Evaluating project ':streams:upgrade-system-tests-0110' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-0110/build.gradle'.
+2026-02-24T18:43:11.6474076Z 
+2026-02-24T18:43:11.6474225Z > Configure project :streams:upgrade-system-tests-10
+2026-02-24T18:43:11.6474930Z Evaluating project ':streams:upgrade-system-tests-10' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-10/build.gradle'.
+2026-02-24T18:43:11.6475496Z 
+2026-02-24T18:43:11.6475631Z > Configure project :streams:upgrade-system-tests-11
+2026-02-24T18:43:11.6476335Z Evaluating project ':streams:upgrade-system-tests-11' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-11/build.gradle'.
+2026-02-24T18:43:11.6476905Z 
+2026-02-24T18:43:11.6477309Z > Configure project :streams:upgrade-system-tests-20
+2026-02-24T18:43:11.6478027Z Evaluating project ':streams:upgrade-system-tests-20' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-20/build.gradle'.
+2026-02-24T18:43:11.6478592Z 
+2026-02-24T18:43:11.6478729Z > Configure project :streams:upgrade-system-tests-21
+2026-02-24T18:43:11.6479407Z Evaluating project ':streams:upgrade-system-tests-21' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-21/build.gradle'.
+2026-02-24T18:43:11.6479959Z 
+2026-02-24T18:43:11.6480098Z > Configure project :streams:upgrade-system-tests-22
+2026-02-24T18:43:11.6480785Z Evaluating project ':streams:upgrade-system-tests-22' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-22/build.gradle'.
+2026-02-24T18:43:11.6481354Z 
+2026-02-24T18:43:11.6481485Z > Configure project :streams:upgrade-system-tests-23
+2026-02-24T18:43:11.6482195Z Evaluating project ':streams:upgrade-system-tests-23' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-23/build.gradle'.
+2026-02-24T18:43:11.6482768Z 
+2026-02-24T18:43:11.6482920Z > Configure project :streams:upgrade-system-tests-24
+2026-02-24T18:43:11.6483638Z Evaluating project ':streams:upgrade-system-tests-24' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-24/build.gradle'.
+2026-02-24T18:43:11.6484217Z 
+2026-02-24T18:43:11.6484364Z > Configure project :streams:upgrade-system-tests-25
+2026-02-24T18:43:11.6485078Z Evaluating project ':streams:upgrade-system-tests-25' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-25/build.gradle'.
+2026-02-24T18:43:11.6485639Z 
+2026-02-24T18:43:11.6485778Z > Configure project :streams:upgrade-system-tests-26
+2026-02-24T18:43:11.6486462Z Evaluating project ':streams:upgrade-system-tests-26' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-26/build.gradle'.
+2026-02-24T18:43:11.6487235Z 
+2026-02-24T18:43:11.6487374Z > Configure project :streams:upgrade-system-tests-27
+2026-02-24T18:43:11.6488237Z Evaluating project ':streams:upgrade-system-tests-27' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-27/build.gradle'.
+2026-02-24T18:43:11.6488799Z 
+2026-02-24T18:43:11.6488935Z > Configure project :streams:upgrade-system-tests-28
+2026-02-24T18:43:11.6489608Z Evaluating project ':streams:upgrade-system-tests-28' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-28/build.gradle'.
+2026-02-24T18:43:11.6490176Z 
+2026-02-24T18:43:11.6490322Z > Configure project :streams:upgrade-system-tests-30
+2026-02-24T18:43:11.6491018Z Evaluating project ':streams:upgrade-system-tests-30' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-30/build.gradle'.
+2026-02-24T18:43:11.6491591Z 
+2026-02-24T18:43:11.6491732Z > Configure project :streams:upgrade-system-tests-31
+2026-02-24T18:43:11.6492418Z Evaluating project ':streams:upgrade-system-tests-31' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-31/build.gradle'.
+2026-02-24T18:43:11.6492982Z 
+2026-02-24T18:43:11.6493112Z > Configure project :streams:upgrade-system-tests-32
+2026-02-24T18:43:11.6493910Z Evaluating project ':streams:upgrade-system-tests-32' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-32/build.gradle'.
+2026-02-24T18:43:11.6494475Z 
+2026-02-24T18:43:11.6494612Z > Configure project :streams:upgrade-system-tests-33
+2026-02-24T18:43:11.6495291Z Evaluating project ':streams:upgrade-system-tests-33' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-33/build.gradle'.
+2026-02-24T18:43:11.6495854Z 
+2026-02-24T18:43:11.6495991Z > Configure project :streams:upgrade-system-tests-34
+2026-02-24T18:43:11.6496669Z Evaluating project ':streams:upgrade-system-tests-34' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-34/build.gradle'.
+2026-02-24T18:43:11.6497464Z 
+2026-02-24T18:43:11.6497605Z > Configure project :streams:upgrade-system-tests-35
+2026-02-24T18:43:11.6498307Z Evaluating project ':streams:upgrade-system-tests-35' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-35/build.gradle'.
+2026-02-24T18:43:11.6498867Z 
+2026-02-24T18:43:11.6499000Z > Configure project :streams:upgrade-system-tests-36
+2026-02-24T18:43:11.6499683Z Evaluating project ':streams:upgrade-system-tests-36' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-36/build.gradle'.
+2026-02-24T18:43:11.6500243Z 
+2026-02-24T18:43:11.6500379Z > Configure project :streams:upgrade-system-tests-37
+2026-02-24T18:43:11.6501056Z Evaluating project ':streams:upgrade-system-tests-37' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-37/build.gradle'.
+2026-02-24T18:43:11.6501621Z 
+2026-02-24T18:43:11.6501761Z > Configure project :streams:upgrade-system-tests-38
+2026-02-24T18:43:11.6502437Z Evaluating project ':streams:upgrade-system-tests-38' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-38/build.gradle'.
+2026-02-24T18:43:11.6503002Z 
+2026-02-24T18:43:11.6503140Z > Configure project :streams:upgrade-system-tests-39
+2026-02-24T18:43:11.6503827Z Evaluating project ':streams:upgrade-system-tests-39' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-39/build.gradle'.
+2026-02-24T18:43:11.6504384Z 
+2026-02-24T18:43:11.6504515Z > Configure project :streams:upgrade-system-tests-40
+2026-02-24T18:43:11.6505200Z Evaluating project ':streams:upgrade-system-tests-40' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-40/build.gradle'.
+2026-02-24T18:43:11.6505778Z 
+2026-02-24T18:43:11.6505919Z > Configure project :streams:upgrade-system-tests-41
+2026-02-24T18:43:11.6506613Z Evaluating project ':streams:upgrade-system-tests-41' using build file '/home/runner/work/kafka/kafka/streams/upgrade-system-tests-41/build.gradle'.
+2026-02-24T18:43:11.6507312Z 
+2026-02-24T18:43:11.6507487Z > Configure project :test-common:test-common-internal-api
+2026-02-24T18:43:11.6508408Z Evaluating project ':test-common:test-common-internal-api' using build file '/home/runner/work/kafka/kafka/test-common/test-common-internal-api/build.gradle'.
+2026-02-24T18:43:11.6509022Z 
+2026-02-24T18:43:11.6509162Z > Configure project :test-common:test-common-runtime
+2026-02-24T18:43:11.6509851Z Evaluating project ':test-common:test-common-runtime' using build file '/home/runner/work/kafka/kafka/test-common/test-common-runtime/build.gradle'.
+2026-02-24T18:43:11.6510414Z 
+2026-02-24T18:43:11.6510545Z > Configure project :test-common:test-common-util
+2026-02-24T18:43:11.6511214Z Evaluating project ':test-common:test-common-util' using build file '/home/runner/work/kafka/kafka/test-common/test-common-util/build.gradle'.
+2026-02-24T18:43:11.6511753Z 
+2026-02-24T18:43:11.6511863Z > Configure project :tools:tools-api
+2026-02-24T18:43:11.6512416Z Evaluating project ':tools:tools-api' using build file '/home/runner/work/kafka/kafka/tools/tools-api/build.gradle'.
+2026-02-24T18:43:11.6512955Z All projects evaluated.
+2026-02-24T18:43:11.6513241Z Task name matched 'buildScanPublishPrevious'
+2026-02-24T18:43:11.6513759Z Selected primary task 'buildScanPublishPrevious' from project :
+2026-02-24T18:43:11.6514218Z Tasks to be executed: [task ':buildScanPublishPrevious']
+2026-02-24T18:43:11.6514579Z Tasks that were excluded: []
+2026-02-24T18:43:11.6515025Z Resolve mutations for :buildScanPublishPrevious (Thread[#92,Execution worker,5,main]) started.
+2026-02-24T18:43:11.6515633Z :buildScanPublishPrevious (Thread[#92,Execution worker,5,main]) started.
+2026-02-24T18:43:11.6515946Z 
+2026-02-24T18:43:11.6516057Z > Task :buildScanPublishPrevious FAILED
+2026-02-24T18:43:11.6516442Z Caching disabled for task ':buildScanPublishPrevious' because:
+2026-02-24T18:43:11.6516804Z   Build cache is disabled
+2026-02-24T18:43:11.6517192Z   Caching has not been enabled for the task
+2026-02-24T18:43:11.6517562Z Task ':buildScanPublishPrevious' is not up-to-date because:
+2026-02-24T18:43:11.6517917Z   Task.upToDateWhen is false.
+2026-02-24T18:43:11.6518524Z gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/publish-build-scan-1771958576800.json
+2026-02-24T18:43:11.6519041Z 
+2026-02-24T18:43:11.6519430Z [Incubating] Problems report is available at: file:///home/runner/work/kafka/kafka/build/reports/problems/problems-report.html
+2026-02-24T18:43:11.6519918Z 
+2026-02-24T18:43:11.6520189Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-02-24T18:43:11.6520555Z 
+2026-02-24T18:43:11.6520974Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-02-24T18:43:11.6521488Z 
+2026-02-24T18:43:11.6522007Z For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-02-24T18:43:11.6522705Z 1 actionable task: 1 executed
+2026-02-24T18:43:11.6532928Z ##[error]Process completed with exit code 1.
+2026-02-24T18:43:11.6605508Z Prepare all required actions
+2026-02-24T18:43:11.6647645Z ##[group]Run ./.github/actions/gh-api-update-status
+2026-02-24T18:43:11.6647999Z with:
+2026-02-24T18:43:11.6648386Z   gh-token: ***
+2026-02-24T18:43:11.6648624Z   repository: apache/kafka
+2026-02-24T18:43:11.6648928Z   commit_sha: 268d67be141e2813884e6b5926c4ef2121754ae7
+2026-02-24T18:43:11.6649345Z   url: https://github.com/apache/kafka/actions/runs/22365027336
+2026-02-24T18:43:11.6649758Z   description: The build scan failed to be published
+2026-02-24T18:43:11.6650088Z   context: Gradle Build Scan / Java 25
+2026-02-24T18:43:11.6650368Z   state: error
+2026-02-24T18:43:11.6650566Z env:
+2026-02-24T18:43:11.6650777Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:43:11.6651061Z   status-context: Java 25
+2026-02-24T18:43:11.6651430Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:43:11.6651939Z   JAVA_HOME_25_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:43:11.6652676Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-24T18:43:11.6652990Z   GRADLE_USER_HOME: /home/runner/.gradle
+2026-02-24T18:43:11.6653304Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-24T18:43:11.6653603Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-24T18:43:11.6654060Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-24T18:43:11.6654555Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-24T18:43:11.6668616Z   DEVELOCITY_ACCESS_KEY: ***
+2026-02-24T18:43:11.6682349Z   GRADLE_ENTERPRISE_ACCESS_KEY: ***
+2026-02-24T18:43:11.6682649Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-24T18:43:11.6682939Z ##[endgroup]
+2026-02-24T18:43:11.6700669Z ##[group]Run gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" \
+2026-02-24T18:43:11.6701498Z [36;1mgh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" \[0m
+2026-02-24T18:43:11.6702073Z [36;1m/repos/$REPO/statuses/$COMMIT_SHA \[0m
+2026-02-24T18:43:11.6702415Z [36;1m-f "state=$STATE" -f "target_url=$URL" \[0m
+2026-02-24T18:43:11.6702747Z [36;1m-f "description=$DESCRIPTION" \[0m
+2026-02-24T18:43:11.6703057Z [36;1m-f "context=$CONTEXT"[0m
+2026-02-24T18:43:11.6736698Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-02-24T18:43:11.6737280Z env:
+2026-02-24T18:43:11.6737501Z   job-variation: 25-noflaky-nonew
+2026-02-24T18:43:11.6737786Z   status-context: Java 25
+2026-02-24T18:43:11.6738155Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:43:11.6738680Z   JAVA_HOME_25_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.2-10/x64
+2026-02-24T18:43:11.6739128Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-24T18:43:11.6739474Z   GRADLE_USER_HOME: /home/runner/.gradle
+2026-02-24T18:43:11.6739791Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-24T18:43:11.6740109Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-24T18:43:11.6740606Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-24T18:43:11.6741101Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-24T18:43:11.6755041Z   DEVELOCITY_ACCESS_KEY: ***
+2026-02-24T18:43:11.6768961Z   GRADLE_ENTERPRISE_ACCESS_KEY: ***
+2026-02-24T18:43:11.6769278Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-24T18:43:11.6769651Z   GH_TOKEN: ***
+2026-02-24T18:43:11.6769907Z   REPO: apache/kafka
+2026-02-24T18:43:11.6770184Z   COMMIT_SHA: 268d67be141e2813884e6b5926c4ef2121754ae7
+2026-02-24T18:43:11.6770509Z   STATE: error
+2026-02-24T18:43:11.6770816Z   URL: https://github.com/apache/kafka/actions/runs/22365027336
+2026-02-24T18:43:11.6771221Z   DESCRIPTION: The build scan failed to be published
+2026-02-24T18:43:11.6771552Z   CONTEXT: Gradle Build Scan / Java 25
+2026-02-24T18:43:11.6771827Z ##[endgroup]
+2026-02-24T18:43:12.4588565Z {"url":"https://api.github.com/repos/apache/kafka/statuses/268d67be141e2813884e6b5926c4ef2121754ae7","avatar_url":"https://avatars.githubusercontent.com/in/15368?v=4","id":43943854491,"node_id":"SC_kwDOACG9q88AAAAKO0IBmw","state":"error","description":"The build scan failed to be published","target_url":"https://github.com/apache/kafka/actions/runs/22365027336","context":"Gradle Build Scan / Java 25","created_at":"2026-02-24T18:43:12Z","updated_at":"2026-02-24T18:43:12Z","creator":{"login":"github-actions[bot]","id":41898282,"node_id":"MDM6Qm90NDE4OTgyODI=","avatar_url":"https://avatars.githubusercontent.com/in/15368?v=4","gravatar_id":"","url":"https://api.github.com/users/github-actions%5Bbot%5D","html_url":"https://github.com/apps/github-actions","followers_url":"https://api.github.com/users/github-actions%5Bbot%5D/followers","following_url":"https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}","gists_url":"https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}","starred_url":"https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/github-actions%5Bbot%5D/subscriptions","organizations_url":"https://api.github.com/users/github-actions%5Bbot%5D/orgs","repos_url":"https://api.github.com/users/github-actions%5Bbot%5D/repos","events_url":"https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}","received_events_url":"https://api.github.com/users/github-actions%5Bbot%5D/received_events","type":"Bot","user_view_type":"public","site_admin":false}}
+2026-02-24T18:43:12.4663791Z Post job cleanup.
+2026-02-24T18:43:12.4768195Z Post job cleanup.
+2026-02-24T18:43:12.7046796Z In post-action step
+2026-02-24T18:43:12.7056062Z Cache is read-only: will not save state for use in subsequent builds.
+2026-02-24T18:43:12.7062895Z Generating Job Summary
+2026-02-24T18:43:12.7080270Z Completed post-action step
+2026-02-24T18:43:12.7225028Z Post job cleanup.
+2026-02-24T18:43:12.8568146Z Post job cleanup.
+2026-02-24T18:43:12.9376371Z [command]/usr/bin/git version
+2026-02-24T18:43:12.9413774Z git version 2.52.0
+2026-02-24T18:43:12.9452176Z Temporarily overriding HOME='/home/runner/work/_temp/e56752d5-5861-456c-8d39-1c9c27f4aef4' before making global git config changes
+2026-02-24T18:43:12.9453323Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-24T18:43:12.9458200Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/kafka/kafka
+2026-02-24T18:43:12.9497517Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-24T18:43:12.9531863Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-24T18:43:12.9806098Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-24T18:43:12.9842181Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-24T18:43:13.0086809Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-24T18:43:13.0120364Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-24T18:43:13.0476619Z Cleaning up orphan processes
+2026-02-24T18:43:13.0843833Z Terminate orphan process: pid (2492) (java)

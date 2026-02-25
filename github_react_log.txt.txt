@@ -1,0 +1,25 @@
+2025-03-01T10:00:00.123456Z ##[section]Starting: Initialize Job
+2025-03-01T10:00:01.000000Z Current runner version: '2.311.0'
+2025-03-01T10:00:05.000000Z ##[section]Finishing: Initialize Job
+2025-03-01T10:00:06.000000Z ##[section]Starting: Checkout facebook/react@main
+2025-03-01T10:00:08.000000Z Syncing repository: facebook/react
+2025-03-01T10:00:15.000000Z ##[section]Finishing: Checkout facebook/react@main
+2025-03-01T10:00:16.000000Z ##[section]Starting: Install Dependencies (Yarn)
+2025-03-01T10:00:17.000000Z [command]/usr/bin/yarn install --frozen-lockfile
+2025-03-01T10:00:45.000000Z [4/4] Building fresh packages...
+2025-03-01T10:01:20.000000Z Done in 64.32s.
+2025-03-01T10:01:21.000000Z ##[section]Finishing: Install Dependencies (Yarn)
+2025-03-01T10:01:22.000000Z ##[section]Starting: Lint Source Code (ESLint)
+2025-03-01T10:01:23.000000Z ##[section]Starting: Run Jest Unit Tests
+2025-03-01T10:01:23.000000Z ##[section]Starting: Security Audit (SAST)
+2025-03-01T10:02:50.000000Z 183 problems (0 errors, 183 warnings)
+2025-03-01T10:03:00.000000Z ##[section]Finishing: Lint Source Code (ESLint)
+2025-03-01T10:04:30.000000Z Test Suites: 120 passed, 120 total
+2025-03-01T10:04:31.000000Z ##[section]Finishing: Run Jest Unit Tests
+2025-03-01T10:12:00.000000Z High severity vulnerability found in 'minimist'
+2025-03-01T10:12:01.000000Z ##[section]Finishing: Security Audit (SAST)
+2025-03-01T10:12:02.000000Z ##[section]Starting: Build Production Bundle (React)
+2025-03-01T10:12:05.000000Z Creating an optimized production build...
+2025-03-01T10:15:00.000000Z ##[section]Finishing: Build Production Bundle (React)
+2025-03-01T10:15:01.000000Z ##[section]Starting: Publish to NPM
+2025-03-01T10:18:00.000000Z ##[section]Finishing: Publish to NPM

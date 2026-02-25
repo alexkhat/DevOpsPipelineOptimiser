@@ -1,0 +1,93 @@
+Started by user Mohammed Abdullah
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\khate\.jenkins\workspace\Honours-DevSecOps-Pipeline
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout SCM)
+[Pipeline] echo
+[2026-02-25T00:52:31.638Z] Cloning repository...
+[Pipeline] sleep
+[2026-02-25T00:52:31.649Z] Sleeping for 5 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (NPM Install Dependencies)
+[Pipeline] echo
+[2026-02-25T00:52:36.753Z] Fetching packages from npmjs.com...
+[Pipeline] sleep
+[2026-02-25T00:52:36.761Z] Sleeping for 1 min 20 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Linting and Formatting)
+[Pipeline] echo
+[2026-02-25T00:53:56.877Z] Running ESLint...
+[Pipeline] sleep
+[2026-02-25T00:53:56.889Z] Sleeping for 10 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Compile Application)
+[Pipeline] echo
+[2026-02-25T00:54:07.044Z] Compiling TypeScript to JavaScript...
+[Pipeline] sleep
+[2026-02-25T00:54:07.053Z] Sleeping for 30 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Unit Tests)
+[Pipeline] echo
+[2026-02-25T00:54:37.163Z] Executing Jest suites...
+[Pipeline] sleep
+[2026-02-25T00:54:37.167Z] Sleeping for 20 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (SonarQube SAST Scan)
+[Pipeline] echo
+[2026-02-25T00:54:57.328Z] Running deep static code analysis...
+[Pipeline] sleep
+[2026-02-25T00:54:57.333Z] Sleeping for 2 min 0 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Trivy Dependency Scan)
+[Pipeline] echo
+[2026-02-25T00:56:57.473Z] Scanning for CVEs in dependencies...
+[Pipeline] sleep
+[2026-02-25T00:56:57.492Z] Sleeping for 40 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] echo
+[2026-02-25T00:57:37.625Z] Building container image...
+[Pipeline] sleep
+[2026-02-25T00:57:37.634Z] Sleeping for 1 min 30 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push to Container Registry)
+[Pipeline] echo
+[2026-02-25T00:59:07.758Z] Pushing image to AWS ECR...
+[Pipeline] sleep
+[2026-02-25T00:59:07.771Z] Sleeping for 25 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Kubernetes)
+[Pipeline] echo
+[2026-02-25T00:59:32.903Z] Applying kubectl manifests...
+[Pipeline] sleep
+[2026-02-25T00:59:32.911Z] Sleeping for 15 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

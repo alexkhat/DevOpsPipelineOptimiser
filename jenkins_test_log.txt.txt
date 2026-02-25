@@ -1,0 +1,53 @@
+Started by user Mohammed Abdullah
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\khate\.jenkins\workspace\Honours-DevSecOps-Pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Setup Environment)
+[Pipeline] echo
+Preparing the runner environment...
+[Pipeline] sleep
+Sleeping for 2 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install Dependencies)
+[Pipeline] echo
+Downloading NPM packages...
+[Pipeline] sleep
+Sleeping for 15 sec
+[Pipeline] echo
+Dependencies installed.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Unit Tests)
+[Pipeline] echo
+Executing Jest test suite...
+[Pipeline] sleep
+Sleeping for 5 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Checkmarx SAST)
+[Pipeline] echo
+Performing Static Application Security Testing...
+[Pipeline] sleep
+Sleeping for 25 sec
+[Pipeline] echo
+Security scan complete. 0 Critical vulnerabilities found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+[Pipeline] echo
+Pushing artifacts to AWS S3...
+[Pipeline] sleep
+Sleeping for 3 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
