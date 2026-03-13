@@ -1,15 +1,27 @@
 import os
+import tempfile
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import networkx as nx
 
-import data_parser
+import orchestrator
 import analyser
-import suggestion_engine
+import visualiser
 
 # ==============================================================================
-# Dashboard Interface - GitHub Dark Theme Edition (UK English)
+# MODULE: dashboard.py
+# PURPOSE: Interactive web dashboard for pipeline analysis and visualisation.
+#          Uses Streamlit for the UI and the shared orchestrator for analysis.
+#
+# DESIGN JUSTIFICATION:
+#   - GitHub Dark theme targets the DevOps audience who are familiar with
+#     dark-mode development environments.
+#   - Three-tab layout maps to the IPO deliverables: Overview (metrics + Gantt),
+#     Pipeline Graph (DAG topology), Optimisation Plan (recommendations).
+#   - What-If Simulator enables prescriptive decision support — users can
+#     test hypothetical optimisations before changing real infrastructure.
+#
+# USAGE: streamlit run dashboard.py
 # ==============================================================================
 
 st.set_page_config(
@@ -19,51 +31,43 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for GitHub Dark Theme & Welcome Cards
+# --- Custom CSS (GitHub Dark Theme) ---
 st.markdown("""
     <style>
-    /* 1. GitHub Dark Backgrounds */
-    .stApp { background-color: #0d1117; } /* GitHub Canvas Black */
+    .stApp { background-color: #0d1117; }
     section[data-testid="stSidebar"] { background-color: #161b22; border-right: 1px solid #30363d; }
-
-    /* Global Text Colors */
     h1, h2, h3, h4, p, span, div, li { color: #c9d1d9 !important; }
 
-    /* 2. Metric Cards */
     div[data-testid="stMetric"] {
-        background-color: #161b22 !important; 
-        border: 1px solid #30363d !important;
+        background-color: #161b22 !important; border: 1px solid #30363d !important;
         padding: 20px; border-radius: 6px;
     }
-    div[data-testid="stMetricLabel"] > div { color: #8b949e !important; font-size: 1rem !important; font-weight: 600 !important; }
-    div[data-testid="stMetricValue"] > div { color: #58a6ff !important; font-size: 2.2rem !important; font-weight: 700 !important; }
+    div[data-testid="stMetricLabel"] > div { color: #8b949e !important; font-size: 1rem !important; }
+    div[data-testid="stMetricValue"] > div { color: #58a6ff !important; font-size: 2.2rem !important; }
 
-    /* 3. Tabs */
     .stTabs [data-baseweb="tab-list"] { background-color: transparent; }
     .stTabs [data-baseweb="tab"] {
-        background-color: #161b22; color: #8b949e !important; 
+        background-color: #161b22; color: #8b949e !important;
         border: 1px solid #30363d; border-bottom: none; border-radius: 6px 6px 0 0;
     }
-    .stTabs [aria-selected="true"] { background-color: #1f6feb !important; color: #ffffff !important; border-color: #1f6feb; }
+    .stTabs [aria-selected="true"] { background-color: #1f6feb !important; color: #ffffff !important; }
 
-    /* 4. Alert Boxes */
-    .alert-compute { background-color: #2a0a12; border-left: 5px solid #f85149; padding: 15px; border-radius: 6px; margin-bottom: 12px; border: 1px solid #4a131b; border-left-width: 5px; }
-    .alert-compute h4 { color: #ff7b72 !important; font-weight: 700; margin-top: 0; margin-bottom: 8px;}
-    .alert-compute p { color: #ffdce0 !important; font-weight: 500; font-size: 1.05rem; line-height: 1.5; margin: 0;}
+    .alert-compute { background-color: #2a0a12; border-left: 5px solid #f85149; padding: 15px; border-radius: 6px; margin-bottom: 12px; }
+    .alert-compute h4 { color: #ff7b72 !important; margin: 0 0 8px 0; }
+    .alert-compute p { color: #ffdce0 !important; margin: 0; }
 
-    .alert-io { background-color: #0d223f; border-left: 5px solid #58a6ff; padding: 15px; border-radius: 6px; margin-bottom: 12px; border: 1px solid #163a6a; border-left-width: 5px; }
-    .alert-io h4 { color: #79c0ff !important; font-weight: 700; margin-top: 0; margin-bottom: 8px;}
-    .alert-io p { color: #cdd9e5 !important; font-weight: 500; font-size: 1.05rem; line-height: 1.5; margin: 0;}
+    .alert-io { background-color: #0d223f; border-left: 5px solid #58a6ff; padding: 15px; border-radius: 6px; margin-bottom: 12px; }
+    .alert-io h4 { color: #79c0ff !important; margin: 0 0 8px 0; }
+    .alert-io p { color: #cdd9e5 !important; margin: 0; }
 
-    .alert-general { background-color: #2b1d07; border-left: 5px solid #d29922; padding: 15px; border-radius: 6px; margin-bottom: 12px; border: 1px solid #4d350b; border-left-width: 5px; }
-    .alert-general h4 { color: #e3b341 !important; font-weight: 700; margin-top: 0; margin-bottom: 8px;}
-    .alert-general p { color: #f0e2b6 !important; font-weight: 500; font-size: 1.05rem; line-height: 1.5; margin: 0;}
+    .alert-general { background-color: #2b1d07; border-left: 5px solid #d29922; padding: 15px; border-radius: 6px; margin-bottom: 12px; }
+    .alert-general h4 { color: #e3b341 !important; margin: 0 0 8px 0; }
+    .alert-general p { color: #f0e2b6 !important; margin: 0; }
 
-    /* 5. Critical Path Cards */
     .path-card {
         background: #161b22; border-left: 4px solid #238636;
         padding: 12px 16px; margin-bottom: 12px; border-radius: 6px;
-        border: 1px solid #30363d; border-left-width: 4px; display: flex; align-items: center;
+        border: 1px solid #30363d; display: flex; align-items: center;
     }
     .path-step {
         background: #238636; color: #ffffff !important; font-weight: bold;
@@ -72,23 +76,13 @@ st.markdown("""
     }
     .path-name { color: #c9d1d9 !important; font-weight: 600; font-size: 1.05rem; }
 
-    /* 6. Welcome Landing Page Cards */
     .welcome-card {
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        border-radius: 8px;
-        padding: 24px;
-        height: 100%;
-        transition: border-color 0.2s;
+        background-color: #161b22; border: 1px solid #30363d;
+        border-radius: 8px; padding: 24px; height: 100%;
     }
     .welcome-card:hover { border-color: #8b949e; }
     .welcome-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
     .welcome-title { font-size: 1.25rem; font-weight: 700; color: #58a6ff !important; margin-bottom: 10px; }
-
-    .logo-container { display: flex; gap: 20px; align-items: center; margin-top: 20px; }
-    /* The CSS invert filter makes the black GitHub logo turn bright white */
-    .logo-container img { height: 45px; opacity: 0.8; transition: filter 0.3s, opacity 0.3s; }
-    .logo-container img:hover { opacity: 1; transform: scale(1.05); }
     </style>
     """, unsafe_allow_html=True)
 
@@ -96,19 +90,26 @@ st.markdown("""
 # ==============================================================================
 # Helper Functions
 # ==============================================================================
+
 def create_gantt_chart(pipeline_data):
+    """Creates a Plotly timeline (Gantt) chart from parsed pipeline data."""
     df_list = []
     for job, attrs in pipeline_data.items():
-        if 'start' in attrs and 'duration' in attrs:
+        if 'start' in attrs and attrs['start'] is not None and 'duration' in attrs:
             end_time = attrs['start'] + pd.Timedelta(seconds=attrs['duration'])
-            df_list.append(dict(Job=job, Start=attrs['start'], Finish=end_time, Duration=attrs['duration']))
+            df_list.append(dict(
+                Job=job, Start=attrs['start'],
+                Finish=end_time, Duration=attrs['duration']
+            ))
 
-    if not df_list: return None
+    if not df_list:
+        return None
 
     df = pd.DataFrame(df_list)
     fig = px.timeline(
-        df, x_start="Start", x_end="Finish", y="Job", color="Duration",
-        color_continuous_scale="Tealgrn", title="Timeline View"
+        df, x_start="Start", x_end="Finish", y="Job",
+        color="Duration", color_continuous_scale="Tealgrn",
+        title="Pipeline Timeline"
     )
     fig.update_yaxes(autorange="reversed")
     fig.update_layout(
@@ -119,47 +120,69 @@ def create_gantt_chart(pipeline_data):
     return fig
 
 
-# ==============================================================================
-# Sidebar & Inputs
-# ==============================================================================
-with st.sidebar:
-    st.title("⚙️ Settings")
+def render_recommendation(rec):
+    """Renders a single Recommendation as a styled HTML card."""
+    if rec.category == 'compute':
+        st.markdown(
+            f'<div class="alert-compute"><h4>Compute-Bound Task</h4>'
+            f'<p>{rec.message}</p></div>',
+            unsafe_allow_html=True
+        )
+    elif rec.category == 'io':
+        st.markdown(
+            f'<div class="alert-io"><h4>I/O-Bound Task</h4>'
+            f'<p>{rec.message}</p></div>',
+            unsafe_allow_html=True
+        )
+    elif rec.category == 'general':
+        st.markdown(
+            f'<div class="alert-general"><h4>Slow Task Detected</h4>'
+            f'<p>{rec.message}</p></div>',
+            unsafe_allow_html=True
+        )
+    else:
+        st.success(rec.message)
 
-    st.subheader("1. Upload File")
-    uploaded_file = st.file_uploader("Upload your pipeline log (.txt or .log)", type=["txt", "log"])
+
+# ==============================================================================
+# Sidebar
+# ==============================================================================
+
+with st.sidebar:
+    st.title("Settings")
+
+    st.subheader("1. Upload Log File")
+    uploaded_file = st.file_uploader(
+        "Upload a pipeline log (.txt or .log)",
+        type=["txt", "log"]
+    )
 
     st.subheader("2. Sensitivity")
-    threshold_slider = st.slider("Flag tasks taking more than X% of total time:", 0.05, 0.50, 0.20)
+    threshold_slider = st.slider(
+        "Flag tasks taking more than X% of total time:",
+        0.05, 0.50, 0.20
+    )
 
     st.divider()
+    st.caption("Honours Project — Edinburgh Napier University")
 
-    st.subheader("🔮 What-If Simulator")
-    enable_sim = st.checkbox("Test a potential fix")
-    sim_job = None
-    sim_reduction = 0
-
-    if enable_sim and uploaded_file:
-        st.info("Select a slow task and see how much time you'd save by speeding it up.")
-        sim_job = st.selectbox("Select a task to optimise:",
-                               list(data_parser.parse_log_file("temp_log.txt").keys()) if os.path.exists(
-                                   "temp_log.txt") else [])
-        sim_reduction = st.slider("Speed up this task by (%)", 0, 90, 50, 10)
-
-    st.divider()
-    st.caption("Final Year Honours Project")
 
 # ==============================================================================
-# Main Page Logic
+# Main Page
 # ==============================================================================
+
 if uploaded_file is None:
-    # ---------------------------------------------------------
-    # EMPTY STATE / LANDING PAGE
-    # ---------------------------------------------------------
-    st.markdown("<h1 style='text-align: center; font-size: 3rem; margin-top: 2rem;'>⚡ Pipeline Optimiser</h1>",
-                unsafe_allow_html=True)
+    # ----- LANDING PAGE -----
     st.markdown(
-        "<p style='text-align: center; font-size: 1.2rem; color: #8b949e !important; margin-bottom: 3rem;'>Stop guessing. Use Graph Theory to find the true bottlenecks in your pipelines.</p>",
-        unsafe_allow_html=True)
+        "<h1 style='text-align: center; font-size: 3rem; margin-top: 2rem;'>"
+        "Pipeline Optimiser</h1>",
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        "<p style='text-align: center; font-size: 1.2rem; color: #8b949e !important;'>"
+        "Upload a CI/CD log file to identify bottlenecks using Critical Path Analysis.</p>",
+        unsafe_allow_html=True
+    )
 
     col1, col2, col3 = st.columns(3)
 
@@ -167,9 +190,10 @@ if uploaded_file is None:
         st.markdown("""
         <div class="welcome-card">
             <span class="welcome-icon">🕸️</span>
-            <div class="welcome-title">What is a Bottleneck?</div>
-            <p>Pipelines run tasks in parallel. A task that takes 5 minutes isn't a bottleneck if another task running at the exact same time takes 10 minutes.</p>
-            <p>This tool models your logs as a <b>Directed Acyclic Graph (DAG)</b> to mathematically prove which sequence of tasks is actually slowing down your deployment.</p>
+            <div class="welcome-title">Critical Path Analysis</div>
+            <p>This tool models your pipeline as a Directed Acyclic Graph (DAG)
+            and identifies the longest chain of dependent tasks — the critical path
+            that determines your minimum deployment time.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -177,13 +201,10 @@ if uploaded_file is None:
         st.markdown("""
         <div class="welcome-card">
             <span class="welcome-icon">🧠</span>
-            <div class="welcome-title">The Expert System</div>
-            <p>This is a deterministic Heuristic Engine based on established engineering literature.</p>
-            <ul>
-                <li>Filters out micro-task noise using Amdahl's Law.</li>
-                <li>Identifies I/O vs Compute boundaries.</li>
-                <li>Suggests actionable fixes like Parallel Sharding or Dependency Caching.</li>
-            </ul>
+            <div class="welcome-title">Rule-Based Recommendations</div>
+            <p>The suggestion engine classifies bottlenecks as compute-bound or
+            I/O-bound and provides specific optimisation strategies such as
+            parallel sharding or dependency caching.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -192,95 +213,137 @@ if uploaded_file is None:
         <div class="welcome-card">
             <span class="welcome-icon">🚀</span>
             <div class="welcome-title">Supported Platforms</div>
-            <p>Upload raw, unstructured build logs directly from your runners. The Regex State Machine automatically cleans formatting noise and extracts execution telemetry.</p>
-            <div class="logo-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Actions" style="filter: invert(100%) brightness(200%);">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg" alt="Jenkins">
-            </div>
+            <p>Upload raw build logs from GitHub Actions or Jenkins.
+            The parser handles both structured section markers and
+            timestamp-based stage detection.</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown(
-        "<br><p style='text-align: center; color: #58a6ff !important; font-size: 1.1rem; font-weight: 600;'>👈 Get started by uploading a .txt or .log file from the menu.</p>",
-        unsafe_allow_html=True)
+        "<br><p style='text-align: center; color: #58a6ff !important; font-size: 1.1rem;'>"
+        "Get started by uploading a log file from the sidebar.</p>",
+        unsafe_allow_html=True
+    )
 
 else:
-    # ---------------------------------------------------------
-    # ANALYSIS STATE (When file is uploaded)
-    # ---------------------------------------------------------
-    st.title("⚡ Pipeline Optimiser")
+    # ----- ANALYSIS STATE -----
+    st.title("Pipeline Optimiser")
 
-    with open("temp_log.txt", "wb") as f:
-        f.write(uploaded_file.getbuffer())
+    # Write uploaded file to a secure temporary location
+    with tempfile.NamedTemporaryFile(
+        delete=False, suffix=".txt", mode="wb"
+    ) as tmp:
+        tmp.write(uploaded_file.getbuffer())
+        tmp_path = tmp.name
 
-    with st.spinner('Reading log file...'):
-        pipeline_data = data_parser.parse_log_file("temp_log.txt")
+    try:
+        # Run the shared analysis pipeline
+        with st.spinner('Analysing pipeline...'):
+            result = orchestrator.run_analysis(tmp_path, threshold=threshold_slider)
 
-    if not pipeline_data:
-        st.error("❌ Could not read this file. Please make sure it's a valid pipeline log.")
-        st.stop()
+        if result is None:
+            st.error("Could not analyse this file. Please check it is a valid pipeline log.")
+            st.stop()
 
-    if enable_sim and sim_job:
-        original_duration = pipeline_data[sim_job].get('duration', 0)
-        pipeline_data[sim_job]['duration'] = original_duration * (1 - (sim_reduction / 100.0))
-        st.sidebar.success(f"Testing a {sim_reduction}% speedup on '{sim_job}'.")
+        # Store baseline for What-If comparison
+        baseline_makespan = result.makespan
 
-    with st.spinner('Analysing pipeline dependencies...'):
-        G = analyser.build_dag(pipeline_data)
-        critical_path, total_duration = analyser.calculate_critical_path(G)
+        # ----- WHAT-IF SIMULATOR -----
+        # Now placed AFTER analysis so we have valid job names
+        with st.sidebar:
+            st.divider()
+            st.subheader("What-If Simulator")
+            enable_sim = st.checkbox("Test a potential optimisation")
+            sim_savings = 0.0
 
-    recommendations = suggestion_engine.generate_suggestions(critical_path, pipeline_data, total_duration,
-                                                             threshold=threshold_slider)
+            if enable_sim:
+                job_names = list(result.pipeline_data.keys())
+                sim_job = st.selectbox("Select a task to speed up:", job_names)
+                sim_reduction = st.slider("Speed up by (%):", 0, 90, 50, 10)
 
-    tab1, tab2, tab3 = st.tabs(["📊 Overview", "🕸️ Pipeline Graph", "💡 Optimisation Plan"])
+                if sim_job and sim_reduction > 0:
+                    # Apply the simulated reduction to a COPY of the data
+                    sim_data = {}
+                    for k, v in result.pipeline_data.items():
+                        sim_data[k] = dict(v)  # Shallow copy each job's attributes
+                    original_dur = sim_data[sim_job].get('duration', 0)
+                    sim_data[sim_job]['duration'] = original_dur * (1 - sim_reduction / 100.0)
 
-    with tab1:
-        col1, col2, col3, col4 = st.columns(4)
-        col1.metric("Calculated Makespan", f"{total_duration:.2f}s")
-        col2.metric("Blocking Tasks", f"{len(critical_path)}")
-        col3.metric("Total Extracted Nodes", f"{G.number_of_nodes()}")
+                    # Re-run analysis on modified data
+                    sim_graph = analyser.build_dag(sim_data)
+                    sim_path, sim_makespan = analyser.calculate_critical_path(sim_graph)
+                    sim_savings = baseline_makespan - sim_makespan
 
-        if enable_sim:
-            col4.metric("Simulated Savings", f"▼ {sim_reduction}%")
-            st.info(
-                f"🧪 **Simulation Active:** If you apply this fix, the new makespan will be **{total_duration:.2f}s**.")
-        else:
-            col4.metric("Baseline", "100%", "Unoptimised")
+                    st.success(
+                        f"Simulated: {sim_reduction}% faster '{sim_job}' "
+                        f"saves {sim_savings:.1f}s"
+                    )
 
-        st.divider()
-        gantt_fig = create_gantt_chart(pipeline_data)
-        if gantt_fig: st.plotly_chart(gantt_fig, use_container_width=True)
+        # ----- TABS -----
+        tab1, tab2, tab3 = st.tabs([
+            "Overview", "Pipeline Graph", "Optimisation Plan"
+        ])
 
-    with tab2:
-        col_left, col_right = st.columns([2, 1])
-        with col_left:
-            analyser.visualize_graph(G, critical_path)
-            if os.path.exists("pipeline_graph.png"):
-                st.image("pipeline_graph.png", use_container_width=True)
-        with col_right:
-            st.markdown("<h3 style='margin-bottom: 20px;'>Critical Path</h3>", unsafe_allow_html=True)
-            for i, node in enumerate(critical_path):
-                st.markdown(
-                    f'<div class="path-card"><div class="path-step">{i + 1}</div><div class="path-name">{node}</div></div>',
-                    unsafe_allow_html=True)
+        with tab1:
+            col1, col2, col3, col4 = st.columns(4)
+            col1.metric("Makespan", f"{result.makespan:.2f}s")
+            col2.metric("Critical Path Tasks", f"{len(result.critical_path)}")
+            col3.metric("Total Stages", f"{result.graph.number_of_nodes()}")
 
-    with tab3:
-        st.markdown("<h3 style='margin-bottom: 20px;'>Recommended Actions</h3>", unsafe_allow_html=True)
-        if len(recommendations) == 1 and "No significant bottlenecks" in recommendations[0]:
-            st.success("✅ **Looking Good:** Your pipeline is highly optimised. No major bottlenecks detected.")
-        else:
-            for rec in recommendations:
-                if "[DEVSECOPS BOTTLENECK]" in rec:
-                    clean = rec.replace("[DEVSECOPS BOTTLENECK]", "").strip()
-                    st.markdown(f'<div class="alert-compute"><h4>🚨 Security / Compute Task</h4><p>{clean}</p></div>',
-                                unsafe_allow_html=True)
-                elif "[I/O BOTTLENECK]" in rec:
-                    clean = rec.replace("[I/O BOTTLENECK]", "").strip()
-                    st.markdown(f'<div class="alert-io"><h4>💾 Download / Setup Task</h4><p>{clean}</p></div>',
-                                unsafe_allow_html=True)
-                elif "[GENERAL BOTTLENECK]" in rec:
-                    clean = rec.replace("[GENERAL BOTTLENECK]", "").strip()
-                    st.markdown(f'<div class="alert-general"><h4>⚠️ Slow Task Detected</h4><p>{clean}</p></div>',
-                                unsafe_allow_html=True)
+            if enable_sim and sim_savings > 0:
+                col4.metric("Simulated Savings", f"{sim_savings:.1f}s")
+            else:
+                col4.metric("Status", "Baseline")
+
+            st.divider()
+            gantt_fig = create_gantt_chart(result.pipeline_data)
+            if gantt_fig:
+                st.plotly_chart(gantt_fig, use_container_width=True)
+            else:
+                st.info("Timeline chart unavailable — start times could not be determined for all stages.")
+
+        with tab2:
+            col_left, col_right = st.columns([2, 1])
+            with col_left:
+                graph_path = "pipeline_graph.png"
+                saved = visualiser.save_pipeline_graph(
+                    result.graph, result.critical_path, graph_path
+                )
+                if saved and os.path.exists(graph_path):
+                    st.image(graph_path, use_container_width=True)
                 else:
-                    st.info(rec)
+                    st.warning("Could not generate graph image.")
+
+            with col_right:
+                st.markdown(
+                    "<h3 style='margin-bottom: 20px;'>Critical Path</h3>",
+                    unsafe_allow_html=True
+                )
+                for i, node in enumerate(result.critical_path):
+                    st.markdown(
+                        f'<div class="path-card">'
+                        f'<div class="path-step">{i + 1}</div>'
+                        f'<div class="path-name">{node}</div></div>',
+                        unsafe_allow_html=True
+                    )
+
+        with tab3:
+            st.markdown(
+                "<h3 style='margin-bottom: 20px;'>Recommendations</h3>",
+                unsafe_allow_html=True
+            )
+
+            has_issues = any(r.category != 'info' for r in result.recommendations)
+            if not has_issues:
+                st.success(
+                    "No major bottlenecks detected. Your pipeline is well-optimised "
+                    "at the current sensitivity threshold."
+                )
+            for rec in result.recommendations:
+                if rec.category != 'info':
+                    render_recommendation(rec)
+
+    finally:
+        # Clean up the temporary file
+        if os.path.exists(tmp_path):
+            os.unlink(tmp_path)
