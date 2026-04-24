@@ -9,37 +9,31 @@ import suggestion_engine
 import visualiser
 import orchestrator
 
-# ==============================================================================
-# MODULE: test_suite.py
-# PURPOSE: Validates the correctness of all backend modules.
+# test_suite.py
+# Full test suite for all backend modules.
+# Run with: pytest test_suite.py -v
 #
-# RUN: pytest test_suite.py -v
-#
-# TEST STRATEGY:
-#   - Parser tests: Verify ANSI cleaning, secret masking, temporal inference.
-#   - Analyser tests: Verify DAG construction, critical path math, cycle detection.
-#   - Suggestion engine tests: Verify noise filtering, keyword classification,
-#     structured Recommendation output.
-#   - Visualiser tests: Verify graph image generation (smoke test).
-#   - Integration test: Verify the full pipeline via orchestrator.
-# ==============================================================================
+# Coverage:
+#   Parser           — ANSI cleaning, secret masking, timestamp inference, edge cases
+#   Analyser         — DAG construction, critical path maths, cycle detection
+#   Suggestion engine — noise filtering, keyword classification, structured output
+#   Visualiser       — graph image generation (smoke test)
+#   Integration      — full pipeline via orchestrator on a real log format
 
 
-# ---------------------------------------------------------
-# FIXTURES
-# ---------------------------------------------------------
+# ── Fixtures ──────────────────────────────────────────────────────────────────
 
 @pytest.fixture
 def mock_parsed_data():
     """
-    A controlled pipeline with PARALLEL jobs to test critical path logic.
+    A hand-crafted pipeline with two parallel branches after Install.
 
     Structure:
-        Setup (4s) -> Install (45s) -> Unit Tests (30s)  -> Deploy (10s)
-                                    -> SAST Scan (120s)  ->
+        Setup (4s) → Install (45s) → Run Unit Tests (30s)      → Deploy (10s)
+                                   → Run Checkmarx SAST (120s) →
 
-    The critical path should be: Setup -> Install -> SAST -> Deploy = 179s
-    Unit Tests (30s) runs parallel to SAST (120s) and should NOT be on the path.
+    Expected critical path: Setup → Install → SAST → Deploy = 179s
+    Unit Tests (30s) runs in parallel with SAST and must NOT appear on the path.
     """
     return {
         "Setup Environment": {
@@ -72,7 +66,7 @@ def mock_parsed_data():
 
 @pytest.fixture
 def sample_log_file(tmp_path):
-    """Creates a minimal GitHub Actions log file for integration testing."""
+    """Minimal GitHub Actions section-format log for the integration test."""
     log_content = """
 2026-02-24T10:00:00Z ##[section]Starting: Initial Setup
 2026-02-24T10:00:10Z ##[section]Starting: Build Application
@@ -84,19 +78,16 @@ def sample_log_file(tmp_path):
     return str(test_file)
 
 
-# ---------------------------------------------------------
-# 1. PARSER TESTS
-# ---------------------------------------------------------
+# ── 1. Parser tests ───────────────────────────────────────────────────────────
 
 def test_clean_ansi_noise():
-    """Verifies ANSI escape sequences are stripped correctly."""
+    """ANSI colour codes should be stripped, leaving plain text."""
     noisy = "\x1b[32m[SUCCESS]\x1b[0m Job Completed"
-    clean = data_parser.clean_ansi_noise(noisy)
-    assert clean == "[SUCCESS] Job Completed"
+    assert data_parser.clean_ansi_noise(noisy) == "[SUCCESS] Job Completed"
 
 
 def test_mask_secrets():
-    """Verifies sensitive tokens are redacted."""
+    """Credential values should be replaced with asterisks."""
     line = "Connecting with AWS_SECRET_KEY=12345ABCDE"
     safe = data_parser.mask_secrets(line)
     assert "12345ABCDE" not in safe
@@ -104,66 +95,57 @@ def test_mask_secrets():
 
 
 def test_mask_secrets_case_insensitive():
-    """Verifies secret masking works regardless of case."""
+    """Secret masking must work regardless of keyword capitalisation."""
     line = "Using token=mySecretValue123"
     safe = data_parser.mask_secrets(line)
     assert "mySecretValue123" not in safe
 
 
 def test_calculate_duration_normal():
-    """Verifies basic duration calculation."""
+    """Standard duration between two timestamps should return correct seconds."""
     start = datetime(2026, 1, 1, 10, 0, 0)
-    end = datetime(2026, 1, 1, 10, 0, 30)
+    end   = datetime(2026, 1, 1, 10, 0, 30)
     assert data_parser.calculate_duration(start, end) == 30.0
 
 
 def test_calculate_duration_midnight_rollover():
-    """Verifies midnight rollover correction."""
-    start = datetime(2026, 1, 1, 23, 59, 50)
-    end = datetime(2026, 1, 1, 0, 0, 10)
-    duration = data_parser.calculate_duration(start, end)
-    assert duration == 20.0  # 10s before midnight + 10s after
+    """Negative delta means the pipeline crossed midnight — 86,400s correction applied."""
+    start    = datetime(2026, 1, 1, 23, 59, 50)
+    end      = datetime(2026, 1, 1, 0, 0, 10)
+    assert data_parser.calculate_duration(start, end) == 20.0
 
 
 def test_parser_temporal_inference(tmp_path):
-    """Verifies the parser infers duration when end tags are missing."""
+    """Without an explicit end marker, the next timestamp closes the previous stage."""
     log_content = """
     2026-02-24T10:00:00Z ##[section]Starting: Initial Job
     2026-02-24T10:00:10Z ##[section]Starting: Second Job
     """
     test_file = tmp_path / "inference_test.txt"
     test_file.write_text(log_content)
-
     data = data_parser.parse_log_file(str(test_file))
-
     assert data is not None
     assert "Initial Job" in data
     assert data["Initial Job"]["duration"] == 10.0
 
 
 def test_parser_returns_none_for_invalid_file():
-    """Verifies parser returns None for nonexistent files."""
-    result = data_parser.parse_log_file("nonexistent_file.txt")
-    assert result is None
+    """Parser should return None gracefully for a non-existent file."""
+    assert data_parser.parse_log_file("nonexistent_file.txt") is None
 
 
 def test_parser_returns_none_for_empty_log(tmp_path):
-    """Verifies parser returns None when no valid stages are found."""
+    """Parser should return None when the file contains no recognisable stages."""
     test_file = tmp_path / "empty.txt"
     test_file.write_text("This file has no pipeline data at all.\n")
-
-    result = data_parser.parse_log_file(str(test_file))
-    assert result is None
+    assert data_parser.parse_log_file(str(test_file)) is None
 
 
-# ---------------------------------------------------------
-# 2. ANALYSER TESTS
-# ---------------------------------------------------------
+# ── 2. Analyser tests ─────────────────────────────────────────────────────────
 
 def test_build_dag(mock_parsed_data):
-    """Verifies the DAG has the correct number of nodes and edges."""
+    """DAG should have exactly 5 nodes and 5 edges matching the fixture structure."""
     G = analyser.build_dag(mock_parsed_data)
-
     assert G.number_of_nodes() == 5
     assert G.number_of_edges() == 5
     assert G.has_edge("Install Dependencies", "Run Checkmarx SAST")
@@ -171,97 +153,64 @@ def test_build_dag(mock_parsed_data):
 
 
 def test_critical_path_calculation(mock_parsed_data):
-    """
-    Verifies the critical path math.
-
-    Expected: Setup(4) + Install(45) + SAST(120) + Deploy(10) = 179s
-    Unit Tests (30s) is parallel to SAST and must NOT appear on the path.
-    """
+    """Setup(4) + Install(45) + SAST(120) + Deploy(10) = 179s. Unit Tests must not appear."""
     G = analyser.build_dag(mock_parsed_data)
     path, duration = analyser.calculate_critical_path(G)
-
     assert duration == 179.0, f"Expected 179.0, got {duration}"
     assert "Run Checkmarx SAST" in path
     assert "Run Unit Tests" not in path
 
 
 def test_critical_path_empty_graph():
-    """Verifies graceful handling of an empty graph."""
+    """An empty graph should return an empty path and zero duration."""
     G = nx.DiGraph()
     path, duration = analyser.calculate_critical_path(G)
-    assert path == []
-    assert duration == 0.0
+    assert path == [] and duration == 0.0
 
 
 def test_cyclic_graph_detection():
-    """Verifies cycle detection returns empty results."""
+    """A graph containing a cycle should return empty results."""
     G = nx.DiGraph()
     G.add_edge("Job A", "Job B")
     G.add_edge("Job B", "Job C")
-    G.add_edge("Job C", "Job A")  # Creates a cycle
-
+    G.add_edge("Job C", "Job A")  # cycle
     path, duration = analyser.calculate_critical_path(G)
-    assert path == []
-    assert duration == 0.0
+    assert path == [] and duration == 0.0
 
 
-# ---------------------------------------------------------
-# 3. SUGGESTION ENGINE TESTS
-# ---------------------------------------------------------
+# ── 3. Suggestion engine tests ────────────────────────────────────────────────
 
 def test_noise_filter(mock_parsed_data):
-    """Verifies micro-tasks (like Setup at 4s) are filtered out."""
+    """Setup Environment (4s = 2.2% of 179s) is below the noise floor — should be excluded."""
     G = analyser.build_dag(mock_parsed_data)
     path, duration = analyser.calculate_critical_path(G)
-
-    recs = suggestion_engine.generate_suggestions(
-        path, mock_parsed_data, duration, threshold=0.10
-    )
-
-    # Setup Environment (4s out of 179s = 2.2%) should not appear
-    job_names = [r.job_name for r in recs]
-    assert "Setup Environment" not in job_names
+    recs = suggestion_engine.generate_suggestions(path, mock_parsed_data, duration, threshold=0.10)
+    assert "Setup Environment" not in [r.job_name for r in recs]
 
 
 def test_compute_classification(mock_parsed_data):
-    """Verifies compute-bound jobs are classified correctly."""
+    """'Run Checkmarx SAST' contains 'scan' — should be classified as compute-bound."""
     G = analyser.build_dag(mock_parsed_data)
     path, duration = analyser.calculate_critical_path(G)
-
-    recs = suggestion_engine.generate_suggestions(
-        path, mock_parsed_data, duration, threshold=0.20
-    )
-
-    # SAST scan should be classified as compute
-    sast_recs = [r for r in recs if r.job_name == "Run Checkmarx SAST"]
-    assert len(sast_recs) == 1
-    assert sast_recs[0].category == 'compute'
+    recs = suggestion_engine.generate_suggestions(path, mock_parsed_data, duration, threshold=0.20)
+    sast = [r for r in recs if r.job_name == "Run Checkmarx SAST"]
+    assert len(sast) == 1 and sast[0].category == 'compute'
 
 
 def test_io_classification(mock_parsed_data):
-    """Verifies I/O-bound jobs are classified correctly."""
+    """'Install Dependencies' contains 'install' — should be classified as I/O-bound."""
     G = analyser.build_dag(mock_parsed_data)
     path, duration = analyser.calculate_critical_path(G)
-
-    recs = suggestion_engine.generate_suggestions(
-        path, mock_parsed_data, duration, threshold=0.10
-    )
-
-    # Install Dependencies should be classified as I/O
-    install_recs = [r for r in recs if r.job_name == "Install Dependencies"]
-    assert len(install_recs) == 1
-    assert install_recs[0].category == 'io'
+    recs = suggestion_engine.generate_suggestions(path, mock_parsed_data, duration, threshold=0.10)
+    install = [r for r in recs if r.job_name == "Install Dependencies"]
+    assert len(install) == 1 and install[0].category == 'io'
 
 
 def test_recommendations_are_structured(mock_parsed_data):
-    """Verifies recommendations use the Recommendation dataclass."""
+    """Every recommendation must be a Recommendation dataclass with all five fields."""
     G = analyser.build_dag(mock_parsed_data)
     path, duration = analyser.calculate_critical_path(G)
-
-    recs = suggestion_engine.generate_suggestions(
-        path, mock_parsed_data, duration, threshold=0.20
-    )
-
+    recs = suggestion_engine.generate_suggestions(path, mock_parsed_data, duration, threshold=0.20)
     for rec in recs:
         assert hasattr(rec, 'category')
         assert hasattr(rec, 'job_name')
@@ -271,46 +220,36 @@ def test_recommendations_are_structured(mock_parsed_data):
 
 
 def test_zero_duration_pipeline():
-    """Verifies graceful handling of zero-duration pipelines."""
+    """A zero-duration pipeline should return a single informational recommendation."""
     recs = suggestion_engine.generate_suggestions([], {}, 0.0)
-    assert len(recs) == 1
-    assert recs[0].category == 'info'
+    assert len(recs) == 1 and recs[0].category == 'info'
 
 
-# ---------------------------------------------------------
-# 4. VISUALISER TESTS
-# ---------------------------------------------------------
+# ── 4. Visualiser tests ───────────────────────────────────────────────────────
 
 def test_graph_image_generation(mock_parsed_data, tmp_path):
-    """Verifies the visualiser produces a PNG file."""
+    """Visualiser should produce a PNG file at the specified output path."""
     G = analyser.build_dag(mock_parsed_data)
     path, _ = analyser.calculate_critical_path(G)
-
     output = str(tmp_path / "test_graph.png")
-    result = visualiser.save_pipeline_graph(G, path, output)
-
-    assert result is True
+    assert visualiser.save_pipeline_graph(G, path, output) is True
     assert os.path.exists(output)
 
 
 def test_empty_graph_visualisation():
-    """Verifies the visualiser handles empty graphs gracefully."""
-    G = nx.DiGraph()
-    result = visualiser.save_pipeline_graph(G, [])
-    assert result is False
+    """An empty graph should return False without raising an exception."""
+    assert visualiser.save_pipeline_graph(nx.DiGraph(), []) is False
 
 
-# ---------------------------------------------------------
-# 5. INTEGRATION TEST (via Orchestrator)
-# ---------------------------------------------------------
+# ── 5. Integration test ───────────────────────────────────────────────────────
 
 def test_full_pipeline_integration(sample_log_file):
     """
-    End-to-end test: log file -> parse -> analyse -> recommend.
-    Verifies the orchestrator produces valid results from a real log format.
+    End-to-end: log file → parse → DAG → CPA → recommendations.
+    Verifies the orchestrator produces a valid AnalysisResult from a real
+    GitHub Actions log format without any intermediate mocking.
     """
     result = orchestrator.run_analysis(sample_log_file, threshold=0.20)
-
     assert result is not None
     assert result.makespan > 0
     assert len(result.critical_path) > 0
