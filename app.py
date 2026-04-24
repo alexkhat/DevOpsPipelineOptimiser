@@ -5,19 +5,17 @@ import sys
 import orchestrator
 import visualiser
 
-# ==============================================================================
-# MODULE: app.py
-# PURPOSE: Command Line Interface (CLI) for headless pipeline analysis.
-#          Uses the shared orchestrator module for all analysis logic.
+# app.py
+# Command-line interface for headless pipeline analysis.
+# Useful for engineers who prefer terminal workflows or need to integrate
+# the tool into scripts without launching a browser.
 #
-# DESIGN JUSTIFICATION:
-#   Provides a terminal-based interface for DevOps engineers who prefer
-#   CLI workflows or need to integrate the tool into scripts/automation.
-#   All analysis logic is delegated to orchestrator.py to ensure the CLI
-#   and dashboard produce identical results.
+# All analysis logic is handled by orchestrator.py — this file only deals
+# with argument parsing, input validation, and printing results to stdout.
 #
-# USAGE: python app.py -f path/to/logfile.txt [-t 0.20]
-# ==============================================================================
+# Usage:
+#   python app.py -f path/to/logfile.txt
+#   python app.py -f path/to/logfile.txt -t 0.15
 
 
 def main():
@@ -39,12 +37,11 @@ def main():
     print(" DevOps Pipeline Optimiser (CLI)")
     print("=" * 60)
 
-    # Validate file exists
+    # Validate the file exists before passing it to the analyser
     if not os.path.exists(args.file):
         print(f"\n[ERROR] File not found: '{args.file}'")
         sys.exit(1)
 
-    # Run the shared analysis pipeline
     print(f"\n[*] Analysing: {args.file}")
     result = orchestrator.run_analysis(args.file, threshold=args.threshold)
 
@@ -52,20 +49,20 @@ def main():
         print("[ERROR] Analysis failed. Check that the file is a valid pipeline log.")
         sys.exit(1)
 
-    # Display results
-    print(f"[+] Stages extracted: {result.graph.number_of_nodes()}")
-    print(f"[+] Makespan: {result.makespan:.2f}s")
-    print(f"[+] Critical path: {' -> '.join(result.critical_path)}")
+    # Print summary metrics
+    print(f"[+] Stages extracted : {result.graph.number_of_nodes()}")
+    print(f"[+] Makespan         : {result.makespan:.2f}s")
+    print(f"[+] Critical path    : {' -> '.join(result.critical_path)}")
 
-    # Generate graph image
+    # Save the DAG image
     graph_path = "pipeline_graph.png"
     saved = visualiser.save_pipeline_graph(result.graph, result.critical_path, graph_path)
     if saved:
-        print(f"[+] Graph saved to '{graph_path}'")
+        print(f"[+] Graph saved to   : '{graph_path}'")
     else:
         print("[!] Could not save graph image.")
 
-    # Display recommendations
+    # Print recommendations
     print(f"\n[*] Recommendations (threshold: {args.threshold * 100:.0f}%):")
     print("=" * 60)
 
@@ -73,11 +70,9 @@ def main():
         if rec.category == 'info':
             print(f"  {rec.message}")
         else:
-            label = {
-                'compute': 'COMPUTE',
-                'io': 'I/O',
-                'general': 'GENERAL'
-            }.get(rec.category, 'GENERAL')
+            label = {'compute': 'COMPUTE', 'io': 'I/O', 'general': 'GENERAL'}.get(
+                rec.category, 'GENERAL'
+            )
             print(f"  {i}. [{label}] {rec.message}")
 
     print("=" * 60 + "\n")
